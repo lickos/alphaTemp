@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <alphaheader-no-burger></alphaheader-no-burger>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <img src="{{items?.image_url}}"/>
+    <ion-row align-items-center class="ArticleRow">
+      <ion-badge margin-left class="{{BadgeClass}} BadgeHeight">{{items?.category}}</ion-badge>
+      <button margin-left ion-button icon-only item-right margin-right color="pnored" round (click)="playVideo()"><ion-icon name="md-videocam"></ion-icon></button>
+    </ion-row>
+  <ion-row padding-left margin-top>
+    <ion-item class="transparent">
+      <ion-icon name="ios-clock-outline" color="darkGrey" item-start> {{items?.date}} - {{items?.time}}</ion-icon>
+      <ion-icon padding-right name="share" color="pnored" item-end></ion-icon>
+      <ion-icon name="bookmark" color="pnored" item-end></ion-icon>
+    </ion-item>
+  </ion-row>
+  <b><h5 no-padding-top padding-left >{{items?.title | removequotes}}</h5></b>
+  <p class="author" padding-left>Συνταχθηκε από: <b>{{items?.author}}</b></p>
+  <p padding-left id="test"></p>
+  <ion-item>
+  <img src="http://alphanews.live/themes/alpha/banners/metagrafes_pno.jpg" />
+</ion-item>
+</ion-content>

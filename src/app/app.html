@@ -1,0 +1,255 @@
+<ion-menu [content]="content">
+  <ion-header padding-top class="greyClr">
+    <ion-item class="greyClr">
+      <ion-row>
+        <ion-col col-2>
+          <ion-icon class="headIcon" color="pnored" menuClose name="md-close"></ion-icon>
+        </ion-col>
+        <ion-col col-6>
+          <img src="assets/img/logo-fullwhite.png" />
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button icon-end clear menuClose class="noUpper noMargin" (click)="openSettings()" color="pnored"><b>Ρυθμίσεις </b><ion-icon class="headIcon" name="md-more"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+      <ion-item class="greyClr" no-padding>
+        <ion-icon item-end menuClose color="light" class="noMargin homeIc" name="ios-home-outline" (click)="openHome()"></ion-icon>
+      </ion-item>
+    </ion-item>
+  </ion-header>
+
+  <ion-content class="greyClr" padding>
+    <ion-list>
+      <ion-item class="lighter" no-padding no-lines>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="CyprusCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft" (click)="openCyp()">
+              <div>Κύπρος</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down" (click)="expandCyp()"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" no-lines menuClose *ngIf="showMeCyp" (click)="neaAgoras()">
+        Νέα Αγοράς
+      </ion-item>
+
+      <ion-item class="lighter" no-padding no-lines>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="PolitikiCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft" (click)="openPol()">
+              <div>Πολιτική</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down" (click)="expandPol()"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMePol" (click)="openKipriako()">
+        Κυπριακό
+      </ion-item>
+      <ion-item class="greyClr" *ngIf="showMePol" (click)="openEnergeia()">
+        Ενέργεια
+      </ion-item>
+      <ion-item class="lighter" no-padding no-lines menuClose (click)="openGreece()">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="GreeceCol">
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Ελλάδα</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item menuClose class="lighter" no-padding no-lines (click)="openInt()">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="DiethniCol">
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Διεθνή</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="lighter" no-padding no-lines>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="SportsCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft" (click)="openSports()">
+              <div>Αθλητισμός</div>
+            </ion-col>
+            <ion-col col-2 (click)="expandSports()">
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openKypriakoProtathlima()">
+        Κυπριακό Πρωτάθλημα
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openEllinikoProtathlima()">
+        Ελληνικό Πρωτάθλημα
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openDiethniProtathlimata()">
+        Διεθνή Πρωταθλήματα
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openAthlitismos()">
+        Αθλητισμός
+      </ion-item>
+      <ion-item menuClose class="lighter" no-padding no-lines (click)="openEconomy()">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="EconomyCol">
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Οικονομία</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="lighter" no-padding no-lines>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="HealthCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft" (click)="openHealth()">
+              <div>Υγεία</div>
+            </ion-col>
+            <ion-col col-2 (click)="expandHealth()">
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" *ngIf="showMeHealth" menuClose (click)="openDiethniProtathlimata()">
+        Fitness
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeHealth" (click)="openDiethniProtathlimata()">
+        Ψυχολογία
+      </ion-item>
+      <ion-item class="lighter" no-padding no-lines>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1 class="EntertainmentCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft" (click)="openEnt()">
+              <div>Ψυχαγωγία</div>
+            </ion-col>
+            <ion-col col-2 (click)="expandEnt()">
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+          Προτάσεις
+        </button>
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+          Showbiz
+        </button>
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+          Συνεντέυξεις
+        </button>
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+          Κουζίνα
+        </button>
+      <ion-item menuClose class="lighter" no-padding no-lines (click)="openBlog()">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Blog</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item menuClose class="lighter" no-padding no-lines (click)="openBlog()">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Λούης Night Show</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-grid>
+        <ion-row text-wrap align-items-center class="greyClr">
+          <ion-col col-6>
+            <p class="socialHead">
+              ΑΚΟΛΟΥΘΗΣΕ ΜΑΣ
+            </p>
+            <p class="socialText">
+              στα Social Media για να είσαι πάντα ενημερωμένος
+            </p>
+          </ion-col>
+          <ion-col col-2>
+            <ion-badge class="socialIcons">
+              <ion-icon color="dark" name="logo-facebook"></ion-icon>
+            </ion-badge>
+          </ion-col>
+          <ion-col col-2>
+            <ion-badge class="socialIcons">
+              <ion-icon color="dark" name="logo-twitter"></ion-icon>
+            </ion-badge>
+          </ion-col>
+          <ion-col col-2>
+            <ion-badge class="socialIcons">
+              <ion-icon color="dark" name="logo-youtube"></ion-icon>
+            </ion-badge>
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row text-wrap align-items-center class="darkMenu">
+          <ion-col col-9>
+            <p class="socialHead">
+              ΔΗΜΟΣΚΟΠΗΣΗ
+            </p>
+            <p class="socialText2">
+              Πείτε μας τη γνώμη σας
+            </p>
+          </ion-col>
+          <ion-col col-3>
+            <ion-badge class="socialIcons2">
+              <ion-icon class="statsLight" name="ios-stats-outline"></ion-icon>
+            </ion-badge>
+          </ion-col>
+        </ion-row> -->
+      </ion-grid>
+
+    </ion-list>
+    <ion-grid>
+      <ion-row no-padding>
+        <ion-col col-4 class="border-right-menu">
+          <button ion-button full icon-left class="noPad greyClr" (click)="openUseful()">
+            <ion-icon name="ios-pricetag-outline"></ion-icon>Χρήσιμα
+          </button>
+        </ion-col>
+        <ion-col col-4 class="border-right-menu">
+          <button ion-button full icon-left class="noPad greyClr">
+            <ion-icon name="md-desktop"></ion-icon>TVnews
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button full icon-left class="noPad greyClr">
+            <ion-icon name="ios-chatbubbles-outline"></ion-icon>Report
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

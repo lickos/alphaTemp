@@ -1,0 +1,105 @@
+page-catpage {
+}
+
+.imageDiv {
+  height: 30vh !important;
+}
+
+.catListItem {
+  background-color: #e0e0e0;
+}
+
+.badgeClass {
+  margin-top: -1rem !important;
+  left: 2rem;
+  float: left;
+  position: absolute;
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+// .catMargin {
+//   margin-top: 2.6rem;
+// }
+
+.CyprusColor {
+  color: #b79033 !important;
+}
+
+.PolitikiColor {
+  color: #243656 !important;
+}
+
+.GreeceColor {
+  color: #2264a7 !important;
+}
+
+.DiethniColor {
+  color: #ef4144 !important;
+}
+
+.SportsColor {
+  color: #044d09 !important;
+}
+
+.HealthColor {
+  color: #00a2b2 !important;
+}
+
+.EntertainmentColor {
+  color: #303156 !important;
+}
+
+.EconomyColor {
+  color: #299524 !important;
+}
+
+.item-md h6 {
+  font-size: 1.2rem;
+}
+
+.item-md h5 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.vertAlign {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+  text-align: center;
+}
+
+.label-md {
+  margin: 2px 8px 2px 0;
+}
+
+.limitFourLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.4rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-height: 1.6rem;
+  max-height: 7rem;
+}
+
+.item-ios.item-block .item-inner,
+.item-md.item-block .item-inner {
+  border-bottom: 0px;
+}
+
+.item-inner > ion-icon {
+  font-size: 1.6rem;
+}
+
+.button-md {
+  text-transform: none;
+}
+
+.darkerText {
+  color: #666c73;
+}

@@ -1,0 +1,196 @@
+<ion-header padding-top>
+  <alphaheader></alphaheader>
+  <ion-title>
+    <b><p no-padding no-margin class="{{titleColor}} centerAlign">{{image0?.category}}</p></b>
+  </ion-title>
+</ion-header>
+
+
+<ion-content class="catMargin">
+  <ion-slides text-wrap autoplay="4000" style="height:70%; background-color:#252525">
+    <ion-slide>
+      <div (click)="openArticle(image0)">
+        <div class="imageDiv">
+          <img class="carouselImage" src="{{pic0}}" />
+        </div>
+        <ion-badge class="{{badgeClass}} badgeClass">{{image0?.category}}</ion-badge>
+        <h3>{{image0?.title | removequotes }}</h3>
+        <p>{{image0?.teaser | removequotes }}</p>
+      </div>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{image0?.date}} - {{image0?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide>
+      <div (click)="openArticle(image1)">
+        <div class="imageDiv">
+          <img class="carouselImage" src="{{pic1}}" />
+        </div>
+        <ion-badge class="{{badgeClass}} badgeClass">{{image1?.category}}</ion-badge>
+        <h3>{{image1?.title | removequotes }}</h3>
+        <p>{{image1?.teaser | removequotes }}</p>
+      </div>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{image1?.date}} - {{image1?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" item-end (click)="setFav1(image1)"></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs1" item-end (click)="alertFav()"></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide>
+      <div (click)="openArticle(image2)">
+        <div class="imageDiv">
+          <img class="carouselImage" src="{{pic2}}" />
+        </div>
+        <ion-badge class="{{badgeClass}} badgeClass">{{image2?.category}}</ion-badge>
+        <h3 padding-left>{{image2?.title | removequotes }}</h3>
+        <p padding-left>{{image2?.teaser | removequotes }}</p>
+      </div>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{image2?.date}} - {{image2?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs2" color="pnored" item-end (click)="setFav2(image2)"></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs2" item-end (click)="alertFav()"></ion-icon>
+      </ion-item>
+    </ion-slide>
+  </ion-slides>
+  <ion-list (swipe)="goToNextCat($event)">
+    <ion-item text-wrap (click)="openArticle(image3)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic3}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image3?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image3?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image3?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs3" color="pnored" item-end (click)="setFav3(image3)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs3" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <img src="http://ca.cubecdn.net/20170717113856_wmid_135306.jpg" />
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image4)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic4}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image4?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image4?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image4?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs4" color="pnored" item-end (click)="setFav4(image4)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs4" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image5)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic5}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image5?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image5?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image5?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs5" color="pnored" item-end (click)="setFav5(image5)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs5" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image6)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic6}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image6?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image6?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image6?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs6" color="pnored" item-end (click)="setFav6(image6)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs6" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <img src="http://ca.cubecdn.net/20170731094537_wmid_135456.jpg" />
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image7)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic7}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image7?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image7?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image7?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs7" color="pnored" item-end (click)="setFav7(image7)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs7" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image8)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{pic8}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image8?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image8?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image8?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs8" color="pnored" item-end (click)="setFav8(image8)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs8" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <ion-item text-wrap (click)="openArticle(image9)">
+      <ion-row class="catListItem">
+        <ion-col col-5>
+          <img src="{{image9?.image_url}}" />
+        </ion-col>
+        <ion-col col-7>
+          <b><p>
+            {{image9?.title | removequotes }}
+          </p></b>
+        </ion-col>
+        <ion-item class="transparent" padding-left>
+          <ion-icon name="md-calendar" color="darkGrey" item-start> {{image9?.date}}</ion-icon>
+          <ion-icon name="md-clock" color="darkGrey" item-start> {{image9?.time}}</ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs9" color="pnored" item-end (click)="setFav9(image9)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs9" item-end (click)="alertFav()"></ion-icon>
+        </ion-item>
+      </ion-row>
+    </ion-item>
+    <bottomfooter></bottomfooter>
+    <p padding-bottom class="AlignCenter">Powered by <a href="http://pno.systems/">PNO Systems</a></p>
+  </ion-list>
+</ion-content>

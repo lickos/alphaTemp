@@ -1,0 +1,133 @@
+page-cyprus {
+}
+
+.segment-md .segment-button {
+  font-size: 1.3rem;
+  color: #a4a4a4;
+}
+
+.segment-md-dark .segment-button.segment-activated {
+  border-color: #e53b3d;
+}
+
+.catImg {
+  height: 100%;
+}
+
+.catImageDiv {
+  height: 25vh;
+}
+
+.segment-ios-dark .segment-button {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  font-size: 1.5rem;
+  color: #a4a4a4;
+  border-bottom: 0px;
+}
+
+.limitFourLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.4rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-height: 1.6rem;
+  max-height: 7rem;
+}
+
+.catParagraph {
+  margin: 1px 3px auto 1px;
+}
+
+.limitThreeLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.3rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.5rem;
+  max-height: 5rem;
+}
+
+.noPaddingBottom {
+  padding: 10px 5px 0px 5px;
+}
+
+.grid-padding {
+  padding: 5px 2px 0px 5px;
+}
+
+.imagePadding {
+  padding: 3px 3px 0px 3px;
+  height: 100%;
+}
+
+.divCatImage {
+  height: 18vh;
+}
+
+.segment-ios-dark .segment-button.segment-activated {
+  border-bottom: 2px solid #e53b3d;
+  background-color: transparent;
+  color: #222;
+}
+
+.CatRow {
+  background-color: #333333;
+}
+
+.mainTitle {
+  color: #f4f4f4;
+  font-size: 1.4rem;
+}
+
+.mainp {
+  color: #f4f4f4;
+  font-size: 1.3rem;
+}
+.fabCat {
+  left: 60%;
+  bottom: 65px;
+}
+
+.badgeCatClass {
+  margin-top: -1.5rem !important;
+  left: 2rem;
+  float: left;
+  position: absolute;
+}
+
+.backtitle {
+  background-color: #f1f1f1;
+}
+
+.secondCatitem {
+  background-color: #ebebeb;
+}
+
+.itemscat {
+  background-color: #ebebeb;
+  bottom: 0;
+  margin-bottom: 0px !important;
+}
+
+.itemscat2 {
+  background-color: #ebebeb;
+  padding-left: 0px;
+  bottom: 0;
+  position: absolute;
+}
+
+.iconsincat {
+  font-size: 1.3rem !important;
+  margin-bottom: 1px !important;
+  margin-left: 1px;
+}
+
+.moreIcon {
+  font-size: 3em;
+}

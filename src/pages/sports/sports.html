@@ -1,0 +1,448 @@
+<ion-header padding-top>
+  <alphaheader></alphaheader>
+</ion-header>
+
+<ion-content>
+  <ion-item class="backtitleSport">
+    <ion-title class="centerAlign noPaddingBottom" (click)="showAgain()"><b>Αθλητικά</b></ion-title>
+    <ion-segment [(ngModel)]="page" color="dark" no-margin-top>
+      <ion-segment-button value="Cypriako" (click)="hideAll()">
+        Κυπριακό
+      </ion-segment-button>
+      <ion-segment-button value="marketnews">
+        Ελληνικό
+      </ion-segment-button>
+      <ion-segment-button value="intSports">
+        Διεθνή
+      </ion-segment-button>
+      <ion-segment-button value="otherSports">
+        Αθλητισμός
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+  <div *ngIf="showAll">
+    <ion-grid>
+      <ion-row class="CatRow">
+        <ion-col col-7 no-padding>
+          <div class="catImageDiv">
+            <img class="catImg" src="{{items0?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-5>
+          <b><h4 class="mainTitle limitFourLines" no-margin>{{items0?.title | removequotes}}</h4></b>
+          <p class="limitThreeLines mainp " no-margip>{{items0?.teaser | removequotes}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-badge class="CyprusClass badgeCatClass">{{items0?.category}}</ion-badge>
+    <ion-item padding-left class="transparent">
+      <ion-icon name="ios-clock-outline" color="textColor" item-start> {{items0?.date}} - {{items0?.time}}</ion-icon>
+      <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+      <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+      <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+    </ion-item>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items1?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items1?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items1?.date}} - {{items1?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <img src="http://ca.cubecdn.net/20170823101614_wmid_135637.jpg" />
+    </ion-item>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items2?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items2?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items2?.date}} - {{items2?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items3?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items3?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items3?.date}} - {{items3?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items4?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items4?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items4?.date}} - {{items4?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items5?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items5?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items5?.date}} - {{items5?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items6?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items6?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items6?.date}} - {{items6?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items7?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items7?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items7?.date}} - {{items7?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items8?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items8?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items8?.date}} - {{items8?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items9?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items9?.title | removequotes}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{items9?.date}} - {{items9?.time}}</ion-icon>
+              <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+              <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div [ngSwitch]="page">
+    <div *ngSwitchCase="'Cypriako'">
+      <ion-grid>
+        <ion-row class="CatRow">
+          <ion-col col-7 no-padding>
+            <div class="catImageDiv">
+              <img class="catImg" src="{{cypriako0?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-5>
+            <b><h4 class="mainTitle limitFourLines" no-margin>{{cypriako0?.title | removequotes}}</h4></b>
+            <p class="limitThreeLines mainp " no-margip>{{cypriako0?.teaser | removequotes}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-badge class="CyprusClass badgeCatClass">{{cypriako0?.category}}</ion-badge>
+      <ion-item padding-left class="transparent">
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{cypriako0?.date}} - {{cypriako0?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+      </ion-item>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako1?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako1?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako1?.date}} - {{cypriako1?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <img src="http://ca.cubecdn.net/20170823101614_wmid_135637.jpg" />
+      </ion-item>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako2?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako2?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako2?.date}} - {{cypriako2?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako3?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako3?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako3?.date}} - {{cypriako3?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako4?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako4?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako4?.date}} - {{cypriako4?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako5?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako5?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako5?.date}} - {{cypriako5?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako6?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako6?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako6?.date}} - {{cypriako6?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako7?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako7?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako7?.date}} - {{cypriako7?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako8?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako8?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako8?.date}} - {{cypriako8?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{cypriako9?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{cypriako9?.title | removequotes}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-start> {{cypriako9?.date}} - {{cypriako9?.time}}</ion-icon>
+                <ion-icon class="iconsincat" margin-left name="md-share" padding-right color="pnored" item-right></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4 class="alignCenter">
+            <button ion-button clear icon-top>
+            <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
+          </button>
+          </ion-col>
+          <ion-col col-4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

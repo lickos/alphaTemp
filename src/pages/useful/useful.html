@@ -1,0 +1,104 @@
+<ion-header>
+  <alphaheader></alphaheader>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="useful">
+    <ion-segment-button value="weather">
+      Καιρός
+    </ion-segment-button>
+    <ion-segment-button value="cinema">
+      Σινεμά
+    </ion-segment-button>
+    <ion-segment-button value="pharmacy">
+      Φαρμακεία
+    </ion-segment-button>
+    <ion-segment-button value="firstPages">
+      Πρωτοσέλιδα
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="useful">
+    <div *ngSwitchCase="'weather'">
+      <p class="alignCenter">Καιρός στην περιοχή:</p>
+      <b><h2 class="alignCenter">{{dataWeather?.city.name}}</h2></b>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row align-items-center justify-content-center>
+              <ion-col col-3>
+                {{dateOfWeather1}}
+              </ion-col>
+              <ion-col col-3>
+                <img src="{{icon1}}" />
+              </ion-col>
+              <ion-col col-6>
+                {{dataWeather?.list[0].weather[0].description | capFirst}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item>
+          <ion-grid>
+            <ion-row align-items-center justify-content-center>
+              <ion-col col-3>
+                {{dateOfWeather2}}
+              </ion-col>
+              <ion-col col-3>
+                <img src="{{icon2}}" />
+              </ion-col>
+              <ion-col col-6>
+                {{dataWeather?.list[1].weather[0].description | capFirst}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item>
+          <ion-grid>
+            <ion-row align-items-center justify-content-center>
+              <ion-col col-3>
+                {{dateOfWeather3}}
+              </ion-col>
+              <ion-col col-3>
+                <img src="{{icon3}}" />
+              </ion-col>
+              <ion-col col-6>
+                {{dataWeather?.list[2].weather[0].description | capFirst}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item>
+          <ion-grid>
+            <ion-row align-items-center justify-content-center>
+              <ion-col col-3>
+                {{dateOfWeather4}}
+              </ion-col>
+              <ion-col col-3>
+                <img src="{{icon4}}" />
+              </ion-col>
+              <ion-col col-6>
+                {{dataWeather?.list[3].weather[0].description | capFirst}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item>
+          <ion-grid>
+            <ion-row align-items-center justify-content-center>
+              <ion-col col-3>
+                {{dateOfWeather5}}
+              </ion-col>
+              <ion-col col-3>
+                <img src="{{icon5}}" />
+              </ion-col>
+              <ion-col col-6>
+                {{dataWeather?.list[4].weather[0].description | capFirst}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

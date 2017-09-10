@@ -1,0 +1,218 @@
+page-home {
+}
+
+ion-slide h3 {
+  font-size: 2.1rem;
+  text-align: left;
+  color: #c8c6c6;
+  padding-left: 1rem;
+}
+
+ion-slide img {
+  height: 30vh !important;
+  width: auto !important;
+  top: 0 !important;
+}
+
+.Editor {
+  background-color: #ebebeb;
+}
+
+.borderB {
+  border: 1px solid #ebebeb;
+}
+
+.social {
+  font-size: 1.2 rem !important;
+}
+
+.CarouselImage {
+  height: 100%;
+  width: 100%;
+}
+
+#cyprus hr {
+  border-bottom: 2px solid #b79033;
+  left: 7.5rem;
+}
+
+#politiki hr {
+  border-bottom: 2px solid #243656;
+  left: 8.5rem;
+}
+
+#sports hr {
+  border-bottom: 2px solid #044d09;
+  left: 8.5rem;
+}
+
+#greece hr {
+  border-bottom: 2px solid #2264a7;
+  left: 7.5rem;
+}
+
+#entertainment hr {
+  border-bottom: 2px solid #303156;
+  left: 8.5rem;
+}
+
+#international hr {
+  border-bottom: 2px solid #ef4144;
+  left: 7.5rem;
+}
+
+#health hr {
+  border-bottom: 2px solid #01a2b2;
+  left: 6.5rem;
+}
+
+#economy hr {
+  border-bottom: 2px solid #299524;
+  left: 8.5rem;
+}
+
+ion-slide p {
+  font-size: 1.4rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0 0 0 1rem;
+  text-align: left;
+  color: #c8c6c6;
+}
+
+.marginHeader {
+  margin-top: 8px;
+  margin-bottom: 3px;
+}
+
+.platform-ios #firstBadge {
+  background-color: #4d5865;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.platform-android #firstBadge {
+  background-color: #4d5865;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.platform-ios #secondBadge {
+  background-color: #00aeef;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.platform-android #secondBadge {
+  background-color: #00aeef;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.platform-ios #thirdBadge {
+  background-color: #ef4144;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.platform-android #thirdBadge {
+  background-color: #ef4144;
+  position: absolute;
+  left: 20px;
+  top: 31vh;
+}
+
+.lightGrey {
+  background-color: #f4f4f4;
+}
+
+ion-item hr {
+  border-bottom: 1px solid #9e9e9e;
+  position: absolute;
+  left: 4.5em;
+  right: 0px;
+}
+
+#limitTwoLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.2rem !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.3rem;
+  max-height: 2.6rem;
+}
+
+.limitTwoLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.2rem !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.3rem;
+  max-height: 2.6rem;
+  color: #000;
+}
+
+.darkerGrey {
+  background-color: #bbbfc4;
+}
+
+.darkGrey {
+  background-color: #9b9b9b;
+  color: #fff;
+}
+
+.transparent {
+  background-color: transparent;
+  font-size: 0.5em;
+  bottom: 0;
+  padding: 0px;
+}
+
+.posRel {
+}
+
+.item > ion-icon {
+  font-size: 1.5rem;
+}
+
+.item-inner > ion-icon {
+  font-size: 2rem;
+}
+
+.noPad {
+  box-shadow: none;
+  color: #9b9b9b;
+  text-transform: none;
+}
+
+.centerAl {
+  text-align: center;
+  background-color: #e53b3d;
+}
+
+.backColor {
+  background-color: #e53b3d;
+}
+
+.verticalLine {
+  border-right: 1px solid #a09185;
+}
+
+#editorChoice {
+  color: #a5a5a5;
+  font-size: 1rem;
+}
+
+#editorP {
+  color: #000;
+  font-size: 1.2rem;
+}

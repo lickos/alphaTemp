@@ -1,0 +1,182 @@
+@media (min-width: 300px) {
+  .menu-inner {
+    width: 100%;
+  }
+}
+
+@font-face {
+  font-family: AppFont;
+  src: url("../assets/fonts/RobotoCondensed-Regular.ttf");
+}
+
+body,
+span,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ion-item,
+ion-title {
+  font-family: "AppFont" !important;
+}
+
+.CyprusCol {
+  border-right: 5px solid #b79033;
+}
+
+.PolitikiCol {
+  border-right: 5px solid #243656;
+}
+
+.GreeceCol {
+  border-right: 5px solid #2264a7;
+}
+
+.DiethniCol {
+  border-right: 5px solid #ef4144;
+}
+
+.SportsCol {
+  border-right: 5px solid #044d09;
+}
+
+.EconomyCol {
+  border-right: 5px solid #299524;
+}
+
+.HealthCol {
+  border-right: 5px solid #01a2b2;
+}
+
+.EntertainmentCol {
+  border-right: 5px solid #303156;
+}
+
+.noUpper {
+  text-transform: none !important;
+}
+
+.taleft {
+  text-align: left;
+}
+
+.greyClr {
+  background-color: #252525;
+  color: #fff;
+  margin-top: 0px;
+}
+
+.border-right-menu {
+  border-right: 1px solid #000;
+}
+
+.darker {
+  background-color: #7f7f7f;
+  color: #fff;
+}
+
+.evenDarker {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+
+.noMargin {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.homeIc {
+  font-size: 3rem !important;
+}
+
+.lighter {
+  background-color: #4f4b4b;
+  color: #fff;
+  margin-top: 0px;
+  margin-bottom: 0.1em;
+}
+
+.socialHead {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+  color: #828282;
+}
+
+.socialText {
+  font-size: 1.1rem;
+  margin-top: 0px;
+  color: #828282;
+}
+
+.socialIcons {
+  background-color: #fff !important;
+  font-size: 2rem;
+}
+
+.darkMenu {
+  background-color: #161616;
+}
+
+.socialText2 {
+  font-size: 1.1rem;
+  margin-top: 0px;
+  color: #e53b3d;
+}
+
+.socialIcons2 {
+  background-color: #161616 !important;
+  font-size: 2.5rem;
+}
+
+.statsLight {
+  color: #828282 !important;
+}
+
+.CyprusClass {
+  background-color: #b79033;
+  color: #fff;
+}
+
+.DiethniClass {
+  background-color: #ef4144;
+  color: #fff;
+}
+
+.PolitikiClass {
+  background-color: #243656;
+  color: #fff;
+}
+
+.GreeceClass {
+  background-color: #2264a7;
+  color: #fff;
+}
+
+.EconomyClass {
+  background-color: #299524;
+  color: #fff;
+}
+
+.SportsClass {
+  background-color: #044d09;
+  color: #fff;
+}
+
+.HealthClass {
+  background-color: #01a2b2;
+  color: #fff;
+}
+
+.EntertainmentClass {
+  background-color: #303156;
+  color: #fff;
+}
+
+.DefaultClass {
+  background-color: #000;
+  color: #fff;
+}
