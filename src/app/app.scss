@@ -20,8 +20,13 @@ h5,
 h6,
 p,
 ion-item,
-ion-title {
+ion-title,
+a {
   font-family: "AppFont" !important;
+}
+
+.badge-ios {
+  border-radius: 4px;
 }
 
 .CyprusCol {

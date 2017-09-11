@@ -35,7 +35,14 @@
         </ion-grid>
       </ion-item>
       <ion-item class="greyClr" no-lines menuClose *ngIf="showMeCyp" (click)="neaAgoras()">
-        Νέα Αγοράς
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11>
+              Νέα Αγοράς
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
 
       <ion-item class="lighter" no-padding no-lines>
@@ -53,10 +60,24 @@
         </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMePol" (click)="openKipriako()">
-        Κυπριακό
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11>
+              Κυπριακό
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="greyClr" *ngIf="showMePol" (click)="openEnergeia()">
-        Ενέργεια
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11>
+              Ενέργεια
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="lighter" no-padding no-lines menuClose (click)="openGreece()">
         <ion-grid>
