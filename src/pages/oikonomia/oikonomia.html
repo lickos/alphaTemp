@@ -1,0 +1,99 @@
+<ion-header padding-top>
+  <alphaheader></alphaheader>
+</ion-header>
+
+<ion-content>
+  <ion-item class="backtitle">
+    <ion-title class="centerAlign noPaddingBottom"><b id="EconTitle">Οικονομία</b></ion-title>
+  </ion-item>
+  <ion-grid>
+    <ion-row class="CatRow">
+      <ion-col col-6 no-padding>
+        <div class="catImageDiv">
+          <img class="catImg" src="{{items0?.image_url}}" />
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <b><h4 class="mainTitle" no-margin>{{items0?.title | removequotes | fixamp}}</h4></b>
+        <p class="limitTwoLinesP mainp " no-margip>{{items0?.teaser | removequotes}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-badge class="CyprusClass badgeCatClass">{{items0?.category}}</ion-badge>
+  <ion-item padding-left class="transparent">
+    <ion-icon name="ios-clock-outline" color="textColor" item-start>
+      <a class="timeColor"> {{items0?.date}} - {{items0?.time}}</a>
+    </ion-icon>
+    <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+    <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+    <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-grid class="grid-padding">
+      <ion-row class="secondCatitem">
+        <ion-col col-5 no-padding>
+          <div class="divCatImage">
+            <img class="imagePadding" src="{{items1?.image_url}}" />
+          </div>
+        </ion-col>
+        <ion-col col-7 no-padding>
+          <p class="catParagraph limitFourLines">{{items1?.title | removequotes | fixamp}}</p>
+          <div class="itemscat2">
+            <ion-row>
+              <div class="secondCatitem itemPad">
+                <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{items1?.date}} - {{items1?.time}}</a></ion-icon>
+                <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
+                <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
+                <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+              </div>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <div>
+      ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΙΣΗ
+    </div>
+  </ion-item>
+  <ion-list *ngFor="let item of items">
+    <ion-item text-wrap>
+      <ion-grid class="grid-padding">
+        <ion-row class="secondCatitem">
+          <ion-col col-5 no-padding>
+            <div class="divCatImage">
+              <img class="imagePadding" src="{{item?.image_url}}" />
+            </div>
+          </ion-col>
+          <ion-col col-7 no-padding>
+            <p class="catParagraph limitFourLines">{{item?.title | removequotes | fixamp}}</p>
+            <div class="itemscat2">
+              <ion-row>
+                <div class="secondCatitem itemPad">
+                  <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
+                  <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                </div>
+              </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-4 class="alignCenter">
+        <button ion-button clear icon-top>
+            <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
+          </button>
+      </ion-col>
+      <ion-col col-4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
