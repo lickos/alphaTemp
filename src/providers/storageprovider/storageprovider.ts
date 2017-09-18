@@ -12,15 +12,12 @@ export class StorageproviderProvider {
   constructor(private storage: Storage) {}
 
   setFavs(item) {
-    console.log(item);
     this.storage.get("favs").then(data => {
       this.items = data;
-      console.log(this.items);
       if (data) {
         this.items.push(item);
         this.storage.set("favs", this.items);
       } else {
-        console.log("Empty favs");
         let arr = [];
         arr.push(item);
         this.storage.set("favs", arr);

@@ -73,8 +73,8 @@
                 <div class="secondCatitem itemPad">
                   <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
                   <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isInFavs[i]" color="pnored" (click)="setFav(item)"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs[i]" (click)="alertFav()"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestInFavs[i]==false" color="pnored" (click)="setFav(item, i)"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestInFavs[i]" (click)="alertFav()"></ion-icon>
                 </div>
               </ion-row>
             </div>

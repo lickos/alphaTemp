@@ -11,13 +11,21 @@ export class FavoritesPage {
   items: any;
   pic: string = "assets/img/icon.png";
   searchTerm: string;
+  title: any;
 
-  constructor(public navCtrl: NavController, public strgprvd: StorageproviderProvider, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public strgprvd: StorageproviderProvider,
+    public navParams: NavParams
+  ) {}
 
   ionViewDidLoad() {
+    this.initializeArray();
+  }
+
+  initializeArray() {
     this.strgprvd.getFavs().then(data => {
       if (data) {
-        console.log(data);
         this.items = data;
         this.pic = this.items.image_url;
       }
@@ -28,8 +36,16 @@ export class FavoritesPage {
     this.navCtrl.push("ArticlePage", { items: item });
   }
 
-  setFilteredItems() {
-    this.items = this.filterItems(this.searchTerm);
+  getItems(ev: any) {
+    // this.initializeArray();
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != "") {
+      this.items = this.items.filter(item => {
+        return item.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
+      });
+    }
   }
 
   filterItems(searchTerm) {

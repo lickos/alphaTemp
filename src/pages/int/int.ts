@@ -17,7 +17,16 @@ export class IntPage {
   tempItem: any;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
-  isRestInFavs = [false, false, false, false, false, false, false, false];
+  isRestInFavs: Array<boolean> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   constructor(
     public navCtrl: NavController,
@@ -29,32 +38,34 @@ export class IntPage {
   ) {}
 
   ionViewDidLoad() {
-    console.log(this.isInFavs0);
-    console.log(this.isInFavs1);
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/5").then(data => {
-      this.tempItem = data;
-      this.items0 = this.tempItem[0];
-      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
-        this.isInFavs0 = val;
+    this.getdata
+      .getRemoteData("https://alphanews.live/json/cat/5")
+      .then(data => {
+        this.tempItem = data;
+        this.items0 = this.tempItem[0];
+        this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+          this.isInFavs0 = val;
+        });
+        this.tempItem.shift();
+        this.items1 = this.tempItem[0];
+        this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+          this.isInFavs1 = val;
+        });
+        this.tempItem.shift();
+        this.items = this.tempItem;
+        this.items.forEach((element, index) => {
+          this.isInFavs(element.nid).then(val => {
+            this.putItemsInArray(index, val);
+          });
+        });
       });
-      this.tempItem.shift();
-      this.items1 = this.tempItem[0];
-      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
-        this.isInFavs1 = val;
-      });
-      this.tempItem.shift();
-      this.items = this.tempItem;
-      this.checkRestInFavs();
-    });
+  }
+
+  putItemsInArray(index, val) {
+    this.isRestInFavs[index] = val;
   }
 
   ionViewDidEnter() {}
-
-  checkRestInFavs() {
-    for(let i in [0,1,2,3,4,5,6,7]){
-      
-    }
-  }
 
   setFav0(item) {
     this.strgprvd.setFavs(item);
@@ -82,10 +93,10 @@ export class IntPage {
   }
 
   isInFavs(nid) {
-    return true;
-    // this.strgprvd.checkIfInfavs(nid).then(val => {
-    //   return val;
-    // });
-    // console.log(nid);
+    return new Promise(resolve => {
+      this.strgprvd.checkIfInfavs(nid).then(val => {
+        resolve(val);
+      });
+    });
   }
 }
