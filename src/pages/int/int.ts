@@ -17,6 +17,7 @@ export class IntPage {
   tempItem: any;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
+  isRestInFavs = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -27,27 +28,42 @@ export class IntPage {
     public alert: AlertController
   ) {}
 
-  ionViewDidLoad() {}
-
-  ionViewDidEnter() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cat/5")
-      .then(data => {
-        this.tempItem = data;
-        this.items0 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
-          this.isInFavs0 = val;
-        });
-        this.tempItem.shift();
-        this.items1 = this.tempItem[0];
-        this.tempItem.shift();
-        this.items = this.tempItem;
+  ionViewDidLoad() {
+    console.log(this.isInFavs0);
+    console.log(this.isInFavs1);
+    this.getdata.getRemoteData("https://alphanews.live/json/cat/5").then(data => {
+      this.tempItem = data;
+      this.items0 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+        this.isInFavs0 = val;
       });
+      this.tempItem.shift();
+      this.items1 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+        this.isInFavs1 = val;
+      });
+      this.tempItem.shift();
+      this.items = this.tempItem;
+      this.checkRestInFavs();
+    });
+  }
+
+  ionViewDidEnter() {}
+
+  checkRestInFavs() {
+    for(let i in [0,1,2,3,4,5,6,7]){
+      
+    }
   }
 
   setFav0(item) {
     this.strgprvd.setFavs(item);
     this.isInFavs0 = true;
+  }
+
+  setFav(item, index) {
+    this.strgprvd.setFavs(item);
+    this.isRestInFavs[index] = true;
   }
 
   setFav1(item) {
@@ -65,10 +81,11 @@ export class IntPage {
     alertBox.present();
   }
 
-  isInFavs(item) {
-    let nid = item.nid;
-    this.strgprvd.checkIfInfavs(nid).then(val => {
-      return val;
-    });
+  isInFavs(nid) {
+    return true;
+    // this.strgprvd.checkIfInfavs(nid).then(val => {
+    //   return val;
+    // });
+    // console.log(nid);
   }
 }

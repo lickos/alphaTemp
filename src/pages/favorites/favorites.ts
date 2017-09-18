@@ -12,15 +12,12 @@ export class FavoritesPage {
   pic: string = "assets/img/icon.png";
   searchTerm: string;
 
-  constructor(
-    public navCtrl: NavController,
-    public strgprvd: StorageproviderProvider,
-    public navParams: NavParams
-  ) {}
+  constructor(public navCtrl: NavController, public strgprvd: StorageproviderProvider, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.strgprvd.getFavs().then(data => {
       if (data) {
+        console.log(data);
         this.items = data;
         this.pic = this.items.image_url;
       }

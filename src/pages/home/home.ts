@@ -122,88 +122,72 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/1")
-      .then(data => {
-        this.CypData = data[0];
-        this.CypData1 = data[1];
-        this.CypData2 = data[2];
-        this.pic0 = data[0].image_url;
-        this.storage.set("CypData", data).then(() => {
-          console.log("Success Storage Cyp");
-        });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/1").then(data => {
+      this.CypData = data[0];
+      this.CypData1 = data[1];
+      this.CypData2 = data[2];
+      this.pic0 = data[0].image_url;
+      this.storage.set("CypData", data).then(() => {
+        console.log("Success Storage Cyp");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/2")
-      .then(data => {
-        this.PolData = data[0];
-        this.PolData1 = data[1];
-        this.PolData2 = data[2];
-        this.pic1 = data[0].image_url;
-        this.storage.set("PolData", data).then(() => {
-          console.log("Success Storage Pol");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/2").then(data => {
+      this.PolData = data[0];
+      this.PolData1 = data[1];
+      this.PolData2 = data[2];
+      this.pic1 = data[0].image_url;
+      this.storage.set("PolData", data).then(() => {
+        console.log("Success Storage Pol");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/6")
-      .then(data => {
-        this.SportsData = data[0];
-        this.SportsData1 = data[1];
-        this.SportsData2 = data[2];
-        this.pic2 = data[0].image_url;
-        this.storage.set("SportsData", data).then(() => {
-          console.log("Success Storage Sports");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/6").then(data => {
+      this.SportsData = data[0];
+      this.SportsData1 = data[1];
+      this.SportsData2 = data[2];
+      this.pic2 = data[0].image_url;
+      this.storage.set("SportsData", data).then(() => {
+        console.log("Success Storage Sports");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/7")
-      .then(data => {
-        this.EntData = data[0];
-        this.EntData1 = data[1];
-        this.EntData2 = data[2];
-        this.pic3 = data[0].image_url;
-        this.storage.set("EntData", data).then(() => {
-          console.log("Success Storage Ent");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/7").then(data => {
+      this.EntData = data[0];
+      this.EntData1 = data[1];
+      this.EntData2 = data[2];
+      this.pic3 = data[0].image_url;
+      this.storage.set("EntData", data).then(() => {
+        console.log("Success Storage Ent");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/5")
-      .then(data => {
-        this.IntData = data[0];
-        this.IntData1 = data[1];
-        this.IntData2 = data[2];
-        this.pic4 = data[0].image_url;
-        this.storage.set("IntData", data).then(() => {
-          console.log("Success Storage Int");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/5").then(data => {
+      this.IntData = data[0];
+      this.IntData1 = data[1];
+      this.IntData2 = data[2];
+      this.pic4 = data[0].image_url;
+      this.storage.set("IntData", data).then(() => {
+        console.log("Success Storage Int");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/4")
-      .then(data => {
-        this.GreeceData = data[0];
-        this.GreeceData1 = data[1];
-        this.storage.set("GreeceData", data).then(() => {
-          console.log("Success Storage Greece");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/4").then(data => {
+      this.GreeceData = data[0];
+      this.GreeceData1 = data[1];
+      this.storage.set("GreeceData", data).then(() => {
+        console.log("Success Storage Greece");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/8")
-      .then(data => {
-        this.HealthData = data[0];
-        this.HealthData1 = data[1];
-        this.storage.set("HealthData", data).then(() => {
-          console.log("Success Health");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/8").then(data => {
+      this.HealthData = data[0];
+      this.HealthData1 = data[1];
+      this.storage.set("HealthData", data).then(() => {
+        console.log("Success Health");
       });
-    this.getData
-      .getRemoteData(" https://alphanews.live/json/cat/9")
-      .then(data => {
-        this.EconomyData = data[0];
-        this.EconomyData1 = data[1];
-        this.storage.set("EconomyData", data).then(() => {
-          console.log("Success Economy");
-        });
+    });
+    this.getData.getRemoteData(" https://alphanews.live/json/cat/9").then(data => {
+      this.EconomyData = data[0];
+      this.EconomyData1 = data[1];
+      this.storage.set("EconomyData", data).then(() => {
+        console.log("Success Economy");
       });
+    });
   }
   openArticle(item) {
     this.navCtrl.push("ArticlePage", { items: item });

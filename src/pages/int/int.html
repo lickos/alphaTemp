@@ -57,7 +57,7 @@
       ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΙΣΗ
     </div>
   </ion-item>
-  <ion-list *ngFor="let item of items">
+  <ion-list *ngFor="let item of items; let i = index">
     <ion-item text-wrap>
       <ion-grid class="grid-padding">
         <ion-row class="secondCatitem">
@@ -73,8 +73,8 @@
                 <div class="secondCatitem itemPad">
                   <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
                   <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs(item)" color="pnored" (click)="setFav0(item)"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs(item)" (click)="alertFav()"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isInFavs[i]" color="pnored" (click)="setFav(item)"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs[i]" (click)="alertFav()"></ion-icon>
                 </div>
               </ion-row>
             </div>

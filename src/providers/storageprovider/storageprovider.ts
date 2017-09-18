@@ -9,16 +9,18 @@ export class StorageproviderProvider {
   cats: any;
   TempArray = [true, true, true, true, true, true, true, true];
 
-  constructor(public storage: Storage) {}
+  constructor(private storage: Storage) {}
 
   setFavs(item) {
-    console.log("Data added" + item);
+    console.log(item);
     this.storage.get("favs").then(data => {
       this.items = data;
-      if (data != null && data != undefined) {
+      console.log(this.items);
+      if (data) {
         this.items.push(item);
         this.storage.set("favs", this.items);
       } else {
+        console.log("Empty favs");
         let arr = [];
         arr.push(item);
         this.storage.set("favs", arr);
@@ -38,15 +40,15 @@ export class StorageproviderProvider {
   checkIfInfavs(artId: string): Promise<boolean> {
     return new Promise(resolve => {
       this.storage.get("favs").then(data => {
-        resolve(data && this.checkArray(artId, data));
+        if (data && this.checkArray(artId, data)) {
+          resolve(true);
+        } else resolve(false);
       });
     });
   }
 
   checkArray(item, array) {
     for (let items of array) {
-      console.log("item.nid " + items.nid);
-      console.log("item " + item);
       if (items.nid == item) {
         return true;
       }
