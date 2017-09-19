@@ -7,9 +7,19 @@ page-sports {
 }
 
 #sportsTitle {
-  color: #044d09;
+  color: #044d09 !important;
 }
 
 #sportsTitle2 {
   color: #e53b3d;
+}
+
+.omades {
+  height: 8vh !important;
+  width: auto !important;
+  top: 0 !important;
+}
+
+.arrowSlide {
+  font-size: 3em;
 }

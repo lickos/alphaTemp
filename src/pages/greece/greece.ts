@@ -7,10 +7,10 @@ import { AlertController } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: "page-int",
-  templateUrl: "int.html"
+  selector: "page-greece",
+  templateUrl: "greece.html"
 })
-export class IntPage {
+export class GreecePage {
   items0: any;
   items1: any;
   items: any;
@@ -29,7 +29,7 @@ export class IntPage {
   ) {}
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/5").then(data => {
+    this.getdata.getRemoteData("https://alphanews.live/json/cat/4").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {

@@ -7,10 +7,10 @@ import { AlertController } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: "page-int",
-  templateUrl: "int.html"
+  selector: "page-omades",
+  templateUrl: "omades.html"
 })
-export class IntPage {
+export class OmadesPage {
   items0: any;
   items1: any;
   items: any;
@@ -18,6 +18,8 @@ export class IntPage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  omadaId: string;
+  name: string;
 
   constructor(
     public navCtrl: NavController,
@@ -29,7 +31,10 @@ export class IntPage {
   ) {}
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/5").then(data => {
+    this.omadaId = this.navParams.get("omadaId");
+    this.name = this.navParams.get("name");
+    let url = "http://alphanews.live/json/soccercyprus/" + this.omadaId;
+    this.getdata.getRemoteData(url).then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
@@ -49,7 +54,6 @@ export class IntPage {
       });
     });
   }
-
   putItemsInArray(index, val) {
     this.isRestInFavs[index] = val;
   }
@@ -87,5 +91,9 @@ export class IntPage {
         resolve(val);
       });
     });
+  }
+
+  showAgain() {
+    this.navCtrl.push("SportsPage");
   }
 }
