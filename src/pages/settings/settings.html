@@ -1,64 +1,67 @@
-<ion-header>
-  <alphaheader></alphaheader>
+<ion-header class=settingsBack>
+  <ion-navbar no-padding color="dark">
+    <ion-title class="centerAlign" color="lightGreyColor">Ρυθμίσεις</ion-title>
+  </ion-navbar>
+  <p class="lightGreyColor centerAlign" no-margin padding text-wrap>Μπορείτε να ρυθμίσετε τον τρόπο που θέλετε να ενημερώνεστε μέσα από το Alphanews</p>
 </ion-header>
 
 <ion-content>
-  <ion-segment [(ngModel)]="page">
-    <ion-segment-button value="PageSettings">
-      Page Settings
-    </ion-segment-button>
-    <ion-segment-button value="women">
-      Women
-    </ion-segment-button>
-  </ion-segment>
-  <div [ngSwitch]="page">
-    <div *ngSwitchCase="'PageSettings'">
-      <h2 padding-left>Page Settings</h2>
-      <p padding-left>Επέλεξε τις κατηγορίες που θέλεις να φαίνονται στην πρώτη σελίδα</p>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-6>
-            <ion-list text-wrap>
-              <ion-item text-wrap no-padding>
-                <ion-label>Κύπρος</ion-label>
-                <ion-checkbox color="CyprusColor" [(ngModel)]="Cyprus" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Πολιτική</ion-label>
-                <ion-checkbox color="PolitikiColor" [(ngModel)]="Politiki" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Ελλαδα</ion-label>
-                <ion-checkbox color="GreeceColor" [(ngModel)]="Greece" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Διεθνή</ion-label>
-                <ion-checkbox color="DiethniColor" [(ngModel)]="Diethni" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-col>
-          <ion-col col-6>
-            <ion-list text-wrap>
-              <ion-item text-wrap no-padding>
-                <ion-label>Αθλητισμός</ion-label>
-                <ion-checkbox color="SportsColor" [(ngModel)]="Sports" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Οικονομία</ion-label>
-                <ion-checkbox color="EconomyColor" [(ngModel)]="Economy" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Υγεία</ion-label>
-                <ion-checkbox color="HealthColor" [(ngModel)]="Health" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-              <ion-item text-wrap no-padding>
-                <ion-label>Ψυχαγωγία</ion-label>
-                <ion-checkbox color="EntertainmentColor" [(ngModel)]="Entertainment" (ionChange)="updateArray()"></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </div>
+  <b><p padding-left>Θέλω να βλέπω στην πρώτη σελίδα νέα για τις κατηγορίες:</p></b>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-list text-wrap no-lines>
+          <ion-item text-wrap no-padding>
+            <ion-label>Κύπρος</ion-label>
+            <ion-checkbox color="CyprusColor" [(ngModel)]="Cyprus" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Πολιτική</ion-label>
+            <ion-checkbox color="PolitikiColor" [(ngModel)]="Politiki" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Ελλαδα</ion-label>
+            <ion-checkbox color="GreeceColor" [(ngModel)]="Greece" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Διεθνή</ion-label>
+            <ion-checkbox color="DiethniColor" [(ngModel)]="Diethni" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-6>
+        <ion-list text-wrap no-lines>
+          <ion-item text-wrap no-padding>
+            <ion-label>Αθλητισμός</ion-label>
+            <ion-checkbox color="SportsColor" [(ngModel)]="Sports" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Οικονομία</ion-label>
+            <ion-checkbox color="EconomyColor" [(ngModel)]="Economy" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Υγεία</ion-label>
+            <ion-checkbox color="HealthColor" [(ngModel)]="Health" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+          <ion-item text-wrap no-padding>
+            <ion-label>Ψυχαγωγία</ion-label>
+            <ion-checkbox color="EntertainmentColor" [(ngModel)]="Entertainment" (ionChange)="updateArray()"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <hr margin-left margin-right/>
+  <b><p padding-left>Push notifications:</p></b>
+  <ion-item>
+    <ion-label text-wrap color="darkGreyColor">Θέλω να λαμβάνω ειδοποίησεις σχετικά με το ALphanews</ion-label>
+    <ion-toggle checked="true" color="pnored"></ion-toggle>
+  </ion-item>
+  <hr margin-left margin-right/>
+  <b><p padding-left>Newsletter:</p></b>
+  <ion-item>
+    <b><p padding-left>Push notifications:</p></b>
+    <ion-label text-wrap color="darkGreyColor">Θέλω να λαμβάνω όλα τα νέα και τις εξελίξεις στον inbox μου</ion-label>
+    <ion-toggle checked="false" color="pnored"></ion-toggle>
+  </ion-item>
 </ion-content>

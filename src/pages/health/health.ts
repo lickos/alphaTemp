@@ -1,16 +1,13 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { GetdataProvider } from "./../../providers/getdata/getdata";
-import { Slides } from "ionic-angular";
-import { ViewChild } from "@angular/core";
 
 @IonicPage()
 @Component({
-  selector: "page-sports",
-  templateUrl: "sports.html"
+  selector: "page-health",
+  templateUrl: "health.html"
 })
-export class SportsPage {
-  @ViewChild(Slides) slides: Slides;
+export class HealthPage {
   page: string;
   items0: any;
   items1: any;
@@ -41,13 +38,7 @@ export class SportsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public getdata: GetdataProvider) {}
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cyprus-soccer-1").then(data => {
-      this.omades = data;
-    });
-  }
-
-  ionViewDidEnter() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/6").then(data => {
+    this.getdata.getRemoteData("https://alphanews.live/json/cat/8").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.tempItem.shift();
@@ -58,7 +49,7 @@ export class SportsPage {
   }
 
   hideAll() {
-    this.getdata.getRemoteData("https://alphanews.live/json/sports/76").then(data => {
+    this.getdata.getRemoteData("http://alphanews.live/json/health/554").then(data => {
       this.tempItem2 = data;
       this.cypriako0 = this.tempItem2[0];
       this.tempItem2.shift();
@@ -72,7 +63,7 @@ export class SportsPage {
   }
 
   showGreek() {
-    this.getdata.getRemoteData("https://alphanews.live/json/sports/77").then(data => {
+    this.getdata.getRemoteData(" http://alphanews.live/json/health/555").then(data => {
       this.tempItem3 = data;
       this.greek0 = this.tempItem3[0];
       this.tempItem3.shift();
@@ -85,38 +76,10 @@ export class SportsPage {
     });
   }
 
-  showInt() {
-    this.getdata.getRemoteData("https://alphanews.live/json/sports/78").then(data => {
-      this.tempItem4 = data;
-      this.int0 = this.tempItem4[0];
-      this.tempItem4.shift();
-      this.int1 = this.tempItem4[0];
-      this.tempItem4.shift();
-      this.items4 = this.tempItem4;
-      this.showAll = false;
-      this.showLink = true;
-      this.mainLink = false;
-    });
-  }
-
-  showSports() {
-    this.getdata.getRemoteData("https://alphanews.live/json/sports/79").then(data => {
-      this.tempItem5 = data;
-      this.sports0 = this.tempItem5[0];
-      this.tempItem5.shift();
-      this.sports1 = this.tempItem5[0];
-      this.tempItem5.shift();
-      this.items5 = this.tempItem5;
-      this.showAll = false;
-      this.showLink = true;
-      this.mainLink = false;
-    });
-  }
-
   showAgain() {
     this.showAll = true;
-    this.showLink = false;
     this.mainLink = true;
+    this.showLink = false;
     this.page = "";
   }
 
@@ -126,14 +89,6 @@ export class SportsPage {
     } else if (e.direction == 4) {
       this.navCtrl.push("IntPage", { StorageData: "IntData" });
     }
-  }
-
-  nextSlide() {
-    this.slides.slideNext(500);
-  }
-
-  goToPrev() {
-    this.slides.slidePrev(500);
   }
 
   openTeam(omadaId, name) {

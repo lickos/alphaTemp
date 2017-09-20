@@ -5,67 +5,93 @@
 
 <ion-content>
   <ion-slides text-wrap autoplay="4000" style="height:70%; background-color:#252525">
-    <ion-slide (click)="openArticle(CypData)">
+    <ion-slide (click)="openArticle(top0)">
       <div class="imageDiv">
-        <img class="CarouselImage" src="{{pic0}}" />
+        <img class="CarouselImage" src="{{top0?.image_url}}" />
       </div>
-      <ion-badge class="CyprusClass badgeClass">{{CypData?.category}}</ion-badge>
-      <h3>{{CypData?.title | removequotes }}</h3>
-      <p>{{CypData?.teaser | removequotes }}</p>
+      <ion-badge class="{{class0}} badgeClass">{{top0?.category}}</ion-badge>
+      <h3>{{top0?.title | removequotes }}</h3>
+      <p>{{top0?.teaser | removequotes }}</p>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{CypData?.date}} - {{CypData?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top0?.date}} - {{top0?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
     </ion-slide>
-    <ion-slide (click)="openArticle(PolData)">
+    <ion-slide (click)="openArticle(top1)">
       <div class="imageDiv">
-        <img class="CarouselImage" src="{{pic1}}" />
+        <img class="CarouselImage" src="{{top1?.image_url}}" />
       </div>
-      <ion-badge class="PolitikiClass badgeClass">{{PolData?.category}}</ion-badge>
-      <h3>{{PolData?.title | removequotes}}</h3>
-      <p>{{PolData?.teaser | removequotes}}</p>
+      <ion-badge class="{{class1}} badgeClass">{{top1?.category}}</ion-badge>
+      <h3>{{top1?.title | removequotes}}</h3>
+      <p>{{top1?.teaser | removequotes}}</p>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{PolData?.date}} - {{PolData?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top1?.date}} - {{top1?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
     </ion-slide>
-    <ion-slide (click)="openArticle(SportsData)">
+    <ion-slide (click)="openArticle(top2)">
       <div class="imageDiv">
-        <img class="CarouselImage" src="{{pic2}}" />
+        <img class="CarouselImage" src="{{top2?.image_url}}" />
       </div>
-      <ion-badge class="SportsClass badgeClass">{{SportsData?.category}}</ion-badge>
-      <h3 padding-left>{{SportsData?.title | removequotes}}</h3>
-      <p padding-left>{{SportsData?.teaser | removequotes}}</p>
+      <ion-badge class="{{class2}} badgeClass">{{top2?.category}}</ion-badge>
+      <h3 padding-left>{{top2?.title | removequotes}}</h3>
+      <p padding-left>{{top2?.teaser | removequotes}}</p>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{SportsData?.date}} - {{SportsData?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top2?.date}} - {{top2?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
     </ion-slide>
-    <ion-slide (click)="openArticle(EntData)">
+    <ion-slide (click)="openArticle(top3)">
       <div class="imageDiv">
-        <img class="CarouselImage" src="{{pic3}}" />
+        <img class="CarouselImage" src="{{top3?.image_url}}" />
       </div>
-      <ion-badge class="EntertainmentClass badgeClass">{{EntData?.category}}</ion-badge>
-      <h3 padding-left>{{EntData?.title | removequotes}}</h3>
-      <p padding-left>{{EntData?.teaser | removequotes}}</p>
+      <ion-badge class="{{class3}} badgeClass">{{top3?.category}}</ion-badge>
+      <h3 padding-left>{{top3?.title | removequotes}}</h3>
+      <p padding-left>{{top3?.teaser | removequotes}}</p>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{EntData?.date}} - {{EntData?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top3?.date}} - {{top3?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
     </ion-slide>
-    <ion-slide (click)="openArticle(IntData)">
+    <ion-slide (click)="openArticle(top4)">
       <div class="imageDiv">
-        <img class="CarouselImage" src="{{pic4}}" />
+        <img class="CarouselImage" src="{{top4?.image_url}}" />
       </div>
-      <ion-badge class="DiethniClass badgeClass">{{IntData?.category}}</ion-badge>
-      <h3 padding-left>{{IntData?.title | removequotes}}</h3>
-      <p padding-left>{{IntData?.teaser | removequotes}}</p>
+      <ion-badge class="{{class4}} badgeClass">{{top4?.category}}</ion-badge>
+      <h3 padding-left>{{top4?.title | removequotes}}</h3>
+      <p padding-left>{{top4?.teaser | removequotes}}</p>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{IntData?.date}} - {{IntData?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top4?.date}} - {{top4?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(top5)">
+      <div class="imageDiv">
+        <img class="CarouselImage" src="{{top5?.image_url}}" />
+      </div>
+      <ion-badge class="{{class5}} badgeClass">{{top5?.category}}</ion-badge>
+      <h3 padding-left>{{top5?.title | removequotes}}</h3>
+      <p padding-left>{{top5?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top5?.date}} - {{top5?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(top6)">
+      <div class="imageDiv">
+        <img class="CarouselImage" src="{{top6?.image_url}}" />
+      </div>
+      <ion-badge class="{{class6}} badgeClass">{{top6?.category}}</ion-badge>
+      <h3 padding-left>{{top6?.title | removequotes}}</h3>
+      <p padding-left>{{top6?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top6?.date}} - {{top6?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
@@ -94,27 +120,27 @@
         </ion-item>
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
+            <img src="{{CypData?.image_url}}" />
+            <h2>{{CypData?.title | removequotes}}</h2>
+            <p>{{CypData?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
             <img src="{{CypData1?.image_url}}" />
             <h2>{{CypData1?.title | removequotes}}</h2>
             <p>{{CypData1?.teaser | removequotes}}</p>
-          </ion-col>
-          <ion-col col-6>
-            <img src="{{CypData2?.image_url}}" />
-            <h2>{{CypData2?.title | removequotes}}</h2>
-            <p>{{CypData2?.teaser | removequotes}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{CypData1?.date}} - {{CypData1?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{CypData?.date}} - {{CypData?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
           </ion-col>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{CypData2?.date}} - {{CypData2?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{CypData1?.date}} - {{CypData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
@@ -123,7 +149,7 @@
       </ion-grid>
     </ion-item>
     <ion-item>
-      <img src="http://ca.cubecdn.net/20170731094345_wmid_135455.jpg" />
+      ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΗΣΗ
     </ion-item>
     <ion-item text-wrap no-padding *ngIf="Pol">
       <ion-grid>
@@ -133,27 +159,27 @@
         </ion-item>
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
+            <img src="{{PolData?.image_url}}" />
+            <h2>{{PolData?.title | removequotes}}</h2>
+            <p>{{PolData?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
             <img src="{{PolData1?.image_url}}" />
             <h2>{{PolData1?.title | removequotes}}</h2>
             <p>{{PolData1?.teaser | removequotes}}</p>
-          </ion-col>
-          <ion-col col-6>
-            <img src="{{PolData2?.image_url}}" />
-            <h2>{{PolData2?.title | removequotes}}</h2>
-            <p>{{PolData2?.teaser | removequotes}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{PolData1?.date}} - {{PolData1?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{PolData?.date}} - {{PolData?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
           </ion-col>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{PolData2?.date}} - {{PolData2?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{PolData1?.date}} - {{PolData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
@@ -169,27 +195,27 @@
         </ion-item>
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
-            <img src="{{SportsData1?.image_url}}" />
-            <h2>{{SportsData1?.title | removequotes}}</h2>
-            <p>{{SportsData1?.teaser | removequotes}}</p>
+            <img src="{{SportsData?.image_url}}" />
+            <h2>{{SportsData?.title | removequotes}}</h2>
+            <p>{{SportsData?.teaser | removequotes}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{SportsData2?.image_url}}" />
-            <h2>{{SportsData2?.title | removequotes}}</h2>
-            <p>{{SportsData2?.teaser | removequotes}}</p>
+            <h2>{{SportsData1?.title | removequotes}}</h2>
+            <p>{{SportsData1?.teaser | removequotes}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{SportsData1?.date}} - {{SportsData1?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{SportsData?.date}} - {{SportsData?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
           </ion-col>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{SportsData2?.date}} - {{SportsData2?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{SportsData1?.date}} - {{SportsData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
@@ -241,27 +267,27 @@
         </ion-item>
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
-            <img src="{{EntData1?.image_url}}" />
-            <h2>{{EntData1?.title | removequotes}}</h2>
-            <p>{{EntData1?.teaser | removequotes}}</p>
+            <img src="{{EntData?.image_url}}" />
+            <h2>{{EntData?.title | removequotes}}</h2>
+            <p>{{EntData?.teaser | removequotes}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{EntData2?.image_url}}" />
-            <h2>{{EntData2?.title | removequotes}}</h2>
-            <p>{{EntData2?.teaser | removequotes}}</p>
+            <h2>{{EntData1?.title | removequotes}}</h2>
+            <p>{{EntData1?.teaser | removequotes}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{EntData1?.date}} - {{EntData1?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{EntData?.date}} - {{EntData?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
           </ion-col>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{EntData2?.date}} - {{EntData2?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{EntData1?.date}} - {{EntData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
@@ -277,27 +303,27 @@
         </ion-item>
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
-            <img src="{{IntData1?.image_url}}" />
-            <h2>{{IntData1?.title | removequotes}}</h2>
-            <p>{{IntData1?.teaser | removequotes}}</p>
+            <img src="{{IntData?.image_url}}" />
+            <h2>{{IntData?.title | removequotes}}</h2>
+            <p>{{IntData?.teaser | removequotes}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{SportsData2?.image_url}}" />
-            <h2>{{IntData2?.title | removequotes}}</h2>
-            <p>{{IntData2?.teaser | removequotes}}</p>
+            <h2>{{IntData1?.title | removequotes}}</h2>
+            <p>{{IntData1?.teaser | removequotes}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{IntData1?.date}} - {{IntData1?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{IntData?.date}} - {{IntData?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>
           </ion-col>
           <ion-col col-6>
             <small>
-            <ion-icon item-start name="clock"></ion-icon>{{IntData2?.date}} - {{IntData2?.time}}
+            <ion-icon item-start name="clock"></ion-icon>{{IntData1?.date}} - {{IntData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>

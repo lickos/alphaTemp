@@ -76,7 +76,7 @@ export class MyApp {
   }
 
   openHealth() {
-    this.nav.push("CatpagePage", { StorageData: "HealthData", CatId: "8" });
+    this.nav.push("HealthPage", { StorageData: "HealthData" });
     this.menuCtrl.close();
   }
 
@@ -85,7 +85,7 @@ export class MyApp {
   }
 
   openEnt() {
-    this.nav.push("CatpagePage", { StorageData: "EntData", CatId: "7" });
+    this.nav.push("EntPage", { StorageData: "EntData" });
     this.menuCtrl.close();
   }
 
@@ -100,6 +100,7 @@ export class MyApp {
 
   openEconomy() {
     this.nav.push("OikonomiaPage", { StorageData: "EconomyData" });
+    this.menuCtrl.close();
   }
 
   openBlog() {

@@ -9,6 +9,22 @@ import { GetdataProvider } from "../../providers/getdata/getdata";
   templateUrl: "home.html"
 })
 export class HomePage {
+  top0: any;
+  top1: any;
+  top2: any;
+  top3: any;
+  top4: any;
+  top5: any;
+  top6: any;
+  top7: any;
+  class0: any;
+  class1: any;
+  class2: any;
+  class3: any;
+  class4: any;
+  class5: any;
+  class6: any;
+  class7: any;
   catsToDisplay: any;
   Cyp: boolean;
   CypData: any;
@@ -40,6 +56,7 @@ export class HomePage {
   EconomyData: any;
   EconomyData1: any;
   badgeClass: string;
+  liveFeed: boolean = true;
   pic0: string = "assets/img/temp.png";
   pic1: string = "assets/img/temp.png";
   pic2: string = "assets/img/temp.png";
@@ -122,7 +139,30 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.getData.getRemoteData(" https://alphanews.live/json/cat/1").then(data => {
+    this.getData.getRemoteData("https://alphanews.live/json/topnews").then(data => {
+      this.top0 = data[0];
+      let classType0 = data[0].category;
+      this.class0 = this.selectClass(classType0);
+      this.top1 = data[1];
+      let classType1 = data[1].category;
+      this.class1 = this.selectClass(classType1);
+      this.top2 = data[2];
+      let classType2 = data[2].category;
+      this.class2 = this.selectClass(classType2);
+      this.top3 = data[3];
+      let classType3 = data[3].category;
+      this.class3 = this.selectClass(classType3);
+      this.top4 = data[4];
+      let classType4 = data[4].category;
+      this.class4 = this.selectClass(classType4);
+      this.top5 = data[5];
+      let classType5 = data[5].category;
+      this.class5 = this.selectClass(classType5);
+      this.top6 = data[6];
+      let classType6 = data[6].category;
+      this.class6 = this.selectClass(classType5);
+    });
+    this.getData.getRemoteData("https://alphanews.live/json/cat/1").then(data => {
       this.CypData = data[0];
       this.CypData1 = data[1];
       this.CypData2 = data[2];
@@ -191,5 +231,37 @@ export class HomePage {
   }
   openArticle(item) {
     this.navCtrl.push("ArticlePage", { items: item });
+  }
+
+  selectClass(classType) {
+    switch (classType) {
+      case "Κύπρος": {
+        return "CyprusClass";
+      }
+      case "Πολιτική": {
+        return "PolitikiClass";
+      }
+      case "Διεθνή": {
+        return "DiethniClass";
+      }
+      case "Ελλάδα": {
+        return "GreeceClass";
+      }
+      case "Αθλητικά": {
+        return "SportsClass";
+      }
+      case "Οικονομία": {
+        return "EconomyClass";
+      }
+      case "Υγεία": {
+        return "HealthClass";
+      }
+      case "Ψυχαγωγία": {
+        return "EntertainmentClass";
+      }
+      default: {
+        return "PolitikiClass";
+      }
+    }
   }
 }

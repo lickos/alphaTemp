@@ -63,7 +63,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
-            <ion-col col-11>
+            <ion-col col-11 class="borderDown">
               Κυπριακό
             </ion-col>
           </ion-row>
@@ -73,7 +73,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
-            <ion-col col-11>
+            <ion-col col-11 class="borderDown">
               Ενέργεια
             </ion-col>
           </ion-row>
@@ -116,16 +116,44 @@
         </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openKypriakoProtathlima()">
-        Κυπριακό Πρωτάθλημα
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Κυπριακό Πρωτάθλημα
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openEllinikoProtathlima()">
-        Ελληνικό Πρωτάθλημα
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Ελληνικό Πρωτάθλημα
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openDiethniProtathlimata()">
-        Διεθνή Πρωταθλήματα
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Διεθνή Πρωταθλήματα
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMeSports" (click)="openAthlitismos()">
-        Αθλητισμός
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Αθλητισμός
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item menuClose class="lighter" no-padding no-lines (click)="openEconomy()">
         <ion-grid>
@@ -153,10 +181,24 @@
         </ion-grid>
       </ion-item>
       <ion-item class="greyClr" *ngIf="showMeHealth" menuClose (click)="openDiethniProtathlimata()">
-        Fitness
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Fitness
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="greyClr" menuClose *ngIf="showMeHealth" (click)="openDiethniProtathlimata()">
-        Ψυχολογία
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Ψυχολογία
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
       <ion-item class="lighter" no-padding no-lines>
         <ion-grid>
@@ -172,18 +214,46 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
-          Προτάσεις
-        </button>
-      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
-          Showbiz
-        </button>
-      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
-          Συνεντέυξεις
-        </button>
-      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
-          Κουζίνα
-        </button>
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Προτάσεις
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Showbiz
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Συνεντέυξεις
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-11 class="borderDown">
+              Κουζίνα
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
       <ion-item menuClose class="lighter" no-padding no-lines (click)="openBlog()">
         <ion-grid>
           <ion-row justify-content-center>
