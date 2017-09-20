@@ -7,6 +7,7 @@ export class StorageproviderProvider {
   favs: any;
   testArray: any;
   cats: any;
+  newFavs: any;
   TempArray = [true, true, true, true, true, true, true, true];
 
   constructor(private storage: Storage) {}
@@ -28,7 +29,6 @@ export class StorageproviderProvider {
     return new Promise(resolve => {
       this.storage.get("favs").then(data => {
         this.favs = data;
-        console.log(this.favs);
         resolve(this.favs);
       });
     });
@@ -55,7 +55,6 @@ export class StorageproviderProvider {
 
   setCats() {
     this.storage.get("CategoriesArray").then(data => {
-      console.log(data);
       if (data == null || data == undefined) {
         this.storage.set("CategoriesArray", this.TempArray);
         this.storage;
@@ -67,7 +66,6 @@ export class StorageproviderProvider {
     return new Promise(resolve => {
       this.storage.get("CategoriesArray").then(data => {
         this.cats = data;
-        console.log(this.cats);
         resolve(this.cats);
       });
     });
@@ -75,5 +73,20 @@ export class StorageproviderProvider {
 
   updateCats(newArray) {
     this.storage.set("CategoriesArray", newArray);
+  }
+
+  removeFav(id) {
+    return new Promise(resolve => {
+      this.storage.get("favs").then(data => {
+        this.newFavs = data;
+        for (let fav of this.newFavs) {
+          if (fav.nid == id) {
+            let num = this.newFavs.indexOf(fav);
+            this.newFavs.splice(num, 1);
+            this.storage.set("favs", this.newFavs).then(data => {});
+          }
+        }
+      });
+    });
   }
 }

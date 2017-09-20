@@ -83,19 +83,6 @@
         <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
       </ion-item>
     </ion-slide>
-    <ion-slide (click)="openArticle(top6)">
-      <div class="imageDiv">
-        <img class="CarouselImage" src="{{top6?.image_url}}" />
-      </div>
-      <ion-badge class="{{class6}} badgeClass">{{top6?.category}}</ion-badge>
-      <h3 padding-left>{{top6?.title | removequotes}}</h3>
-      <p padding-left>{{top6?.teaser | removequotes}}</p>
-      <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top6?.date}} - {{top6?.time}}</ion-icon>
-        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
-      </ion-item>
-    </ion-slide>
   </ion-slides>
   <ion-list>
     <ion-item text-wrap class='borderB' no-padding>

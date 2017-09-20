@@ -53,4 +53,11 @@ export class FavoritesPage {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
   }
+
+  removeFromFavs(id, i) {
+    this.items.splice(i, 1);
+    this.strgprvd.removeFav(id).then(() => {
+      console.log("OK");
+    });
+  }
 }
