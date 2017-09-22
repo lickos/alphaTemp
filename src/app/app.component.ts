@@ -67,7 +67,7 @@ export class MyApp {
   }
 
   openSports() {
-    this.nav.push("SportsPage", { StorageData: "SportsData" });
+    this.nav.push("SportsPage", { StorageData: "SportsData", showAll: true });
     this.menuCtrl.close();
   }
 
@@ -105,17 +105,30 @@ export class MyApp {
 
   openBlog() {
     this.nav.push("BlogPage");
+    this.menuCtrl.close();
   }
 
   openSettings() {
     this.nav.push("SettingsPage");
+    this.menuCtrl.close();
   }
 
   openTemp() {
     this.nav.push("TemphomePage");
+    this.menuCtrl.close();
   }
 
   neaAgoras() {
     this.nav.push("CatpagePage", { StorageData: "", CatId: "politics/59" });
+  }
+
+  openUseful() {
+    this.nav.push("UsefulPage");
+    this.menuCtrl.close();
+  }
+
+  openKypriakoProtathlima() {
+    this.nav.push("SportsPage", { StorageData: "SportsData", showAll: false, cypChampion: true });
+    this.menuCtrl.close();
   }
 }
