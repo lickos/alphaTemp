@@ -34,7 +34,10 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.oneSignal.startInit("61b6d88e-c018-41b1-9fa6-4a1a01b0336d", "221135394305");
+      this.oneSignal.startInit(
+        "61b6d88e-c018-41b1-9fa6-4a1a01b0336d",
+        "221135394305"
+      );
       this.oneSignal.endInit();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -128,7 +131,43 @@ export class MyApp {
   }
 
   openKypriakoProtathlima() {
-    this.nav.push("SportsPage", { StorageData: "SportsData", showAll: false, cypChampion: true });
+    this.nav.push("SportsPage", {
+      StorageData: "SportsData",
+      showAll: false,
+      cypChampion: true
+    });
+    this.menuCtrl.close();
+  }
+
+  openEllinikoProtathlima() {
+    this.nav.push("SportsPage", {
+      StorageData: "SportsData",
+      showAll: false,
+      grChampion: true
+    });
+    this.menuCtrl.close();
+  }
+
+  openDiethniProtathlimata() {
+    this.nav.push("SportsPage", {
+      StorageData: "SportsData",
+      showAll: false,
+      intChampion: true
+    });
+    this.menuCtrl.close();
+  }
+
+  openAthlitismos() {
+    this.nav.push("SportsPage", {
+      StorageData: "SportsData",
+      showAll: false,
+      athlitismos: true
+    });
+    this.menuCtrl.close();
+  }
+
+  openHomePage() {
+    this.nav.push("HomePage");
     this.menuCtrl.close();
   }
 }

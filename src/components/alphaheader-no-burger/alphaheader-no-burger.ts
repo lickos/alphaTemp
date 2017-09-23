@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { NavController } from "ionic-angular";
 
-/**
- * Generated class for the AlphaheaderNoBurgerComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
 @Component({
-  selector: 'alphaheader-no-burger',
-  templateUrl: 'alphaheader-no-burger.html'
+  selector: "alphaheader-no-burger",
+  templateUrl: "alphaheader-no-burger.html"
 })
 export class AlphaheaderNoBurgerComponent {
-
   text: string;
 
-  constructor() {
-    console.log('Hello AlphaheaderNoBurgerComponent Component');
-    this.text = 'Hello World';
+  constructor(public navCtrl: NavController) {}
+
+  openHome() {
+    this.navCtrl.push("HomePage");
   }
 
+  openFavs() {
+    this.navCtrl.push("FavoritesPage");
+  }
 }

@@ -17,7 +17,16 @@ export class GreecePage {
   tempItem: any;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
-  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isRestInFavs: Array<boolean> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   constructor(
     public navCtrl: NavController,
@@ -29,25 +38,27 @@ export class GreecePage {
   ) {}
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/4").then(data => {
-      this.tempItem = data;
-      this.items0 = this.tempItem[0];
-      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
-        this.isInFavs0 = val;
-      });
-      this.tempItem.shift();
-      this.items1 = this.tempItem[0];
-      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
-        this.isInFavs1 = val;
-      });
-      this.tempItem.shift();
-      this.items = this.tempItem;
-      this.items.forEach((element, index) => {
-        this.isInFavs(element.nid).then(val => {
-          this.putItemsInArray(index, val);
+    this.getdata
+      .getRemoteData("https://alphanews.live/json/cat/4")
+      .then(data => {
+        this.tempItem = data;
+        this.items0 = this.tempItem[0];
+        this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+          this.isInFavs0 = val;
+        });
+        this.tempItem.shift();
+        this.items1 = this.tempItem[0];
+        this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+          this.isInFavs1 = val;
+        });
+        this.tempItem.shift();
+        this.items = this.tempItem;
+        this.items.forEach((element, index) => {
+          this.isInFavs(element.nid).then(val => {
+            this.putItemsInArray(index, val);
+          });
         });
       });
-    });
   }
 
   putItemsInArray(index, val) {

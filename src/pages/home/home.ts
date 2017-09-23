@@ -2,6 +2,8 @@ import { Storage } from "@ionic/storage";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { GetdataProvider } from "../../providers/getdata/getdata";
+import { StorageproviderProvider } from "./../../providers/storageprovider/storageprovider";
+import { AlertController } from "ionic-angular";
 
 @IonicPage()
 @Component({
@@ -9,6 +11,16 @@ import { GetdataProvider } from "../../providers/getdata/getdata";
   templateUrl: "home.html"
 })
 export class HomePage {
+  isInFavs0: boolean = false;
+  isInFavs1: boolean = false;
+  isInFavs2: boolean = false;
+  isInFavs3: boolean = false;
+  isInFavs4: boolean = false;
+  isInFavs5: boolean = false;
+  showCarouzel: boolean = true;
+  showBreaking: boolean = false;
+  breakingNews: any;
+  editor: any;
   top0: any;
   top1: any;
   top2: any;
@@ -64,7 +76,9 @@ export class HomePage {
     public navCtrl: NavController,
     public getData: GetdataProvider,
     public navParams: NavParams,
-    public storage: Storage
+    public storage: Storage,
+    public strgprvd: StorageproviderProvider,
+    public alert: AlertController
   ) {
     this.storage.get("CategoriesArray").then(data => {
       if (data) {
@@ -140,22 +154,52 @@ export class HomePage {
       .then(data => {
         this.top0 = data[0];
         let classType0 = data[0].category;
+        let breaking = data[0].breaking;
+        let brNid = data[0].nid;
         this.class0 = this.selectClass(classType0);
+        if (breaking == "ON") {
+          this.showBreaking = true;
+          this.showCarouzel = false;
+          this.callBreaking(brNid);
+        }
+        this.strgprvd.checkIfInfavs(this.top0.nid).then(val => {
+          this.isInFavs0 = val;
+        });
         this.top1 = data[1];
         let classType1 = data[1].category;
         this.class1 = this.selectClass(classType1);
+        this.strgprvd.checkIfInfavs(this.top1.nid).then(val => {
+          this.isInFavs1 = val;
+        });
         this.top2 = data[2];
         let classType2 = data[2].category;
         this.class2 = this.selectClass(classType2);
+        this.strgprvd.checkIfInfavs(this.top2.nid).then(val => {
+          this.isInFavs2 = val;
+        });
         this.top3 = data[3];
         let classType3 = data[3].category;
         this.class3 = this.selectClass(classType3);
+        this.strgprvd.checkIfInfavs(this.top3.nid).then(val => {
+          this.isInFavs3 = val;
+        });
         this.top4 = data[4];
         let classType4 = data[4].category;
         this.class4 = this.selectClass(classType4);
+        this.strgprvd.checkIfInfavs(this.top4.nid).then(val => {
+          this.isInFavs4 = val;
+        });
         this.top5 = data[5];
         let classType5 = data[5].category;
         this.class5 = this.selectClass(classType5);
+        this.strgprvd.checkIfInfavs(this.top5.nid).then(val => {
+          this.isInFavs5 = val;
+        });
+      });
+    this.getData
+      .getRemoteData("http://alphanews.live/json/editorials")
+      .then(data => {
+        this.editor = data[0];
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/1")
@@ -240,8 +284,64 @@ export class HomePage {
         });
       });
   }
+
+  setFav0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs0 = true;
+  }
+
+  setFav1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs1 = true;
+  }
+
+  setFav2(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs2 = true;
+  }
+
+  setFav3(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs3 = true;
+  }
+
+  setFav4(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs4 = true;
+  }
+
+  setFav5(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs5 = true;
+  }
+
+  alertFav() {
+    this.storage.remove("favs");
+    let alertBox = this.alert.create({
+      title: "Already in Favorites",
+      subTitle: "Το άρθρο αυτό είναι ήδη στα Αγαπημένα",
+      buttons: ["OK"]
+    });
+    alertBox.present();
+  }
+
+  isInFavs(nid) {
+    return new Promise(resolve => {
+      this.strgprvd.checkIfInfavs(nid).then(val => {
+        resolve(val);
+      });
+    });
+  }
+
   openArticle(item) {
     this.navCtrl.push("ArticlePage", { items: item });
+  }
+
+  callBreaking(brNid) {
+    let brUrl = "http://alphanews.live/json/breaking/" + brNid;
+    this.getData.getRemoteData(brUrl).then(data => {
+      this.breakingNews = data;
+    });
   }
 
   selectClass(classType) {

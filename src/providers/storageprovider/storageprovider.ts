@@ -10,11 +10,14 @@ export class StorageproviderProvider {
   newFavs: any;
   TempArray = [true, true, true, true, true, true, true, true];
 
-  constructor(private storage: Storage) {}
+  constructor(private storage: Storage) {
+    console.log(this.storage);
+  }
 
   setFavs(item) {
     this.storage.get("favs").then(data => {
       this.items = data;
+      console.log(this.items);
       if (data) {
         this.items.push(item);
         this.storage.set("favs", this.items);

@@ -4,18 +4,19 @@
 
 
 <ion-content>
-  <ion-slides text-wrap autoplay="4000" style="height:70%; background-color:#252525">
+  <ion-slides *ngIf="showCarouzel" text-wrap autoplay="4000" style="height:70%; background-color:#252525">
     <ion-slide (click)="openArticle(top0)">
       <div class="imageDiv">
         <img class="CarouselImage" src="{{top0?.image_url}}" />
       </div>
       <ion-badge class="{{class0}} badgeClass">{{top0?.category}}</ion-badge>
-      <h3>{{top0?.title | removequotes }}</h3>
-      <p>{{top0?.teaser | removequotes }}</p>
+      <h3>{{top0?.title | removequotes | fixamp }}</h3>
+      <p>{{top0?.teaser | removequotes | fixamp }}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top0?.date}} - {{top0?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(top0)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
     <ion-slide (click)="openArticle(top1)">
@@ -23,12 +24,13 @@
         <img class="CarouselImage" src="{{top1?.image_url}}" />
       </div>
       <ion-badge class="{{class1}} badgeClass">{{top1?.category}}</ion-badge>
-      <h3>{{top1?.title | removequotes}}</h3>
-      <p>{{top1?.teaser | removequotes}}</p>
+      <h3>{{top1?.title | removequotes | fixamp}}</h3>
+      <p>{{top1?.teaser | removequotes | fixamp}}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top1?.date}} - {{top1?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(top1)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
     <ion-slide (click)="openArticle(top2)">
@@ -36,12 +38,13 @@
         <img class="CarouselImage" src="{{top2?.image_url}}" />
       </div>
       <ion-badge class="{{class2}} badgeClass">{{top2?.category}}</ion-badge>
-      <h3 padding-left>{{top2?.title | removequotes}}</h3>
-      <p padding-left>{{top2?.teaser | removequotes}}</p>
+      <h3 padding-left>{{top2?.title | removequotes | fixamp}}</h3>
+      <p padding-left>{{top2?.teaser | removequotes | fixamp}}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top2?.date}} - {{top2?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs2" color="pnored" (click)="setFav2(top2)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs2" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
     <ion-slide (click)="openArticle(top3)">
@@ -49,12 +52,13 @@
         <img class="CarouselImage" src="{{top3?.image_url}}" />
       </div>
       <ion-badge class="{{class3}} badgeClass">{{top3?.category}}</ion-badge>
-      <h3 padding-left>{{top3?.title | removequotes}}</h3>
-      <p padding-left>{{top3?.teaser | removequotes}}</p>
+      <h3 padding-left>{{top3?.title | removequotes | fixamp}}</h3>
+      <p padding-left>{{top3?.teaser | removequotes | fixamp}}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top3?.date}} - {{top3?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs3" color="pnored" (click)="setFav3(top3)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs3" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
     <ion-slide (click)="openArticle(top4)">
@@ -62,12 +66,13 @@
         <img class="CarouselImage" src="{{top4?.image_url}}" />
       </div>
       <ion-badge class="{{class4}} badgeClass">{{top4?.category}}</ion-badge>
-      <h3 padding-left>{{top4?.title | removequotes}}</h3>
-      <p padding-left>{{top4?.teaser | removequotes}}</p>
+      <h3 padding-left>{{top4?.title | removequotes | fixamp}}</h3>
+      <p padding-left>{{top4?.teaser | removequotes | fixamp}}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top4?.date}} - {{top4?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs4" color="pnored" (click)="setFav4(top4)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs4" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
     <ion-slide (click)="openArticle(top5)">
@@ -75,26 +80,39 @@
         <img class="CarouselImage" src="{{top5?.image_url}}" />
       </div>
       <ion-badge class="{{class5}} badgeClass">{{top5?.category}}</ion-badge>
-      <h3 padding-left>{{top5?.title | removequotes}}</h3>
-      <p padding-left>{{top5?.teaser | removequotes}}</p>
+      <h3 padding-left>{{top5?.title | removequotes | fixamp}}</h3>
+      <p padding-left>{{top5?.teaser | removequotes | fixamp}}</p>
       <ion-item class="transparent" padding>
         <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top5?.date}} - {{top5?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs5" color="pnored" (click)="setFav5(top5)" item-end></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs5" (click)="alertFav()" item-end></ion-icon>
       </ion-item>
     </ion-slide>
   </ion-slides>
+  <ion-item *ngIf="showBreaking">
+    <div class="imageDiv">
+      <img class="CarouselImage" src="{{breakingNews?.image_url_breaking}}" />
+    </div>
+    <ion-badge class="{{class0}} badgeClass">{{top0?.category}}</ion-badge>
+    <h3 padding-left>{{top0?.title | removequotes | fixamp}}</h3>
+    <p padding-left>{{top0?.teaser | removequotes | fixamp}}</p>
+    <ion-item class="transparent" padding>
+      <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top0?.date}} - {{breakingNews?.time}}</ion-icon>
+      <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+      <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+    </ion-item>
+  </ion-item>
   <ion-list>
-    <ion-item text-wrap class='borderB' no-padding>
+    <ion-item text-wrap class='borderB' no-padding (click)="openArticle(editor)">
       <ion-grid>
         <ion-row align-items-center>
           <ion-col col-6>
-            <img src="http://alphanews.live/sites/default/files/styles/media_image/public/2017-08/20631418_10213406715825402_2006238752_n.png?itok=bD437OY-"
-            />
+            <img src="{{editor?.image_url}}" />
           </ion-col>
           <ion-col col-6 class="Editor">
             <p><b>Editor's Choice</b></p>
-            <p>Εξακόσια χιλιόμετρα για την ειρηνική συνύπαρξη (BINTEO-ΦΩΤΟ)</p>
+            <p>{{editor?.title}}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -108,13 +126,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{CypData?.image_url}}" />
-            <h2>{{CypData?.title | removequotes}}</h2>
-            <p>{{CypData?.teaser | removequotes}}</p>
+            <h2>{{CypData?.title | removequotes | fixamp}}</h2>
+            <p>{{CypData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{CypData1?.image_url}}" />
-            <h2>{{CypData1?.title | removequotes}}</h2>
-            <p>{{CypData1?.teaser | removequotes}}</p>
+            <h2>{{CypData1?.title | removequotes | fixamp}}</h2>
+            <p>{{CypData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -147,13 +165,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{PolData?.image_url}}" />
-            <h2>{{PolData?.title | removequotes}}</h2>
-            <p>{{PolData?.teaser | removequotes}}</p>
+            <h2>{{PolData?.title | removequotes | fixamp}}</h2>
+            <p>{{PolData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{PolData1?.image_url}}" />
-            <h2>{{PolData1?.title | removequotes}}</h2>
-            <p>{{PolData1?.teaser | removequotes}}</p>
+            <h2>{{PolData1?.title | removequotes | fixamp}}</h2>
+            <p>{{PolData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -183,13 +201,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{SportsData?.image_url}}" />
-            <h2>{{SportsData?.title | removequotes}}</h2>
-            <p>{{SportsData?.teaser | removequotes}}</p>
+            <h2>{{SportsData?.title | removequotes | fixamp}}</h2>
+            <p>{{SportsData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{SportsData2?.image_url}}" />
-            <h2>{{SportsData1?.title | removequotes}}</h2>
-            <p>{{SportsData1?.teaser | removequotes}}</p>
+            <h2>{{SportsData1?.title | removequotes | fixamp}}</h2>
+            <p>{{SportsData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -219,13 +237,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{GreeceData?.image_url}}" />
-            <h2>{{GreeceData?.title | removequotes}}</h2>
-            <p>{{GreeceData?.teaser | removequotes}}</p>
+            <h2>{{GreeceData?.title | removequotes | fixamp}}</h2>
+            <p>{{GreeceData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{SportsData1?.image_url}}" />
-            <h2>{{GreeceData1?.title | removequotes}}</h2>
-            <p>{{GreeceData1?.teaser | removequotes}}</p>
+            <h2>{{GreeceData1?.title | removequotes | fixamp}}</h2>
+            <p>{{GreeceData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -255,13 +273,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{EntData?.image_url}}" />
-            <h2>{{EntData?.title | removequotes}}</h2>
-            <p>{{EntData?.teaser | removequotes}}</p>
+            <h2>{{EntData?.title | removequotes | fixamp}}</h2>
+            <p>{{EntData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{EntData2?.image_url}}" />
-            <h2>{{EntData1?.title | removequotes}}</h2>
-            <p>{{EntData1?.teaser | removequotes}}</p>
+            <h2>{{EntData1?.title | removequotes | fixamp}}</h2>
+            <p>{{EntData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -291,13 +309,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{IntData?.image_url}}" />
-            <h2>{{IntData?.title | removequotes}}</h2>
-            <p>{{IntData?.teaser | removequotes}}</p>
+            <h2>{{IntData?.title | removequotes | fixamp}}</h2>
+            <p>{{IntData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{SportsData2?.image_url}}" />
-            <h2>{{IntData1?.title | removequotes}}</h2>
-            <p>{{IntData1?.teaser | removequotes}}</p>
+            <h2>{{IntData1?.title | removequotes | fixamp}}</h2>
+            <p>{{IntData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -327,13 +345,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{HealthData?.image_url}}" />
-            <h2>{{HealthData?.title | removequotes}}</h2>
-            <p>{{HealthData?.teaser | removequotes}}</p>
+            <h2>{{HealthData?.title | removequotes | fixamp}}</h2>
+            <p>{{HealthData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{HealthData1?.image_url}}" />
-            <h2>{{HealthData1?.title | removequotes}}</h2>
-            <p>{{HealthData1?.teaser | removequotes}}</p>
+            <h2>{{HealthData1?.title | removequotes | fixamp}}</h2>
+            <p>{{HealthData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>
@@ -363,13 +381,13 @@
         <ion-row no-margin-bottom no-padding-bottom>
           <ion-col col-6>
             <img src="{{EconomyData?.image_url}}" />
-            <h2>{{EconomyData?.title | removequotes}}</h2>
-            <p>{{EconomyData?.teaser | removequotes}}</p>
+            <h2>{{EconomyData?.title | removequotes | fixamp}}</h2>
+            <p>{{EconomyData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6>
             <img src="{{EconomyData1?.image_url}}" />
-            <h2>{{EconomyData1?.title | removequotes}}</h2>
-            <p>{{EconomyData1?.teaser | removequotes}}</p>
+            <h2>{{EconomyData1?.title | removequotes | fixamp}}</h2>
+            <p>{{EconomyData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
         <ion-row no-margin-top no-padding>

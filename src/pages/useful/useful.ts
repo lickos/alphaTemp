@@ -1,4 +1,3 @@
-import { ComponentsModule } from "./../../components/components.module";
 import { Geolocation } from "@ionic-native/geolocation";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
