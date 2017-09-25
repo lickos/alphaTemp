@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 })
 export class FavoritesPage {
   items: any;
+  initItems: any;
   pic: string = "assets/img/icon.png";
   searchTerm: string;
   title: any;
@@ -28,6 +29,7 @@ export class FavoritesPage {
       if (data) {
         this.items = data;
         this.pic = this.items.image_url;
+        this.initItems = data;
       }
     });
   }
@@ -37,11 +39,13 @@ export class FavoritesPage {
   }
 
   getItems(ev: any) {
+    this.items = this.initItems;
     // this.initializeArray();
     let val = ev.target.value;
-
+    console.log(val);
     // if the value is an empty string don't filter the items
     if (val && val.trim() != "") {
+      console.log(val);
       this.items = this.items.filter(item => {
         return item.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });

@@ -149,15 +149,16 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    // "https://alphanews.live/breaking.json"
     this.getData
-      .getRemoteData("https://alphanews.live/json/topnews")
+      .getRemoteData("https://alphanews.live/breaking.json")
       .then(data => {
         this.top0 = data[0];
         let classType0 = data[0].category;
         let breaking = data[0].breaking;
         let brNid = data[0].nid;
         this.class0 = this.selectClass(classType0);
-        if (breaking == "ON") {
+        if (breaking == "on") {
           this.showBreaking = true;
           this.showCarouzel = false;
           this.callBreaking(brNid);
@@ -199,7 +200,7 @@ export class HomePage {
     this.getData
       .getRemoteData("http://alphanews.live/json/editorials")
       .then(data => {
-        this.editor = data[0];
+        this.editor = data[2];
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/1")
@@ -338,9 +339,12 @@ export class HomePage {
   }
 
   callBreaking(brNid) {
+    console.log(brNid);
     let brUrl = "http://alphanews.live/json/breaking/" + brNid;
+    console.log(brUrl);
     this.getData.getRemoteData(brUrl).then(data => {
-      this.breakingNews = data;
+      console.log(data);
+      this.breakingNews = data[0];
     });
   }
 

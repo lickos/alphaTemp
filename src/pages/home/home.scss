@@ -8,10 +8,27 @@ ion-slide h3 {
   padding-left: 1rem;
 }
 
+.brTitle {
+  font-size: 2.1rem !important;
+  text-align: left;
+  color: #c8c6c6;
+  padding-left: 1rem;
+  padding-top: 2rem;
+}
+
+.categoryTitle {
+  font-size: 1.4rem !important;
+  font-weight: bold !important;
+}
+
 ion-slide img {
   height: 30vh !important;
   width: auto !important;
   top: 0 !important;
+}
+
+.brImage {
+  background-color: #252525;
 }
 
 .Editor {
@@ -70,6 +87,15 @@ ion-slide img {
 #economy hr {
   border-bottom: 2px solid #299524;
   left: 8.5rem;
+}
+
+.brPar {
+  font-size: 1.4rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0 0 0 1rem;
+  text-align: left;
+  color: #c8c6c6;
 }
 
 ion-slide p {
