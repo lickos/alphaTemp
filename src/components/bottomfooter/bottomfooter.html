@@ -1,30 +1,32 @@
-<ion-item (click)="showthis()">
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-4>
-        <button ion-button block color="pnored" *ngIf="showUp" no-margin><ion-icon name="ios-arrow-up" color="light"></ion-icon></button>
-        <button ion-button block color="pnored" *ngIf="showDown" no-margin><ion-icon name="ios-arrow-down" color="light"></ion-icon></button>
-      </ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-item>
-<ion-item class="bottom-button" *ngIf="showbottom">
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-2 no-padding>
-        <button ion-button clear block color="light" class="border-right"><ion-icon name="home"></ion-icon></button>
-      </ion-col>
-      <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" (click)="openUseful()" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
-      </ion-col>
-      <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
-      </ion-col>
-      <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" class="lastButton"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-item>
+<ion-list>
+  <ion-item>
+    <ion-grid no-padding (click)="showthis()">
+      <ion-row class="btnFooterBack">
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <button ion-button block color="pnored" *ngIf="showUp" no-margin no-padding><ion-icon name="ios-arrow-up" color="light"></ion-icon></button>
+          <button ion-button block color="pnored" *ngIf="showDown" no-margin no-padding><ion-icon name="ios-arrow-down" color="light"></ion-icon></button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <ion-grid no-margin class="bottom-button" *ngIf="showbottom">
+      <ion-row>
+        <ion-col col-2 no-padding>
+          <button ion-button clear block color="light" class="border-right"><ion-icon name="home"></ion-icon></button>
+        </ion-col>
+        <ion-col col-3.33 no-padding>
+          <button ion-button clear block color="light" (click)="openUseful()" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        </ion-col>
+        <ion-col col-3.33 no-padding>
+          <button ion-button clear block color="light" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        </ion-col>
+        <ion-col col-3.33 no-padding>
+          <button ion-button clear block color="light" class="lastButton"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>

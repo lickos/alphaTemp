@@ -39,6 +39,37 @@ ion-slide img {
   border: 1px solid #ebebeb;
 }
 
+.secondCatitem2 {
+  background-color: #fff;
+  bottom: 0px;
+}
+
+.whiteBack {
+  background-color: #fff;
+}
+
+.itemscat3 {
+  background-color: #fff;
+  padding-left: 0px;
+  bottom: 0;
+  position: absolute;
+}
+
+.secondCatitem3 {
+  background-color: #ebebeb;
+  bottom: 0px;
+  border-right: 3px solid #fff;
+  border-left: 3px solid #fff;
+}
+
+.editorTitle {
+  color: #a1a1a1;
+}
+
+.iconsincat2 {
+  font-size: 1.2rem !important;
+}
+
 .social {
   font-size: 1.2 rem !important;
 }
@@ -52,6 +83,15 @@ ion-slide img {
 #cyprus hr {
   border-bottom: 2px solid #b79033;
   left: 7.5rem;
+}
+
+.share {
+  padding-left: 1rem;
+}
+
+.btnFooter {
+  position: relative;
+  bottom: 0;
 }
 
 #politiki hr {
