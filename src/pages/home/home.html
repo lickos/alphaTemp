@@ -218,7 +218,7 @@
           <ion-col col-6 class="whiteBack">
             <ion-icon class="iconsincat2" name="ios-clock-outline" item-left> <a class="timeColor">{{SportsData?.date}} - {{SportsData?.time}}</a></ion-icon>
             <ion-icon class="iconsincat" name="md-share" color="pnored"></ion-icon>
-            <ion-icon class="share" name="ios-bookmark-outline" *ngIf="!isInFavsSport0" color="pnored" (click)="setFavPol0(SportsData)"
+            <ion-icon class="share" name="ios-bookmark-outline" *ngIf="!isInFavsSport0" color="pnored" (click)="setFavSport0(SportsData)"
               item-end></ion-icon>
             <ion-icon class="share" name="ios-bookmark" color="pnored" *ngIf="isInFavsSport0" (click)="alertFav()" item-end></ion-icon>
           </ion-col>
@@ -245,7 +245,7 @@
             <p>{{GreeceData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6 (click)="openArticle(GreeceData1)" class="secondCatitem3">
-            <img src="{{SportsData1?.image_url}}" />
+            <img src="{{GreeceData1?.image_url}}" />
             <h2 class="categoryTitle">{{GreeceData1?.title | removequotes | fixamp}}</h2>
             <p>{{GreeceData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
@@ -280,7 +280,7 @@
             <p>{{EntData?.teaser | removequotes | fixamp}}</p>
           </ion-col>
           <ion-col col-6 (click)="openArticle(EntData1)" class="secondCatitem3">
-            <img src="{{EntData2?.image_url}}" />
+            <img src="{{EntData1?.image_url}}" />
             <h2 class="categoryTitle">{{EntData1?.title | removequotes | fixamp}}</h2>
             <p>{{EntData1?.teaser | removequotes | fixamp}}</p>
           </ion-col>
@@ -323,8 +323,8 @@
           <ion-col col-6 class="whiteBack">
             <ion-icon class="iconsincat2" name="ios-clock-outline" item-left> <a class="timeColor">{{IntData?.date}} - {{IntData?.time}}</a></ion-icon>
             <ion-icon class="iconsincat" name="md-share" color="pnored"></ion-icon>
-            <ion-icon class="share" name="ios-bookmark-outline" *ngIf="!isInFavsEnt0" color="pnored" (click)="setFavInt0(IntData)" item-end></ion-icon>
-            <ion-icon class="share" name="ios-bookmark" color="pnored" *ngIf="isInFavsEnt0" (click)="alertFav()" item-end></ion-icon>
+            <ion-icon class="share" name="ios-bookmark-outline" *ngIf="!isInFavsInt0" color="pnored" (click)="setFavInt0(IntData)" item-end></ion-icon>
+            <ion-icon class="share" name="ios-bookmark" color="pnored" *ngIf="isInFavsInt0" (click)="alertFav()" item-end></ion-icon>
           </ion-col>
           <ion-col col-6 class="whiteBack">
             <ion-icon class="iconsincat2" name="ios-clock-outline" item-left> <a class="timeColor">{{IntData1?.date}} - {{IntData1?.time}}</a></ion-icon>
@@ -409,6 +409,6 @@
     </ion-item>
   </ion-list>
   <ion-item>
-    <bottomfooter></bottomfooter>
+    <bottomfooter class="btmfoot"></bottomfooter>
   </ion-item>
 </ion-content>

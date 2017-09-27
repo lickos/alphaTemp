@@ -14,20 +14,20 @@
     </ion-row>
   </ion-grid>
 </ion-item>
-<ion-item>
+<ion-item no-padding>
   <ion-grid no-margin class="bottom-button" *ngIf="showbottom">
     <ion-row>
       <ion-col col-2 no-padding>
         <button ion-button clear block color="light" class="border-right"><ion-icon name="home"></ion-icon></button>
       </ion-col>
       <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" (click)="openUseful()" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        <button ion-button clear block color="burgundy" (click)="openUseful()" class="border-right"><ion-icon class="icoBtn" name="ios-information-circle"><a class="btnBotton">Χρήσιμα</a></ion-icon></button>
       </ion-col>
       <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" class="border-right"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        <button ion-button clear block color="burgundy" class="border-right"><ion-icon class="icoBtn" name="md-desktop"><a class="btnBotton">TVnews</a></ion-icon></button>
       </ion-col>
       <ion-col col-3.33 no-padding>
-        <button ion-button clear block color="light" class="lastButton"><ion-icon name="ios-information-circle-outline"></ion-icon></button>
+        <button ion-button clear block color="burgundy" class="lastButton"><ion-icon class="icoBtn" name="ios-mic"><a class="btnBotton">Report</a></ion-icon></button>
       </ion-col>
     </ion-row>
   </ion-grid>

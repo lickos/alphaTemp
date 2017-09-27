@@ -18,6 +18,22 @@ export class HomePage {
   isInFavs4: boolean = false;
   isInFavs5: boolean = false;
   isInFavsEd: boolean = false;
+  isInFavsCyp0: boolean = false;
+  isInFavsCyp1: boolean = false;
+  isInFavsPol0: boolean = false;
+  isInFavsPol1: boolean = false;
+  isInFavsSport0: boolean = false;
+  isInFavsSport1: boolean = false;
+  isInFavsGr0: boolean = false;
+  isInFavsGr1: boolean = false;
+  isInFavsEnt0: boolean = false;
+  isInFavsEnt1: boolean = false;
+  isInFavsInt0: boolean = false;
+  isInFavsInt1: boolean = false;
+  isInFavsHealth0: boolean = false;
+  isInFavsHealth1: boolean = false;
+  isInFavsEco0: boolean = false;
+  isInFavsEco1: boolean = false;
   showCarouzel: boolean = true;
   showBreaking: boolean = false;
   breakingNews: any;
@@ -150,7 +166,6 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    // "https://alphanews.live/breaking.json"
     this.getData.getRemoteData("https://alphanews.live/json/topnews").then(data => {
       this.top0 = data[0];
       let classType0 = data[0].category;
@@ -207,6 +222,12 @@ export class HomePage {
       this.CypData1 = data[1];
       this.CypData2 = data[2];
       this.pic0 = data[0].image_url;
+      this.strgprvd.checkIfInfavs(this.CypData.nid).then(val => {
+        this.isInFavsCyp0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.CypData1.nid).then(val => {
+        this.isInFavsCyp1 = val;
+      });
       this.storage.set("CypData", data).then(() => {
         console.log("Success Storage Cyp");
       });
@@ -216,6 +237,12 @@ export class HomePage {
       this.PolData1 = data[1];
       this.PolData2 = data[2];
       this.pic1 = data[0].image_url;
+      this.strgprvd.checkIfInfavs(this.PolData.nid).then(val => {
+        this.isInFavsPol0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.PolData1.nid).then(val => {
+        this.isInFavsPol1 = val;
+      });
       this.storage.set("PolData", data).then(() => {
         console.log("Success Storage Pol");
       });
@@ -225,6 +252,12 @@ export class HomePage {
       this.SportsData1 = data[1];
       this.SportsData2 = data[2];
       this.pic2 = data[0].image_url;
+      this.strgprvd.checkIfInfavs(this.SportsData.nid).then(val => {
+        this.isInFavsSport0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.SportsData1.nid).then(val => {
+        this.isInFavsSport1 = val;
+      });
       this.storage.set("SportsData", data).then(() => {
         console.log("Success Storage Sports");
       });
@@ -234,6 +267,12 @@ export class HomePage {
       this.EntData1 = data[1];
       this.EntData2 = data[2];
       this.pic3 = data[0].image_url;
+      this.strgprvd.checkIfInfavs(this.EntData.nid).then(val => {
+        this.isInFavsEnt0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.EntData1.nid).then(val => {
+        this.isInFavsEnt1 = val;
+      });
       this.storage.set("EntData", data).then(() => {
         console.log("Success Storage Ent");
       });
@@ -243,6 +282,12 @@ export class HomePage {
       this.IntData1 = data[1];
       this.IntData2 = data[2];
       this.pic4 = data[0].image_url;
+      this.strgprvd.checkIfInfavs(this.IntData.nid).then(val => {
+        this.isInFavsInt0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.IntData1.nid).then(val => {
+        this.isInFavsInt1 = val;
+      });
       this.storage.set("IntData", data).then(() => {
         console.log("Success Storage Int");
       });
@@ -250,6 +295,12 @@ export class HomePage {
     this.getData.getRemoteData(" https://alphanews.live/json/cat/4").then(data => {
       this.GreeceData = data[0];
       this.GreeceData1 = data[1];
+      this.strgprvd.checkIfInfavs(this.GreeceData.nid).then(val => {
+        this.isInFavsGr0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.GreeceData1.nid).then(val => {
+        this.isInFavsGr1 = val;
+      });
       this.storage.set("GreeceData", data).then(() => {
         console.log("Success Storage Greece");
       });
@@ -257,6 +308,12 @@ export class HomePage {
     this.getData.getRemoteData(" https://alphanews.live/json/cat/8").then(data => {
       this.HealthData = data[0];
       this.HealthData1 = data[1];
+      this.strgprvd.checkIfInfavs(this.HealthData.nid).then(val => {
+        this.isInFavsHealth0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.HealthData1.nid).then(val => {
+        this.isInFavsHealth1 = val;
+      });
       this.storage.set("HealthData", data).then(() => {
         console.log("Success Health");
       });
@@ -264,6 +321,12 @@ export class HomePage {
     this.getData.getRemoteData(" https://alphanews.live/json/cat/9").then(data => {
       this.EconomyData = data[0];
       this.EconomyData1 = data[1];
+      this.strgprvd.checkIfInfavs(this.EconomyData.nid).then(val => {
+        this.isInFavsEco0 = val;
+      });
+      this.strgprvd.checkIfInfavs(this.EconomyData1.nid).then(val => {
+        this.isInFavsEco1 = val;
+      });
       this.storage.set("EconomyData", data).then(() => {
         console.log("Success Economy");
       });
@@ -303,6 +366,86 @@ export class HomePage {
   setFavEd(item) {
     this.strgprvd.setFavs(item);
     this.isInFavsEd = true;
+  }
+
+  setFavCyp0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsCyp0 = true;
+  }
+
+  setFavCyp1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsCyp1 = true;
+  }
+
+  setFavPol0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsPol0 = true;
+  }
+
+  setFavPol1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsPol1 = true;
+  }
+
+  setFavSport0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsSport0 = true;
+  }
+
+  setFavSport1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsSport1 = true;
+  }
+
+  setFavGr0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsGr0 = true;
+  }
+
+  setFavGr1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsGr1 = true;
+  }
+
+  setFavEnt0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsEnt0 = true;
+  }
+
+  setFavEnt1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsEnt1 = true;
+  }
+
+  setFavInt0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsInt0 = true;
+  }
+
+  setFavInt1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsInt1 = true;
+  }
+
+  setFavHealth0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsHealth0 = true;
+  }
+
+  setFavHealth1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsHealth1 = true;
+  }
+
+  setFavEco0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsEco0 = true;
+  }
+
+  setFavEco1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavsEco1 = true;
   }
 
   alertFav() {

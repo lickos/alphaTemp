@@ -7,20 +7,14 @@ import { AlertController } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: "page-cyprus",
-  templateUrl: "cyprus.html"
+  selector: "page-louis",
+  templateUrl: "louis.html"
 })
-export class CyprusPage {
-  page: string;
+export class LouisPage {
   items0: any;
   items1: any;
   items: any;
-  showAll: boolean;
-  neaagoras0: any;
-  neaagoras1: any;
-  neaagoras: any;
   tempItem: any;
-  tempItem2: any;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
@@ -32,12 +26,10 @@ export class CyprusPage {
     public strgprvd: StorageproviderProvider,
     public storage: Storage,
     public alert: AlertController
-  ) {
-    this.navParams.get("showAll");
-  }
+  ) {}
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/1").then(data => {
+    this.getdata.getRemoteData("https://alphanews.live/json/louis").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
@@ -58,21 +50,11 @@ export class CyprusPage {
     });
   }
 
-  hideAll() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cyprus/2246").then(data => {
-      this.tempItem2 = data;
-      this.neaagoras0 = this.tempItem2[0];
-      this.tempItem2.shift();
-      this.neaagoras1 = this.tempItem2[0];
-      this.tempItem2.shift();
-      this.neaagoras = this.tempItem2;
-      this.showAll = false;
-    });
-  }
-
   putItemsInArray(index, val) {
     this.isRestInFavs[index] = val;
   }
+
+  ionViewDidEnter() {}
 
   setFav0(item) {
     this.strgprvd.setFavs(item);

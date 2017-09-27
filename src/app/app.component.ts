@@ -34,10 +34,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.oneSignal.startInit(
-        "61b6d88e-c018-41b1-9fa6-4a1a01b0336d",
-        "221135394305"
-      );
+      this.oneSignal.startInit("61b6d88e-c018-41b1-9fa6-4a1a01b0336d", "221135394305");
       this.oneSignal.endInit();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -122,7 +119,7 @@ export class MyApp {
   }
 
   neaAgoras() {
-    this.nav.push("CatpagePage", { StorageData: "", CatId: "politics/59" });
+    this.nav.push("CyprusPage", { StorageData: "CypData" });
   }
 
   openUseful() {
@@ -168,6 +165,11 @@ export class MyApp {
 
   openHomePage() {
     this.nav.push("HomePage");
+    this.menuCtrl.close();
+  }
+
+  openLouis() {
+    this.nav.push("LouisPage");
     this.menuCtrl.close();
   }
 }
