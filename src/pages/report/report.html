@@ -5,8 +5,8 @@
   <p class="lightGreyColor centerAlign" no-margin padding text-wrap>Μπορείτε να ρυθμίσετε τον τρόπο που θέλετε να ενημερώνεστε μέσα από το Alphanews</p>
 </ion-header>
 
-<ion-content padding>
-  <button ion-button full (click)="captureImage()">Capture Image</button>
+<ion-content>
+
   <button ion-button full (click)="sendEmail()">Send Email</button>
 
   <ion-card>
@@ -15,4 +15,36 @@
       <img [src]="currentImage" *ngIf="currentImage" />
     </ion-card-content>
   </ion-card>
+
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label floating>Ονοματεπώνυμο</ion-label>
+      <ion-input type="text" [(ngModel)]="emailReport.name" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Αριθμός Τηλεφώνου</ion-label>
+      <ion-input type="tel" [(ngModel)]="emailReport.tel" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-textarea [(ngModel)]="emailReport.description" name="description"></ion-textarea>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-5><button ion-button outline color="pnored">
+          <ion-icon name="ios-camera"></ion-icon>Take a Pic
+        </button>
+        </ion-col>
+        <ion-col col-5><button ion-button outline color="pnored">
+            <ion-icon name="md-document"></ion-icon>Select a File
+          </button>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <button ion-button full (click)="captureImage()">Capture Image</button>
+    <button ion-button type="submit" block>Report It!</button>
+  </form>
 </ion-content>

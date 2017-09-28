@@ -9,8 +9,13 @@ import { EmailComposer } from "@ionic-native/email-composer";
   templateUrl: "report.html"
 })
 export class ReportPage {
+  emailReport = {};
   currentImage = null;
   constructor(private camera: Camera, private emailComposer: EmailComposer) {}
+
+  logForm() {
+    console.log(this.emailReport);
+  }
 
   captureImage() {
     const options: CameraOptions = {
