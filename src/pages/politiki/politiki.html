@@ -2,7 +2,7 @@
   <alphaheader></alphaheader>
 </ion-header>
 
-<ion-content>
+<ion-content (swipe)="goToNextCat($event)">
   <ion-item class="backtitleSport">
     <ion-title class="centerAlign noPaddingBottom" (click)="showAgain()"><b id="politikiTitle">Πολιτική</b></ion-title>
     <ion-segment [(ngModel)]="page" color="dark" no-margin-top>
@@ -92,19 +92,18 @@
         </ion-grid>
       </ion-item>
     </ion-list>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-4>
-        </ion-col>
-        <ion-col col-4 class="alignCenter">
-          <button ion-button clear icon-top>
-                <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-              </button>
-        </ion-col>
-        <ion-col col-4>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-row>
+      <ion-col col-2>
+      </ion-col>
+      <ion-col col-8 class="alignCenter" (click)="showNextTen()">
+        <button ion-button clear icon-top>
+        <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
+      </button><br/>
+        <small><label class="pnored">Περισσότερες Ειδήσεις</label></small>
+      </ion-col>
+      <ion-col col-2>
+      </ion-col>
+    </ion-row>
   </div>
   <div [ngSwitch]="page">
     <div *ngSwitchCase="'cypriako'">
@@ -185,19 +184,6 @@
           </ion-grid>
         </ion-item>
       </ion-list>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-4>
-          </ion-col>
-          <ion-col col-4 class="alignCenter">
-            <button ion-button clear icon-top>
-              <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-            </button>
-          </ion-col>
-          <ion-col col-4>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
     </div>
     <div [ngSwitch]="page">
       <div *ngSwitchCase="'energeia'">
@@ -278,19 +264,6 @@
             </ion-grid>
           </ion-item>
         </ion-list>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4>
-            </ion-col>
-            <ion-col col-4 class="alignCenter">
-              <button ion-button clear icon-top>
-                  <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-4>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
       </div>
     </div>
     <div [ngSwitch]="page">
@@ -372,19 +345,6 @@
             </ion-grid>
           </ion-item>
         </ion-list>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4>
-            </ion-col>
-            <ion-col col-4 class="alignCenter">
-              <button ion-button clear icon-top>
-                    <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-                  </button>
-            </ion-col>
-            <ion-col col-4>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
       </div>
     </div>
     <div [ngSwitch]="page">
@@ -466,19 +426,6 @@
             </ion-grid>
           </ion-item>
         </ion-list>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4>
-            </ion-col>
-            <ion-col col-4 class="alignCenter">
-              <button ion-button clear icon-top>
-                      <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-                    </button>
-            </ion-col>
-            <ion-col col-4>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
       </div>
     </div>
   </div>

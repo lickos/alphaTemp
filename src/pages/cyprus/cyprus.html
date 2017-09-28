@@ -2,7 +2,7 @@
   <alphaheader></alphaheader>
 </ion-header>
 
-<ion-content>
+<ion-content (swipe)="goToNextCat($event)">
   <ion-item class="backtitle">
     <ion-title class="centerAlign noPaddingBottom"><b id="CypTitle">Κύπρος</b></ion-title>
     <ion-segment [(ngModel)]="page" color="dark" no-margin-top>
@@ -95,14 +95,15 @@
       </ion-list>
       <ion-grid>
         <ion-row>
-          <ion-col col-4>
+          <ion-col col-2>
           </ion-col>
-          <ion-col col-4 class="alignCenter">
+          <ion-col col-8 class="alignCenter" (click)="showNextTen()">
             <button ion-button clear icon-top>
             <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
-          </button>
+          </button><br/>
+            <small><label class="pnored">Περισσότερες Ειδήσεις</label></small>
           </ion-col>
-          <ion-col col-4>
+          <ion-col col-2>
           </ion-col>
         </ion-row>
       </ion-grid>

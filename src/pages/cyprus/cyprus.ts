@@ -24,16 +24,8 @@ export class CyprusPage {
   tempItem2: any;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
-  isRestInFavs: Array<boolean> = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  pageNo: number;
+  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -44,6 +36,7 @@ export class CyprusPage {
     public alert: AlertController
   ) {
     this.navParams.get("showAll");
+    this.pageNo = this.navParams.get("pageNo");
   }
 
   ionViewDidLoad() {
@@ -52,41 +45,41 @@ export class CyprusPage {
       this.hideAll();
       this.page = "marketnews";
     }
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cat/1")
-      .then(data => {
-        this.tempItem = data;
-        this.items0 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
-          this.isInFavs0 = val;
-        });
-        this.tempItem.shift();
-        this.items1 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
-          this.isInFavs1 = val;
-        });
-        this.tempItem.shift();
-        this.items = this.tempItem;
-        this.items.forEach((element, index) => {
-          this.isInFavs(element.nid).then(val => {
-            this.putItemsInArray(index, val);
-          });
+    let pageNoSt = String(this.pageNo);
+    console.log(pageNoSt);
+    let url = "https://alphanews.live/json/cat/1?page=" + pageNoSt;
+    this.getdata.getRemoteData(url).then(data => {
+      this.tempItem = data;
+      this.items0 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+        this.isInFavs0 = val;
+      });
+      this.tempItem.shift();
+      this.items1 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+        this.isInFavs1 = val;
+      });
+      this.tempItem.shift();
+      this.items = this.tempItem;
+      this.items.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray(index, val);
         });
       });
+    });
   }
 
   hideAll() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cyprus/2246")
-      .then(data => {
-        this.tempItem2 = data;
-        this.neaagoras0 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.neaagoras1 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.neaagoras = this.tempItem2;
-        this.showAll = false;
-      });
+    let url = "https://alphanews.live/json/cyprus/2246";
+    this.getdata.getRemoteData(url).then(data => {
+      this.tempItem2 = data;
+      this.neaagoras0 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.neaagoras1 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.neaagoras = this.tempItem2;
+      this.showAll = false;
+    });
   }
 
   putItemsInArray(index, val) {
@@ -124,5 +117,18 @@ export class CyprusPage {
         resolve(val);
       });
     });
+  }
+
+  goToNextCat(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push("PolitikiPage", { StorageData: "PolData", pageNo: 0 });
+    } else if (e.direction == 4) {
+      this.navCtrl.push("HomePage");
+    }
+  }
+
+  showNextTen() {
+    this.pageNo += 1;
+    this.navCtrl.push("CyprusPage", { StorageData: "CypData", pageNo: this.pageNo });
   }
 }

@@ -13,20 +13,24 @@ export class EntPage {
   items1: any;
   items: any;
   tempItem: any;
+  Cypriako: boolean = false;
   cypriako0: any;
   cypriako1: any;
   items2: any;
   tempItem2: any;
   items3: any;
   tempItem3: any;
+  greek: boolean = false;
   greek0: any;
   greek1: any;
   items4: any;
   tempItem4: any;
+  intSports: boolean = false;
   int0: any;
   int1: any;
   items5: any;
   tempItem5: any;
+  otherSports: boolean = false;
   sports0: any;
   sports1: any;
   showAll: boolean = true;
@@ -36,6 +40,26 @@ export class EntPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public getdata: GetdataProvider) {}
 
   ionViewDidLoad() {
+    this.Cypriako = this.navParams.get("Cypriako");
+    if (this.Cypriako) {
+      this.page = "Cypriako";
+      this.hideAll();
+    }
+    this.greek = this.navParams.get("greek");
+    if (this.greek) {
+      this.page = "greek";
+      this.showGreek();
+    }
+    this.intSports = this.navParams.get("intSports");
+    if (this.intSports) {
+      this.page = "intSports";
+      this.showInt();
+    }
+    this.otherSports = this.navParams.get("otherSports");
+    if (this.otherSports) {
+      this.page = "otherSports";
+      this.showSports();
+    }
     this.getdata.getRemoteData("https://alphanews.live/json/cat/7").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
@@ -105,9 +129,9 @@ export class EntPage {
 
   goToNextCat(e) {
     if (e.direction == 2) {
-      this.navCtrl.push("OikonomiaPage", { StorageData: "EconomyData" });
+      this.navCtrl.push("HomePage");
     } else if (e.direction == 4) {
-      this.navCtrl.push("IntPage", { StorageData: "IntData" });
+      this.navCtrl.push("HealthPage", { StorageData: "HealthData" });
     }
   }
 }

@@ -480,6 +480,14 @@ export class HomePage {
     });
   }
 
+  goToNextCat(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push("CyprusPage", { StorageData: "CyprusData", pageNo: 0 });
+    } else if (e.direction == 4) {
+      this.navCtrl.push("EntPage", { StorageData: "EntData" });
+    }
+  }
+
   selectClass(classType) {
     switch (classType) {
       case "Κύπρος": {

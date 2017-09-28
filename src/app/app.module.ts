@@ -9,6 +9,8 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { OneSignal } from "@ionic-native/onesignal";
 import { Geolocation } from "@ionic-native/geolocation";
+import { Camera } from "@ionic-native/camera";
+import { EmailComposer } from "@ionic-native/email-composer";
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { IonicStorageModule } from "@ionic/storage";
 import { GetdataProvider } from "../providers/getdata/getdata";
@@ -24,6 +26,8 @@ import { StorageproviderProvider } from "../providers/storageprovider/storagepro
     SplashScreen,
     OneSignal,
     Geolocation,
+    EmailComposer,
+    Camera,
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     GetdataProvider,

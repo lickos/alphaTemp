@@ -34,10 +34,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.oneSignal.startInit(
-        "61b6d88e-c018-41b1-9fa6-4a1a01b0336d",
-        "221135394305"
-      );
+      this.oneSignal.startInit("61b6d88e-c018-41b1-9fa6-4a1a01b0336d", "221135394305");
       this.oneSignal.endInit();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -52,12 +49,12 @@ export class MyApp {
   }
 
   openCyp() {
-    this.nav.push("CyprusPage", { StorageData: "CypData" });
+    this.nav.push("CyprusPage", { StorageData: "CypData", pageNo: 0 });
     this.menuCtrl.close();
   }
 
   openPol() {
-    this.nav.push("PolitikiPage", { StorageData: "PolData" });
+    this.nav.push("PolitikiPage", { StorageData: "PolData", pageNo: 0 });
     this.menuCtrl.close();
   }
 
@@ -72,7 +69,6 @@ export class MyApp {
   }
 
   openEnergeia() {
-    console.log("open");
     this.nav.push("PolitikiPage", {
       StorageData: "PolData",
       showAll: false,
@@ -162,6 +158,7 @@ export class MyApp {
       showAll: false,
       cypChampion: true
     });
+    this.showMeSports = !this.showMeSports;
     this.menuCtrl.close();
   }
 
@@ -171,6 +168,7 @@ export class MyApp {
       showAll: false,
       grChampion: true
     });
+    this.showMeSports = !this.showMeSports;
     this.menuCtrl.close();
   }
 
@@ -180,6 +178,7 @@ export class MyApp {
       showAll: false,
       intChampion: true
     });
+    this.showMeSports = !this.showMeSports;
     this.menuCtrl.close();
   }
 
@@ -189,6 +188,7 @@ export class MyApp {
       showAll: false,
       athlitismos: true
     });
+    this.showMeSports = !this.showMeSports;
     this.menuCtrl.close();
   }
 
@@ -199,6 +199,71 @@ export class MyApp {
 
   openLouis() {
     this.nav.push("LouisPage");
+    this.menuCtrl.close();
+  }
+
+  openFitness() {
+    this.nav.push("HealthPage", {
+      StorageData: "HealthData",
+      showAll: false,
+      Cypriako: true
+    });
+    this.showMeHealth = !this.showMeHealth;
+    this.menuCtrl.close();
+  }
+
+  openPsych() {
+    this.nav.push("HealthPage", {
+      StorageData: "HealthData",
+      showAll: false,
+      Psych: true
+    });
+    this.showMeHealth = !this.showMeHealth;
+    this.menuCtrl.close();
+  }
+
+  openProtaseis() {
+    this.nav.push("EntPage", {
+      StorageData: "EntData",
+      showAll: false,
+      Cypriako: true
+    });
+    this.showMeEnt = !this.showMeEnt;
+    this.menuCtrl.close();
+  }
+
+  openShowBiz() {
+    this.nav.push("EntPage", {
+      StorageData: "EntData",
+      showAll: false,
+      greek: true
+    });
+    this.showMeEnt = !this.showMeEnt;
+    this.menuCtrl.close();
+  }
+
+  opensinentefxeis() {
+    this.nav.push("EntPage", {
+      StorageData: "EntData",
+      showAll: false,
+      intSports: true
+    });
+    this.showMeEnt = !this.showMeEnt;
+    this.menuCtrl.close();
+  }
+
+  openKitchen() {
+    this.nav.push("EntPage", {
+      StorageData: "EntData",
+      showAll: false,
+      otherSports: true
+    });
+    this.showMeEnt = !this.showMeEnt;
+    this.menuCtrl.close();
+  }
+
+  openReport() {
+    this.nav.push("ReportPage");
     this.menuCtrl.close();
   }
 }

@@ -12,6 +12,8 @@ export class HealthPage {
   items0: any;
   items1: any;
   items: any;
+  Cypraiko: boolean = false;
+  Psych: boolean = false;
   tempItem: any;
   cypriako0: any;
   cypriako1: any;
@@ -38,6 +40,16 @@ export class HealthPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public getdata: GetdataProvider) {}
 
   ionViewDidLoad() {
+    this.Cypraiko = this.navParams.get("Cypriako");
+    if (this.Cypraiko) {
+      this.page = "Cypriako";
+      this.hideAll();
+    }
+    this.Psych = this.navParams.get("Psych");
+    if (this.Psych) {
+      this.page = "greek";
+      this.showGreek();
+    }
     this.getdata.getRemoteData("https://alphanews.live/json/cat/8").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
@@ -85,13 +97,9 @@ export class HealthPage {
 
   goToNextCat(e) {
     if (e.direction == 2) {
-      this.navCtrl.push("OikonomiaPage", { StorageData: "EconomyData" });
+      this.navCtrl.push("EntPage", { StorageData: "EntData" });
     } else if (e.direction == 4) {
-      this.navCtrl.push("IntPage", { StorageData: "IntData" });
+      this.navCtrl.push("OikonomiaPage", { StorageData: "EconomyData" });
     }
-  }
-
-  openTeam(omadaId, name) {
-    this.navCtrl.push("OmadesPage", { omadaId: omadaId, name: name });
   }
 }

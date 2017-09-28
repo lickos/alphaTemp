@@ -180,7 +180,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" *ngIf="showMeHealth" menuClose (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" *ngIf="showMeHealth" menuClose (click)="openFitness()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -190,7 +190,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" menuClose *ngIf="showMeHealth" (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" menuClose *ngIf="showMeHealth" (click)="openPsych()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -214,7 +214,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openProtaseis()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -224,7 +224,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openShowBiz()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -234,7 +234,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="opensinentefxeis()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -244,7 +244,7 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openDiethniProtathlimata()">
+      <ion-item class="greyClr" menuClose *ngIf="showMeEnt" (click)="openKitchen()">
         <ion-grid>
           <ion-row>
             <ion-col col-1></ion-col>
@@ -317,9 +317,9 @@
             <ion-icon name="md-desktop"></ion-icon>TVnews
           </button>
         </ion-col>
-        <ion-col col-4>
+        <ion-col col-4 (click)="openReport()">
           <button ion-button full icon-left class="noPad greyClr">
-            <ion-icon name="ios-chatbubbles-outline"></ion-icon>Report
+            <ion-icon name="ios-mic"></ion-icon>Report
           </button>
         </ion-col>
       </ion-row>

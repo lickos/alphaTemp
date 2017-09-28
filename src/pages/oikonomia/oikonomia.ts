@@ -88,4 +88,12 @@ export class OikonomiaPage {
       });
     });
   }
+
+  goToNextCat(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push("HealthPage", { StorageData: "HealthData" });
+    } else if (e.direction == 4) {
+      this.navCtrl.push("SportsPage", { StorageData: "SportsData", showAll: true });
+    }
+  }
 }

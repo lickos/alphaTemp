@@ -26,19 +26,11 @@ export class PolitikiPage {
   energeia1: any;
   tempItem2: any;
   items2: any;
+  pageNo: number;
   showAll: boolean = true;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
-  isRestInFavs: Array<boolean> = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -51,6 +43,7 @@ export class PolitikiPage {
 
   ionViewDidLoad() {
     this.cypriakoPage = this.navParams.get("cypriakoPage");
+    this.pageNo = this.navParams.get("pageNo");
     if (this.cypriakoPage) {
       this.page = "cypriako";
       this.showCypriako();
@@ -60,27 +53,28 @@ export class PolitikiPage {
       this.page = "energeia";
       this.showEnergeia();
     }
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cat/2")
-      .then(data => {
-        this.tempItem = data;
-        this.politiki0 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.politiki0.nid).then(val => {
-          this.isInFavs0 = val;
-        });
-        this.tempItem.shift();
-        this.politiki1 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.politiki1.nid).then(val => {
-          this.isInFavs1 = val;
-        });
-        this.tempItem.shift();
-        this.items = this.tempItem;
-        this.items.forEach((element, index) => {
-          this.isInFavs(element.nid).then(val => {
-            this.putItemsInArray(index, val);
-          });
+    let pageNo = String(this.pageNo);
+    let url = "https://alphanews.live/json/cat/2?page=" + pageNo;
+    console.log(pageNo);
+    this.getdata.getRemoteData(url).then(data => {
+      this.tempItem = data;
+      this.politiki0 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.politiki0.nid).then(val => {
+        this.isInFavs0 = val;
+      });
+      this.tempItem.shift();
+      this.politiki1 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.politiki1.nid).then(val => {
+        this.isInFavs1 = val;
+      });
+      this.tempItem.shift();
+      this.items = this.tempItem;
+      this.items.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray(index, val);
         });
       });
+    });
   }
 
   ionViewDidEnter() {}
@@ -123,35 +117,44 @@ export class PolitikiPage {
   }
 
   showCypriako() {
-    this.getdata
-      .getRemoteData(" http://alphanews.live/json/politics/59")
-      .then(data => {
-        this.tempItem1 = data;
-        this.cypriako0 = this.tempItem1[0];
-        this.tempItem1.shift();
-        this.cypriako1 = this.tempItem1[0];
-        this.tempItem1.shift();
-        this.items1 = this.tempItem1;
-        this.showAll = false;
-      });
+    this.getdata.getRemoteData(" http://alphanews.live/json/politics/59").then(data => {
+      this.tempItem1 = data;
+      this.cypriako0 = this.tempItem1[0];
+      this.tempItem1.shift();
+      this.cypriako1 = this.tempItem1[0];
+      this.tempItem1.shift();
+      this.items1 = this.tempItem1;
+      this.showAll = false;
+    });
   }
 
   showEnergeia() {
-    this.getdata
-      .getRemoteData(" http://alphanews.live/json/politics/60")
-      .then(data => {
-        this.tempItem2 = data;
-        this.energeia0 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.energeia1 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.items2 = this.tempItem2;
-        this.showAll = false;
-      });
+    this.getdata.getRemoteData(" http://alphanews.live/json/politics/60").then(data => {
+      this.tempItem2 = data;
+      this.energeia0 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.energeia1 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.items2 = this.tempItem2;
+      this.showAll = false;
+    });
   }
 
   showAgain() {
     this.showAll = true;
     this.page = "";
+  }
+
+  goToNextCat(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push("GreecePage", { StorageData: "GreeceData", pageNo: 0 });
+    } else if (e.direction == 4) {
+      this.navCtrl.push("CyprusPage", { StorageData: "CypData", pageNo: 0 });
+    }
+  }
+
+  showNextTen() {
+    this.pageNo += 1;
+    this.navCtrl.push("PolitikiPage", { StorageData: "PolData", pageNo: this.pageNo });
   }
 }
