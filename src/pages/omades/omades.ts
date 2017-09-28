@@ -94,6 +94,6 @@ export class OmadesPage {
   }
 
   showAgain() {
-    this.navCtrl.push("SportsPage");
+    this.navCtrl.push("SportsPage", { StorageData: "SportsData", showAll: true });
   }
 }
