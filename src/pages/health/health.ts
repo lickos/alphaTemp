@@ -74,6 +74,15 @@ export class HealthPage {
     });
   }
 
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
+  }
+
   showGreek() {
     this.getdata.getRemoteData(" http://alphanews.live/json/health/555").then(data => {
       this.tempItem3 = data;

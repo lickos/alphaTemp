@@ -2,6 +2,9 @@
   <alphaheader></alphaheader>
 </ion-header>
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-slides *ngIf="showCarouzel" text-wrap autoplay="4000" style="height:70%; background-color:#252525">
     <ion-slide (click)="openArticle(top0)">
       <div class="imageDiv">

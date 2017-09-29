@@ -89,6 +89,15 @@ export class IntPage {
     });
   }
 
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
+  }
+
   goToNextCat(e) {
     if (e.direction == 2) {
       this.navCtrl.push("SportsPage", { StorageData: "SportsData", showAll: true });

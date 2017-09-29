@@ -3,8 +3,11 @@
 </ion-header>
 
 <ion-content (swipe)="goToNextCat($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-item class="backtitleSport">
-    <ion-title class="centerAlign noPaddingBottom" (click)="showAgain()"><b id="politikiTitle">Πολιτική</b></ion-title>
+    <ion-title class="centerAlign noPaddingBottom" (click)="openFirst()"><b id="PolitikiTitle">Πολιτική</b></ion-title>
     <ion-segment [(ngModel)]="page" color="dark" no-margin-top>
       <ion-segment-button value="cypriako" (click)="showCypriako()">
         Κυπριακό
@@ -107,6 +110,9 @@
   </div>
   <div [ngSwitch]="page">
     <div *ngSwitchCase="'cypriako'">
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
       <ion-grid>
         <ion-row class="CatRow">
           <ion-col col-6 no-padding>
@@ -187,6 +193,9 @@
     </div>
     <div [ngSwitch]="page">
       <div *ngSwitchCase="'energeia'">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
         <ion-grid>
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>

@@ -12,6 +12,8 @@ import { AlertController } from "ionic-angular";
 })
 export class PolitikiPage {
   page: string = "politikiAll";
+  mainLink: boolean = true;
+  showLink: boolean = false;
   politiki0: any;
   politiki1: any;
   items: any;
@@ -75,6 +77,15 @@ export class PolitikiPage {
         });
       });
     });
+  }
+
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
   }
 
   ionViewDidEnter() {}
@@ -153,8 +164,16 @@ export class PolitikiPage {
     }
   }
 
+  openFirst() {
+    this.navCtrl.push("PolitikiPage", { StorageData: "PolData", pageNo: 0 });
+  }
+
   showNextTen() {
     this.pageNo += 1;
+    this.mainLink = false;
+    this.showLink = true;
+    console.log(this.mainLink);
+    console.log(this.showLink);
     this.navCtrl.push("PolitikiPage", { StorageData: "PolData", pageNo: this.pageNo });
   }
 }

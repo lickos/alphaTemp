@@ -39,6 +39,19 @@ export class CyprusPage {
     this.pageNo = this.navParams.get("pageNo");
   }
 
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
+  }
+
+  openFirst() {
+    this.navCtrl.push("CyprusPage", { StorageData: "CypData", pageNo: 0 });
+  }
+
   ionViewDidLoad() {
     this.neaAgorasPage = this.navParams.get("neaAgorasPage");
     if (this.neaAgorasPage) {

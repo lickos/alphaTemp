@@ -14,11 +14,7 @@ export class FavoritesPage {
   searchTerm: string;
   title: any;
 
-  constructor(
-    public navCtrl: NavController,
-    public strgprvd: StorageproviderProvider,
-    public navParams: NavParams
-  ) {}
+  constructor(public navCtrl: NavController, public strgprvd: StorageproviderProvider, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.initializeArray();
@@ -32,6 +28,15 @@ export class FavoritesPage {
         this.initItems = data;
       }
     });
+  }
+
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
   }
 
   openArticle(item) {

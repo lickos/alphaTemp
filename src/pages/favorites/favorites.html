@@ -4,6 +4,9 @@
 
 
 <ion-content no-padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-title>
     <h2 class="centerAlign">Αγαπημένα</h2>
   </ion-title>

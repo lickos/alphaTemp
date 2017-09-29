@@ -28,6 +28,15 @@ export class LouisPage {
     public alert: AlertController
   ) {}
 
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
+  }
+
   ionViewDidLoad() {
     this.getdata.getRemoteData("https://alphanews.live/json/louis").then(data => {
       this.tempItem = data;

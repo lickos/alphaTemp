@@ -3,6 +3,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-item class="backtitle">
     <ion-title class="centerAlign noPaddingBottom" (click)="showAgain()"><b id="sportsTitle3">Αθλητικά</b>
       <ion-icon name="ios-arrow-back"></ion-icon>

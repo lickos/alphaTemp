@@ -3,10 +3,14 @@
 </ion-header>
 
 <ion-content (swipe)="goToNextCat($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-item class="backtitleSport">
     <ion-title *ngIf="mainLink" class="centerAlign noPaddingBottom"><b id="sportsTitle">Αθλητικά</b></ion-title>
-    <ion-title *ngIf="showLink" class="centerAlign noPaddingBottom" (click)="showAgain()"><b id="sportsTitle2">Αθλητικά</b>
-      <ion-icon name="ios-arrow-back"></ion-icon>
+    <ion-title *ngIf="showLink" class="centerAlign noPaddingBottom" (click)="showAgain()">
+      <ion-icon padding-right name="md-arrow-round-back" color="pnored"></ion-icon>
+      <b id="sportsTitle2">Αθλητικά</b>
     </ion-title>
     <ion-segment [(ngModel)]="page" color="dark" no-margin-top>
       <ion-segment-button value="Cypriako" (click)="hideAll()">
@@ -132,6 +136,9 @@
   </div>
   <div [ngSwitch]="page">
     <div *ngSwitchCase="'Cypriako'">
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
       <ion-grid>
         <ion-row class="CatRow">
           <ion-col col-6 no-padding>
@@ -161,7 +168,7 @@
         <ion-col col-10>
           <ion-slides text-wrap slidesPerView="5" style="height:100%; background-color:#fff">
             <ion-slide *ngFor="let omada of omades">
-              <img class="omades" src="{{omada?.image_url_square_large}}" (click)="openTeam(omada?.tid, omada?.name)" />
+              <img class="omades" src="{{omada?.image_url}}" (click)="openTeam(omada?.tid, omada?.name)" />
             </ion-slide>
           </ion-slides>
         </ion-col>
@@ -240,6 +247,9 @@
     </div>
     <div [ngSwitch]="page">
       <div *ngSwitchCase="'greek'">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
         <ion-grid>
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>
@@ -334,6 +344,9 @@
     </div>
     <div [ngSwitch]="page">
       <div *ngSwitchCase="'intSports'">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
         <ion-grid>
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>
@@ -428,6 +441,9 @@
     </div>
     <div [ngSwitch]="page">
       <div *ngSwitchCase="'otherSports'">
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
         <ion-grid>
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>

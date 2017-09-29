@@ -47,16 +47,7 @@ export class SportsPage {
   athlitismos: boolean = false;
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
-  isRestInFavs: Array<boolean> = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -75,115 +66,122 @@ export class SportsPage {
     this.grChampion = this.navParams.get("grChampion");
     this.intChampion = this.navParams.get("intChampion");
     this.athlitismos = this.navParams.get("athlitismos");
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cyprus-soccer-1")
-      .then(data => {
-        this.omades = data;
-        if (this.cypChampion) {
-          this.page = "Cypriako";
-          this.hideAll();
-        }
-        if (this.grChampion) {
-          this.page = "greek";
-          this.showGreek();
-        }
-        if (this.intChampion) {
-          this.page = "intSports";
-          this.showInt();
-        }
-        if (this.athlitismos) {
-          this.page = "otherSports";
-          this.showSports();
-        }
-      });
+    this.getdata.getRemoteData("https://alphanews.live/json/cyprus-soccer-1").then(data => {
+      this.omades = data;
+      if (this.cypChampion) {
+        this.page = "Cypriako";
+        this.hideAll();
+      }
+      if (this.grChampion) {
+        this.page = "greek";
+        this.showGreek();
+      }
+      if (this.intChampion) {
+        this.page = "intSports";
+        this.showInt();
+      }
+      if (this.athlitismos) {
+        this.page = "otherSports";
+        this.showSports();
+      }
+    });
   }
 
   ionViewDidEnter() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/cat/6")
-      .then(data => {
-        this.tempItem = data;
-        this.items0 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
-          this.isInFavs0 = val;
-        });
-        this.tempItem.shift();
-        this.items1 = this.tempItem[0];
-        this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
-          this.isInFavs1 = val;
-        });
-        this.tempItem.shift();
-        this.items = this.tempItem;
-        this.items.forEach((element, index) => {
-          this.isInFavs(element.nid).then(val => {
-            this.putItemsInArray(index, val);
-          });
+    this.getdata.getRemoteData("https://alphanews.live/json/cat/6").then(data => {
+      this.tempItem = data;
+      this.items0 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+        this.isInFavs0 = val;
+      });
+      this.tempItem.shift();
+      this.items1 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+        this.isInFavs1 = val;
+      });
+      this.tempItem.shift();
+      this.items = this.tempItem;
+      this.items.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray(index, val);
         });
       });
+    });
   }
+
+  doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      refresher.complete();
+    }, 2000);
+  }
+
+  openFirst() {}
 
   hideAll() {
     console.log("Kypriako");
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/sports/76")
-      .then(data => {
-        this.tempItem2 = data;
-        console.log(this.tempItem2);
-        this.cypriako0 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.cypriako1 = this.tempItem2[0];
-        this.tempItem2.shift();
-        this.items2 = this.tempItem2;
-        this.showAll = false;
-        this.showLink = true;
-        this.mainLink = false;
-      });
+    this.getdata.getRemoteData("https://alphanews.live/json/sports/76").then(data => {
+      this.tempItem2 = data;
+      console.log(this.tempItem2);
+      this.cypriako0 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.cypriako1 = this.tempItem2[0];
+      this.tempItem2.shift();
+      this.items2 = this.tempItem2;
+      this.showAll = false;
+      this.showLink = true;
+      this.mainLink = false;
+    });
   }
 
   showGreek() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/sports/77")
-      .then(data => {
-        this.tempItem3 = data;
-        this.greek0 = this.tempItem3[0];
-        this.tempItem3.shift();
-        this.greek1 = this.tempItem3[0];
-        this.tempItem3.shift();
-        this.items3 = this.tempItem3;
-        this.showAll = false;
-      });
+    this.getdata.getRemoteData("https://alphanews.live/json/sports/77").then(data => {
+      this.tempItem3 = data;
+      this.greek0 = this.tempItem3[0];
+      this.tempItem3.shift();
+      this.greek1 = this.tempItem3[0];
+      this.tempItem3.shift();
+      this.items3 = this.tempItem3;
+      this.showAll = false;
+      this.showLink = true;
+      this.mainLink = false;
+    });
   }
 
   showInt() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/sports/78")
-      .then(data => {
-        this.tempItem4 = data;
-        this.int0 = this.tempItem4[0];
-        this.tempItem4.shift();
-        this.int1 = this.tempItem4[0];
-        this.tempItem4.shift();
-        this.items4 = this.tempItem4;
-        this.showAll = false;
-      });
+    this.getdata.getRemoteData("https://alphanews.live/json/sports/78").then(data => {
+      this.tempItem4 = data;
+      this.int0 = this.tempItem4[0];
+      this.tempItem4.shift();
+      this.int1 = this.tempItem4[0];
+      this.tempItem4.shift();
+      this.items4 = this.tempItem4;
+      this.showAll = false;
+      this.showLink = true;
+      this.mainLink = false;
+    });
   }
 
   showSports() {
-    this.getdata
-      .getRemoteData("https://alphanews.live/json/sports/79")
-      .then(data => {
-        this.tempItem5 = data;
-        this.sports0 = this.tempItem5[0];
-        this.tempItem5.shift();
-        this.sports1 = this.tempItem5[0];
-        this.tempItem5.shift();
-        this.items5 = this.tempItem5;
-        this.showAll = false;
-      });
+    this.getdata.getRemoteData("https://alphanews.live/json/sports/79").then(data => {
+      this.tempItem5 = data;
+      this.sports0 = this.tempItem5[0];
+      this.tempItem5.shift();
+      this.sports1 = this.tempItem5[0];
+      this.tempItem5.shift();
+      this.items5 = this.tempItem5;
+      this.showAll = false;
+      this.showLink = true;
+      this.mainLink = false;
+    });
   }
 
   showAgain() {
     this.showAll = true;
+    this.showLink = false;
+    this.mainLink = true;
     this.page = "";
   }
 

@@ -3,6 +3,9 @@
 </ion-header>
 
 <ion-content (swipe)="goToNextCat($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-item class="backtitle">
     <ion-title class="centerAlign noPaddingBottom"><b id="EconTitle">Οικονομία</b></ion-title>
   </ion-item>
