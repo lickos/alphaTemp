@@ -25,6 +25,75 @@ a {
   font-family: "AppFont" !important;
 }
 
+.headSettings {
+  color: #e53b3d;
+}
+
+.socialHead {
+  margin-bottom: 2px;
+  color: #828282;
+}
+
+.socialText {
+  margin-top: 0px;
+  color: #828282;
+}
+
+.socialIcons {
+  background-color: #fff !important;
+}
+
+@media (max-width: 650px) {
+  .socialHead {
+    font-size: 1.2rem;
+  }
+  .socialText {
+    font-size: 1.1rem;
+  }
+  .socialIcons {
+    font-size: 2rem;
+  }
+  .homeIc {
+    font-size: 3rem !important;
+  }
+}
+
+@media (min-width: 651px) {
+  .headSettings {
+    font-size: 2em;
+    margin: 0px;
+  }
+  .headIcon {
+    font-size: 2.5em !important;
+    margin: 0px;
+  }
+  .menuItem {
+    font-size: 2em;
+  }
+  .menuItem2 {
+    font-size: 1.8em;
+  }
+  .socialHead {
+    font-size: 2em;
+  }
+  .socialText {
+    font-size: 1.8em;
+  }
+  .socialIcons {
+    font-size: 2.8em;
+  }
+  .menuBtn {
+    font-size: 2em !important;
+  }
+  .homeIc {
+    font-size: 3em !important;
+  }
+}
+
+.headIcon {
+  font-size: 1.5em;
+}
+
 .badge-ios {
   border-radius: 4px;
 }
@@ -98,32 +167,11 @@ a {
   margin-bottom: 0px !important;
 }
 
-.homeIc {
-  font-size: 3rem !important;
-}
-
 .lighter {
   background-color: #4f4b4b;
   color: #fff;
   margin-top: 0px;
   margin-bottom: 0.1em;
-}
-
-.socialHead {
-  font-size: 1.2rem;
-  margin-bottom: 2px;
-  color: #828282;
-}
-
-.socialText {
-  font-size: 1.1rem;
-  margin-top: 0px;
-  color: #828282;
-}
-
-.socialIcons {
-  background-color: #fff !important;
-  font-size: 2rem;
 }
 
 .darkMenu {

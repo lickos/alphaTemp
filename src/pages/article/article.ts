@@ -1,5 +1,8 @@
+import { StorageproviderProvider } from "./../../providers/storageprovider/storageprovider";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AlertController } from "ionic-angular";
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -10,9 +13,20 @@ export class ArticlePage {
   items: any;
   el: HTMLElement;
   BadgeClass: any;
+  isVideo: boolean = false;
+  isInFavs0: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public strgprvd: StorageproviderProvider,
+    public alert: AlertController,
+    public storage: Storage
+  ) {
     this.items = this.navParams.get("items");
+    this.strgprvd.checkIfInfavs(this.items.nid).then(val => {
+      this.isInFavs0 = val;
+    });
     switch (this.items.category) {
       case "Κύπρος": {
         this.BadgeClass = "CyprusClass";
@@ -55,28 +69,26 @@ export class ArticlePage {
   ionViewDidLoad() {
     this.el = document.getElementById("test");
     let artCont = this.items.content;
-    let stringToCheck1 = 'width="854"';
-    let stringToCheck2 = 'height="480"';
-    let stringToCheckOther = 'height="478"';
-    let var1 = new RegExp(stringToCheckOther, "g");
-    let var2 = new RegExp(stringToCheck1, "g");
-    let var4 = new RegExp(stringToCheck2, "g");
     let stringToCheck3 = "/sites";
     let var3 = new RegExp(stringToCheck3, "g");
-    if (artCont.includes(stringToCheck2)) {
-      artCont = artCont.replace(var2, 'width="100%"');
-    }
-    if (artCont.includes(stringToCheck2)) {
-      artCont = artCont.replace(var4, 'height="auto"');
-    }
     if (artCont.includes(stringToCheck3)) {
       artCont = artCont.replace(var3, "https://alphanews.live/sites");
     }
-    if (artCont.includes(stringToCheckOther)) {
-      console.log("Into Other");
-      artCont = artCont.replace(var1, 'height="auto"');
-    }
-    console.log(artCont);
     this.el.innerHTML = artCont;
+  }
+
+  setFav0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs0 = true;
+  }
+
+  alertFav() {
+    this.storage.remove("favs");
+    let alertBox = this.alert.create({
+      title: "Already in Favorites",
+      subTitle: "Το άρθρο αυτό είναι ήδη στα Αγαπημένα",
+      buttons: ["OK"]
+    });
+    alertBox.present();
   }
 }

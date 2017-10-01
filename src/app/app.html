@@ -1,17 +1,21 @@
 <ion-menu [content]="content">
   <ion-header padding-top class="greyClr">
     <ion-item class="greyClr">
-      <ion-row>
-        <ion-col col-2>
-          <ion-icon class="headIcon" color="pnored" menuClose name="md-close"></ion-icon>
-        </ion-col>
-        <ion-col col-6>
-          <img src="assets/img/logo-fullwhite.png" click="opneHomePage()" />
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button icon-end clear menuClose class="noUpper noMargin" (click)="openSettings()" color="pnored"><b>Ρυθμίσεις </b><ion-icon class="headIcon" name="md-more"></ion-icon></button>
-        </ion-col>
-      </ion-row>
+      <ion-grid>
+        <ion-row align-items-center>
+          <ion-col col-2>
+            <ion-icon class="headIcon" color="pnored" menuClose name="md-close"></ion-icon>
+          </ion-col>
+          <ion-col col-6 (click)="openHomePage()">
+            <img src="assets/img/logo-fullwhite.png" click="opneHomePage()" />
+          </ion-col>
+          <ion-col col-4 class="centerAlign">
+            <button ion-button icon-end clear menuClose class="noUpper noMargin" (click)="openSettings()" color="pnored">
+              <b><a class="headSettings">Ρυθμίσεις</a></b><ion-icon class="headIcon" name="md-more"></ion-icon>
+          </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <ion-item class="greyClr" no-padding>
         <ion-icon item-end menuClose color="light" class="noMargin homeIc" name="ios-home-outline" (click)="openHome()"></ion-icon>
       </ion-item>
@@ -26,10 +30,10 @@
             <ion-col col-1 class="CyprusCol">
             </ion-col>
             <ion-col col-9 padding-left class="taleft" (click)="openCyp()">
-              <div>Κύπρος</div>
+              <div class="menuItem">Κύπρος</div>
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="ios-arrow-down" (click)="expandCyp()"></ion-icon>
+              <ion-icon class="headIcon" name="ios-arrow-down" (click)="expandCyp()"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -39,7 +43,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11>
-              Νέα Αγοράς
+              <div class="menuItem2">Νέα Αγοράς</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -51,10 +55,10 @@
             <ion-col col-1 class="PolitikiCol">
             </ion-col>
             <ion-col col-9 padding-left class="taleft" (click)="openPol()">
-              <div>Πολιτική</div>
+              <div class="menuItem">Πολιτική</div>
             </ion-col>
             <ion-col col-2>
-              <ion-icon name="ios-arrow-down" (click)="expandPol()"></ion-icon>
+              <ion-icon class="headIcon" name="ios-arrow-down" (click)="expandPol()"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -64,7 +68,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Κυπριακό
+              <div class="menuItem2">Κυπριακό</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -74,7 +78,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Ενέργεια
+              <div class="menuItem2">Ενέργεια</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -85,7 +89,7 @@
             <ion-col col-1 class="GreeceCol">
             </ion-col>
             <ion-col col-11 padding-left class="taleft">
-              <div>Ελλάδα</div>
+              <div class="menuItem">Ελλάδα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -96,7 +100,7 @@
             <ion-col col-1 class="DiethniCol">
             </ion-col>
             <ion-col col-11 padding-left class="taleft">
-              <div>Διεθνή</div>
+              <div class="menuItem">Διεθνή</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -107,10 +111,10 @@
             <ion-col col-1 class="SportsCol">
             </ion-col>
             <ion-col col-9 padding-left class="taleft" (click)="openSports()">
-              <div>Αθλητισμός</div>
+              <div class="menuItem">Αθλητισμός</div>
             </ion-col>
             <ion-col col-2 (click)="expandSports()">
-              <ion-icon name="ios-arrow-down"></ion-icon>
+              <ion-icon class="headIcon" name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -120,7 +124,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Κυπριακό Πρωτάθλημα
+              <div class="menuItem2">Κυπριακό Πρωτάθλημα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -130,7 +134,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Ελληνικό Πρωτάθλημα
+              <div class="menuItem2">Ελληνικό Πρωτάθλημα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -140,7 +144,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Διεθνή Πρωταθλήματα
+              <div class="menuItem2">Διεθνή Πρωταθλήματα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -150,7 +154,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Αθλητισμός
+              <div class="menuItem2">Αθλητισμός</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -161,7 +165,7 @@
             <ion-col col-1 class="EconomyCol">
             </ion-col>
             <ion-col col-11 padding-left class="taleft">
-              <div>Οικονομία</div>
+              <div class="menuItem">Οικονομία</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -172,10 +176,10 @@
             <ion-col col-1 class="HealthCol">
             </ion-col>
             <ion-col col-9 padding-left class="taleft" (click)="openHealth()">
-              <div>Υγεία</div>
+              <div class="menuItem">Υγεία</div>
             </ion-col>
             <ion-col col-2 (click)="expandHealth()">
-              <ion-icon name="ios-arrow-down"></ion-icon>
+              <ion-icon class="headIcon" name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -185,7 +189,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Fitness
+              <div class="menuItem2">Fitness</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -195,7 +199,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Ψυχολογία
+              <div class="menuItem2">Ψυχολογία</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -206,10 +210,10 @@
             <ion-col col-1 class="EntertainmentCol">
             </ion-col>
             <ion-col col-9 padding-left class="taleft" (click)="openEnt()">
-              <div>Ψυχαγωγία</div>
+              <div class="menuItem">Ψυχαγωγία</div>
             </ion-col>
             <ion-col col-2 (click)="expandEnt()">
-              <ion-icon name="ios-arrow-down"></ion-icon>
+              <ion-icon class="headIcon" name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -219,7 +223,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Προτάσεις
+              <div class="menuItem2">Προτάσεις</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -229,7 +233,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Showbiz
+              <div class="menuItem2">Showbiz</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -239,7 +243,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Συνεντέυξεις
+              <div class="menuItem2">Συνεντέυξεις</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -249,7 +253,7 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-11 class="borderDown">
-              Κουζίνα
+              <div class="menuItem2">Κουζίνα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -260,7 +264,7 @@
             <ion-col col-1>
             </ion-col>
             <ion-col col-11 padding-left class="taleft">
-              <div>Blog</div>
+              <div class="menuItem">Blog</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -271,7 +275,7 @@
             <ion-col col-1>
             </ion-col>
             <ion-col col-11 padding-left class="taleft">
-              <div>Λούης Night Show</div>
+              <div class="menuItem">Λούης Night Show</div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -309,17 +313,17 @@
       <ion-row no-padding>
         <ion-col col-4 class="border-right-menu">
           <button ion-button full icon-left class="noPad greyClr" (click)="openUseful()">
-            <ion-icon name="ios-pricetag-outline"></ion-icon>Χρήσιμα
+            <ion-icon class="menuBtn greyClr" name="ios-pricetag-outline"></ion-icon><a class="menuBtn greyClr">Χρήσιμα</a>
           </button>
         </ion-col>
         <ion-col col-4 class="border-right-menu">
           <button ion-button full icon-left class="noPad greyClr">
-            <ion-icon name="md-desktop"></ion-icon>TVnews
+            <ion-icon name="md-desktop" class="menuBtn greyClr"></ion-icon><a class="menuBtn greyClr">TVnews</a>
           </button>
         </ion-col>
         <ion-col col-4 (click)="openReport()">
           <button ion-button full icon-left class="noPad greyClr">
-            <ion-icon name="ios-mic"></ion-icon>Report
+            <ion-icon name="ios-mic" class="menuBtn greyClr"></ion-icon><a class="menuBtn greyClr">Report</a>
           </button>
         </ion-col>
       </ion-row>

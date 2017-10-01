@@ -1,24 +1,22 @@
-<ion-header>
-  <alphaheader></alphaheader>
+<ion-header class=settingsBack>
+  <ion-navbar no-padding color="dark">
+    <ion-title color="lightGreyColor">Ρυθμίσεις</ion-title>
+  </ion-navbar>
+  <p class="lightGreyColor centerAlign" no-margin padding text-wrap>Εισάγετε όρο (ή όρους) αναζήτησης</p>
 </ion-header>
 
 
-<ion-content no-padding>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <ion-title>
-    <h2 class="centerAlign">Αγαπημένα</h2>
-  </ion-title>
-  <ion-searchbar animated="true" [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list *ngFor="let item of items; let i = index">
-    <ion-item-sliding>
+<ion-content>
+  <ion-searchbar animated="true" type="search" [(ngModel)]="mySearch"></ion-searchbar>
+  <button ion-button outline block color="pnored" (click)="searchIt($event)">Search It!</button>
+  <ion-list *ngIf="isData">
+    <ion-item-sliding *ngFor="let item of searchData">
       <ion-item text-wrap>
         <ion-grid class="grid-padding">
           <ion-row class="secondCatitem">
             <ion-col col-5 no-padding>
               <div class="divCatImage">
-                <img class="imagePadding" src="{{item?.image_url}}" />
+                <img class="imagePadding" src="{{item?.image_url_square}}" />
               </div>
             </ion-col>
             <ion-col col-7 no-padding>
@@ -36,7 +34,7 @@
         </ion-grid>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger" (click)="removeFromFavs(item?.nid, i)">
+        <button ion-button color="danger">
             <ion-icon name="ios-trash-outline" class="trash"></ion-icon>
             Remove from favs
           </button>

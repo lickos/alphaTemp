@@ -1,11 +1,24 @@
 alphaheader {
 }
 
-.headIcon {
-  font-size: 1.7em;
-  margin: 0px;
+@media (max-width: 650px) {
+  .headIcon {
+    font-size: 1.7em;
+    margin: 0px;
+  }
+
+  .floatRight {
+    float: right;
+  }
 }
 
-.floatRight {
-  float: right;
+@media (min-width: 651px) {
+  .headIcon {
+    font-size: 3em;
+    margin: 0px;
+  }
+
+  .titleOfApp {
+    text-align: center;
+  }
 }

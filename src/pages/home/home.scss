@@ -1,11 +1,223 @@
 page-home {
+  .carousel {
+    background-color: #252525;
+  }
 }
 
-ion-slide h3 {
-  font-size: 2.1rem;
-  text-align: left;
-  color: #c8c6c6;
-  padding-left: 1rem;
+@media (max-width: 650px) {
+  .carousel {
+    height: 70%;
+  }
+  .imageDiv {
+    height: 30vh !important;
+  }
+  ion-slide img {
+    height: 30vh !important;
+    width: auto !important;
+    top: 0 !important;
+  }
+  ion-slide h3 {
+    font-size: 2.1rem;
+    text-align: left;
+    color: #c8c6c6;
+    padding-left: 1rem;
+    font-weight: bold;
+  }
+  ion-slide p {
+    font-size: 1.4rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0 0 0 1rem;
+    text-align: left;
+    color: #c8c6c6;
+  }
+  .transparent {
+    background-color: transparent;
+    font-size: 0.5em;
+    bottom: 0;
+    padding: 0px;
+  }
+  .badgeClass {
+    margin-top: -1rem !important;
+    left: 2rem;
+    float: left;
+    position: absolute;
+  }
+  .categoryTitle {
+    font-size: 1.4rem !important;
+    font-weight: bold !important;
+  }
+  #cyprus hr {
+    left: 7.5rem;
+  }
+  #politiki hr {
+    left: 8.5rem;
+  }
+  #sports hr {
+    left: 8.5rem;
+  }
+  #greece hr {
+    left: 7.5rem;
+  }
+  #entertainment hr {
+    left: 8.5rem;
+  }
+  #international hr {
+    left: 7.5rem;
+  }
+  #health hr {
+    left: 6.5rem;
+  }
+  #economy hr {
+    left: 8.5rem;
+  }
+  .iconsincat2 {
+    font-size: 1.2rem !important;
+  }
+  .share {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 651px) {
+  .carousel {
+    height: 80%;
+  }
+  .imageDiv {
+    height: 40vh !important;
+  }
+  ion-slide h3 {
+    font-size: 3rem;
+    padding: 2rem 2rem 0 2rem;
+    font-weight: bold;
+    text-align: left;
+    color: #c8c6c6;
+    padding-left: 1rem;
+  }
+  ion-slide p {
+    font-size: 2.5rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0 2rem 0 2rem;
+    text-align: left;
+    color: #c8c6c6;
+  }
+  .transparent {
+    background-color: transparent;
+    bottom: 0;
+    padding: 0px;
+    position: absolute;
+  }
+  .transparent2 {
+    position: relative;
+  }
+  .transparent2-1 {
+    font-size: 2.8rem !important;
+  }
+  ion-slide ion-icon {
+    font-size: 2.8rem !important;
+    padding: 0 2rem 0 2rem;
+  }
+  .badgeClass {
+    margin-top: -1rem !important;
+    left: 2rem;
+    float: left;
+    position: absolute;
+  }
+  ion-slide ion-badge {
+    font-size: 2rem;
+  }
+  .editorTitle {
+    font-size: 2rem;
+  }
+  .categoryTitle {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+  }
+  .catP {
+    font-size: 2.5rem !important;
+  }
+  #cyprus hr {
+    left: 15%;
+    top: 30%;
+  }
+  #politiki hr {
+    top: 30%;
+    left: 18%;
+  }
+  #sports hr {
+    top: 30%;
+    left: 19%;
+  }
+  #greece hr {
+    top: 30%;
+    left: 16%;
+  }
+  #entertainment hr {
+    top: 30%;
+    left: 20%;
+  }
+  #international hr {
+    top: 30%;
+    left: 15%;
+  }
+  #health hr {
+    top: 30%;
+    left: 12%;
+  }
+  #economy hr {
+    top: 30%;
+    left: 20%;
+  }
+  .iconsincat2 {
+    padding-left: 1rem;
+    font-size: 2.5rem !important;
+  }
+  .iconsincat {
+    font-size: 2.5rem !important;
+    float: right;
+    padding-right: 2rem;
+  }
+  .share {
+    font-size: 2.5rem !important;
+    float: right;
+    padding-right: 1rem;
+  }
+  .timeColor {
+    padding-left: 2rem;
+  }
+}
+
+#cyprus hr {
+  border-bottom: 2px solid #b79033;
+}
+
+#politiki hr {
+  border-bottom: 2px solid #243656;
+}
+
+#sports hr {
+  border-bottom: 2px solid #044d09;
+}
+
+#greece hr {
+  border-bottom: 2px solid #2264a7;
+}
+
+#entertainment hr {
+  border-bottom: 2px solid #303156;
+}
+
+#international hr {
+  border-bottom: 2px solid #ef4144;
+}
+
+#health hr {
+  border-bottom: 2px solid #01a2b2;
+}
+
+#economy hr {
+  border-bottom: 2px solid #299524;
 }
 
 .brTitle {
@@ -14,17 +226,6 @@ ion-slide h3 {
   color: #c8c6c6;
   padding-left: 1rem;
   padding-top: 2rem;
-}
-
-.categoryTitle {
-  font-size: 1.4rem !important;
-  font-weight: bold !important;
-}
-
-ion-slide img {
-  height: 30vh !important;
-  width: auto !important;
-  top: 0 !important;
 }
 
 .brImage {
@@ -67,37 +268,13 @@ ion-slide img {
   color: #a1a1a1;
 }
 
-.iconsincat2 {
-  font-size: 1.2rem !important;
-}
-
 .btmfoot {
   position: relative;
   bottom: 0;
 }
 
-.iconsincat3 {
-  font-size: 1.2rem !important;
-  padding-left: 1rem;
-}
-
 .social {
   font-size: 1.2 rem !important;
-}
-
-.CarouselImage {
-  height: 30vh !important;
-  width: auto !important;
-  top: 0 !important;
-}
-
-#cyprus hr {
-  border-bottom: 2px solid #b79033;
-  left: 7.5rem;
-}
-
-.share {
-  padding-left: 1rem;
 }
 
 .btnFooter {
@@ -105,51 +282,7 @@ ion-slide img {
   bottom: 0;
 }
 
-#politiki hr {
-  border-bottom: 2px solid #243656;
-  left: 8.5rem;
-}
-
-#sports hr {
-  border-bottom: 2px solid #044d09;
-  left: 8.5rem;
-}
-
-#greece hr {
-  border-bottom: 2px solid #2264a7;
-  left: 7.5rem;
-}
-
-#entertainment hr {
-  border-bottom: 2px solid #303156;
-  left: 8.5rem;
-}
-
-#international hr {
-  border-bottom: 2px solid #ef4144;
-  left: 7.5rem;
-}
-
-#health hr {
-  border-bottom: 2px solid #01a2b2;
-  left: 6.5rem;
-}
-
-#economy hr {
-  border-bottom: 2px solid #299524;
-  left: 8.5rem;
-}
-
 .brPar {
-  font-size: 1.4rem;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 0 0 0 1rem;
-  text-align: left;
-  color: #c8c6c6;
-}
-
-ion-slide p {
   font-size: 1.4rem;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -163,48 +296,42 @@ ion-slide p {
   margin-bottom: 3px;
 }
 
-.platform-ios #firstBadge {
-  background-color: #4d5865;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
-.platform-android #firstBadge {
-  background-color: #4d5865;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
-.platform-ios #secondBadge {
-  background-color: #00aeef;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
-.platform-android #secondBadge {
-  background-color: #00aeef;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
-.platform-ios #thirdBadge {
-  background-color: #ef4144;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
-.platform-android #thirdBadge {
-  background-color: #ef4144;
-  position: absolute;
-  left: 20px;
-  top: 31vh;
-}
-
+// .platform-ios #firstBadge {
+//   background-color: #4d5865;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
+// .platform-android #firstBadge {
+//   background-color: #4d5865;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
+// .platform-ios #secondBadge {
+//   background-color: #00aeef;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
+// .platform-android #secondBadge {
+//   background-color: #00aeef;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
+// .platform-ios #thirdBadge {
+//   background-color: #ef4144;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
+// .platform-android #thirdBadge {
+//   background-color: #ef4144;
+//   position: absolute;
+//   left: 20px;
+//   top: 31vh;
+// }
 .lightGrey {
   background-color: #f4f4f4;
 }
@@ -248,16 +375,6 @@ ion-item hr {
   color: #fff;
 }
 
-.transparent {
-  background-color: transparent;
-  font-size: 0.5em;
-  bottom: 0;
-  padding: 0px;
-}
-
-.posRel {
-}
-
 .item > ion-icon {
   font-size: 1.5rem;
 }
@@ -293,4 +410,95 @@ ion-item hr {
 #editorP {
   color: #000;
   font-size: 1.2rem;
+}
+
+.catListItem {
+  background-color: #e0e0e0;
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+// .catMargin {
+//   margin-top: 2.6rem;
+// }
+.CyprusColor {
+  color: #b79033 !important;
+}
+
+.PolitikiColor {
+  color: #243656 !important;
+}
+
+.GreeceColor {
+  color: #2264a7 !important;
+}
+
+.DiethniColor {
+  color: #ef4144 !important;
+}
+
+.SportsColor {
+  color: #044d09 !important;
+}
+
+.HealthColor {
+  color: #00a2b2 !important;
+}
+
+.EntertainmentColor {
+  color: #303156 !important;
+}
+
+.EconomyColor {
+  color: #299524 !important;
+}
+
+.item-md h6 {
+  font-size: 1.2rem;
+}
+
+.item-md h5 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.vertAlign {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+  text-align: center;
+}
+
+.label-md {
+  margin: 2px 8px 2px 0;
+}
+
+.limitFourLines {
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.4rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-height: 1.6rem;
+  max-height: 7rem;
+}
+
+.item-ios.item-block .item-inner,
+.item-md.item-block .item-inner {
+  border-bottom: 0px;
+}
+
+.item-inner > ion-icon {
+  font-size: 1.6rem;
+}
+
+.button-md {
+  text-transform: none;
+}
+
+.darkerText {
+  color: #666c73;
 }
