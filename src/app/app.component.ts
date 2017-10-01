@@ -264,4 +264,8 @@ export class MyApp {
     this.nav.push("ReportPage");
     this.menuCtrl.close();
   }
+  openTvNews() {
+    this.nav.push("TvnewsPage");
+    this.menuCtrl.close();
+  }
 }

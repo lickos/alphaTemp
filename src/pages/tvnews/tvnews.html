@@ -1,0 +1,18 @@
+<ion-header padding-top>
+  <alphaheader></alphaheader>
+</ion-header>
+
+
+<ion-content>
+  <ion-item text-wrap class="brImage">
+    <div class="imageDiv">
+      <img class="CarouselImage" src="{{tvNews1?.image_url}}" />
+    </div>
+    <h3 class="brTitle">{{tvNews1?.title | removequotes | fixamp}}</h3>
+    <p padding-top class="brPar">{{tvNews1?.teaser | removequotes | fixamp}}</p>
+    <ion-item class="transparent" padding>
+      <ion-icon name="ios-clock-outline" color="textColor" item-start> {{tvNews1?.date}} - {{tvNews1?.time}}</ion-icon>
+      <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+    </ion-item>
+  </ion-item>
+</ion-content>

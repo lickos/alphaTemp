@@ -39,4 +39,14 @@ export class SearchPage {
       });
     }
   }
+  remove(item) {
+    for (let i = 0; i < this.searchData.length; i++) {
+      if (this.searchData[i] == item) {
+        this.searchData.splice(i, 1);
+      }
+    }
+  }
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
+  }
 }

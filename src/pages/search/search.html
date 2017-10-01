@@ -11,7 +11,7 @@
   <button ion-button outline block color="pnored" (click)="searchIt($event)">Search It!</button>
   <ion-list *ngIf="isData">
     <ion-item-sliding *ngFor="let item of searchData">
-      <ion-item text-wrap>
+      <ion-item text-wrap (click)="openArticle(item)">
         <ion-grid class="grid-padding">
           <ion-row class="secondCatitem">
             <ion-col col-5 no-padding>
@@ -34,9 +34,9 @@
         </ion-grid>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger">
+        <button ion-button color="danger" (click)="remove(item)">
             <ion-icon name="ios-trash-outline" class="trash"></ion-icon>
-            Remove from favs
+            Remove from results
           </button>
       </ion-item-options>
     </ion-item-sliding>
