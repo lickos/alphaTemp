@@ -97,4 +97,8 @@ export class BlogPage {
       });
     });
   }
+
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
+  }
 }

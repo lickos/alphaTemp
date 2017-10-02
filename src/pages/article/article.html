@@ -18,7 +18,7 @@
       <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()" item-end></ion-icon>
     </ion-item>
   </ion-row>
-  <b><h5 no-padding-top padding-left >{{items?.title | removequotes}}</h5></b>
+  <b><h5 no-padding-top padding-left >{{items?.title | removequotes | fixamp}}</h5></b>
   <p class="author" padding-left>Συνταχθηκε από: <b>{{items?.author}}</b></p>
   <p padding-left id="test"></p>
   <ion-item>

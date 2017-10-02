@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { GetdataProvider } from "./../../providers/getdata/getdata";
+import { StorageproviderProvider } from "./../../providers/storageprovider/storageprovider";
+import { AlertController } from "ionic-angular";
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -36,8 +39,18 @@ export class EntPage {
   showAll: boolean = true;
   showLink: boolean = false;
   mainLink: boolean = true;
+  isInFavs0: boolean = false;
+  isInFavs1: boolean = false;
+  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getdata: GetdataProvider) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public getdata: GetdataProvider,
+    public strgprvd: StorageproviderProvider,
+    public alert: AlertController,
+    public storage: Storage
+  ) {}
 
   ionViewDidLoad() {
     this.Cypriako = this.navParams.get("Cypriako");
@@ -63,11 +76,49 @@ export class EntPage {
     this.getdata.getRemoteData("https://alphanews.live/json/cat/7").then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
+        this.isInFavs0 = val;
+      });
       this.tempItem.shift();
       this.items1 = this.tempItem[0];
+      this.strgprvd.checkIfInfavs(this.items1.nid).then(val => {
+        this.isInFavs1 = val;
+      });
       this.tempItem.shift();
       this.items = this.tempItem;
+      this.items.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray(index, val);
+        });
+      });
     });
+  }
+
+  putItemsInArray(index, val) {
+    this.isRestInFavs[index] = val;
+  }
+
+  setFav0(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs0 = true;
+  }
+
+  setFav1(item) {
+    this.strgprvd.setFavs(item);
+    this.isInFavs1 = true;
+  }
+
+  isInFavs(nid) {
+    return new Promise(resolve => {
+      this.strgprvd.checkIfInfavs(nid).then(val => {
+        resolve(val);
+      });
+    });
+  }
+
+  setFav(item, index) {
+    this.strgprvd.setFavs(item);
+    this.isRestInFavs[index] = true;
   }
 
   hideAll() {
@@ -142,5 +193,19 @@ export class EntPage {
     } else if (e.direction == 4) {
       this.navCtrl.push("HealthPage", { StorageData: "HealthData" });
     }
+  }
+
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
+  }
+
+  alertFav() {
+    this.storage.remove("favs");
+    let alertBox = this.alert.create({
+      title: "Already in Favorites",
+      subTitle: "Το άρθρο αυτό είναι ήδη στα Αγαπημένα",
+      buttons: ["OK"]
+    });
+    alertBox.present();
   }
 }

@@ -26,6 +26,9 @@ export class CyprusPage {
   isInFavs1: boolean = false;
   pageNo: number;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isneaInFavs0: boolean = false;
+  isneaInFavs1: boolean = false;
+  isRestNeaInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -87,8 +90,14 @@ export class CyprusPage {
     this.getdata.getRemoteData(url).then(data => {
       this.tempItem2 = data;
       this.neaagoras0 = this.tempItem2[0];
+      this.strgprvd.checkIfInfavs(this.neaagoras0.nid).then(val => {
+        this.isneaInFavs0 = val;
+      });
       this.tempItem2.shift();
       this.neaagoras1 = this.tempItem2[0];
+      this.strgprvd.checkIfInfavs(this.neaagoras1.nid).then(val => {
+        this.isneaInFavs1 = val;
+      });
       this.tempItem2.shift();
       this.neaagoras = this.tempItem2;
       this.showAll = false;
@@ -112,6 +121,21 @@ export class CyprusPage {
   setFav1(item) {
     this.strgprvd.setFavs(item);
     this.isInFavs1 = true;
+  }
+
+  setnea0(item) {
+    this.strgprvd.setFavs(item);
+    this.isneaInFavs0 = true;
+  }
+
+  setnea1(item) {
+    this.strgprvd.setFavs(item);
+    this.isneaInFavs1 = true;
+  }
+
+  setNeaFav(item, i) {
+    this.strgprvd.setFavs(item);
+    this.isRestNeaInFavs[i] = true;
   }
 
   alertFav() {
@@ -143,5 +167,9 @@ export class CyprusPage {
   showNextTen() {
     this.pageNo += 1;
     this.navCtrl.push("CyprusPage", { StorageData: "CypData", pageNo: this.pageNo });
+  }
+
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
   }
 }

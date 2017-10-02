@@ -11,20 +11,18 @@ export class TvnewsPage {
   tvNews1: any;
   tvNews2: any;
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public dataprvd: GetdataProvider
-  ) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataprvd: GetdataProvider) {}
 
   ionViewDidLoad() {
-    this.dataprvd
-      .getRemoteData("http://alphanews.live/json/tvcyprus")
-      .then(data => {
-        this.tvNews1 = data[0];
-        this.tvNews2 = data[1];
-        console.log(this.tvNews1);
-        console.log(this.tvNews2);
-      });
+    this.dataprvd.getRemoteData("http://alphanews.live/json/tvcyprus").then(data => {
+      this.tvNews1 = data[0];
+      this.tvNews2 = data[1];
+      console.log(this.tvNews1);
+      console.log(this.tvNews2);
+    });
+  }
+
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
   }
 }

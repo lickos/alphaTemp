@@ -27,7 +27,7 @@
     </ion-segment>
   </ion-item>
   <div *ngIf="showAll">
-    <ion-grid>
+    <ion-grid (click)="openArticle(items0)">
       <ion-row class="CatRow">
         <ion-col col-6 no-padding>
           <div class="catImageDiv">
@@ -35,8 +35,8 @@
           </div>
         </ion-col>
         <ion-col col-6>
-          <b><h4 class="mainTitle" no-margin>{{items0?.title | removequotes}}</h4></b>
-          <p class="limitTwoLinesP mainp " no-margip>{{items0?.teaser | removequotes}}</p>
+          <b><h4 class="mainTitle" no-margin>{{items0?.title | removequotes | fixamp}}</h4></b>
+          <p class="limitTwoLinesP mainp " no-margip>{{items0?.teaser | removequotes | fixamp}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -46,11 +46,11 @@
         <a class="timeColor"> {{items0?.date}} - {{items0?.time}}</a>
       </ion-icon>
       <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-      <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
+      <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(items0)"></ion-icon>
       <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
     </ion-item>
     <ion-item text-wrap>
-      <ion-grid class="grid-padding">
+      <ion-grid class="grid-padding" (click)="openArticle(items1)">
         <ion-row class="secondCatitem">
           <ion-col col-5 no-padding>
             <div class="divCatImage">
@@ -58,14 +58,14 @@
             </div>
           </ion-col>
           <ion-col col-7 no-padding>
-            <p class="catParagraph limitFourLines">{{items1?.title | removequotes}}</p>
+            <p class="catParagraph limitFourLines">{{items1?.title | removequotes | fixamp}}</p>
             <div class="itemscat2">
               <ion-row>
                 <div class="secondCatitem itemPad">
                   <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{items1?.date}} - {{items1?.time}}</a></ion-icon>
                   <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(items1)"></ion-icon>
+                  <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()"></ion-icon>
                 </div>
               </ion-row>
             </div>
@@ -78,9 +78,9 @@
         ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΙΣΗ
       </div>
     </ion-item>
-    <ion-list *ngFor="let item of items">
+    <ion-list *ngFor="let item of items; let i = index">
       <ion-item text-wrap>
-        <ion-grid class="grid-padding">
+        <ion-grid class="grid-padding" (click)="openArticle(item)">
           <ion-row class="secondCatitem">
             <ion-col col-5 no-padding>
               <div class="divCatImage">
@@ -88,14 +88,14 @@
               </div>
             </ion-col>
             <ion-col col-7 no-padding>
-              <p class="catParagraph limitFourLines">{{item?.title | removequotes}}</p>
+              <p class="catParagraph limitFourLines">{{item?.title | removequotes | fixamp}}</p>
               <div class="itemscat2">
                 <ion-row>
                   <div class="secondCatitem itemPad">
                     <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
                     <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestInFavs[i]==false" color="pnored" (click)="setFav(item, i)"></ion-icon>
+                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestInFavs[i]" (click)="alertFav()"></ion-icon>
                   </div>
                 </ion-row>
               </div>
@@ -123,7 +123,7 @@
       <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-      <ion-grid>
+      <ion-grid (click)="openArticle(cypriako0)">
         <ion-row class="CatRow">
           <ion-col col-6 no-padding>
             <div class="catImageDiv">
@@ -131,8 +131,8 @@
             </div>
           </ion-col>
           <ion-col col-6>
-            <b><h4 class="mainTitle" no-margin>{{cypriako0?.title | removequotes}}</h4></b>
-            <p class="limitTwoLinesP mainp " no-margip>{{cypriako0?.teaser | removequotes}}</p>
+            <b><h4 class="mainTitle" no-margin>{{cypriako0?.title | removequotes | fixamp}}</h4></b>
+            <p class="limitTwoLinesP mainp " no-margip>{{cypriako0?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -146,7 +146,7 @@
         <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
       </ion-item>
       <ion-item text-wrap>
-        <ion-grid class="grid-padding">
+        <ion-grid class="grid-padding" (click)="openArticle(cypriako1)">
           <ion-row class="secondCatitem">
             <ion-col col-5 no-padding>
               <div class="divCatImage">
@@ -154,7 +154,7 @@
               </div>
             </ion-col>
             <ion-col col-7 no-padding>
-              <p class="catParagraph limitFourLines">{{cypriako1?.title | removequotes}}</p>
+              <p class="catParagraph limitFourLines">{{cypriako1?.title | removequotes | fixamp}}</p>
               <div class="itemscat2">
                 <ion-row>
                   <div class="secondCatitem itemPad">
@@ -176,7 +176,7 @@
       </ion-item>
       <ion-list *ngFor="let item2 of items2">
         <ion-item text-wrap>
-          <ion-grid class="grid-padding">
+          <ion-grid class="grid-padding" (click)="openArticle(item2)">
             <ion-row class="secondCatitem">
               <ion-col col-5 no-padding>
                 <div class="divCatImage">
@@ -184,7 +184,7 @@
                 </div>
               </ion-col>
               <ion-col col-7 no-padding>
-                <p class="catParagraph limitFourLines">{{item2?.title | removequotes}}</p>
+                <p class="catParagraph limitFourLines">{{item2?.title | removequotes | fixamp}}</p>
                 <div class="itemscat2">
                   <ion-row>
                     <div class="secondCatitem itemPad">
@@ -219,7 +219,7 @@
         <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
-        <ion-grid>
+        <ion-grid (click)="openArticle(greek0)">
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>
               <div class="catImageDiv">
@@ -227,8 +227,8 @@
               </div>
             </ion-col>
             <ion-col col-6>
-              <b><h4 class="mainTitle" no-margin>{{greek0?.title | removequotes}}</h4></b>
-              <p class="limitTwoLinesP mainp " no-margip>{{greek0?.teaser | removequotes}}</p>
+              <b><h4 class="mainTitle" no-margin>{{greek0?.title | removequotes | fixamp}}</h4></b>
+              <p class="limitTwoLinesP mainp " no-margip>{{greek0?.teaser | removequotes | fixamp}}</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -242,7 +242,7 @@
           <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
         </ion-item>
         <ion-item text-wrap>
-          <ion-grid class="grid-padding">
+          <ion-grid class="grid-padding" (click)="openArticle(greek1)">
             <ion-row class="secondCatitem">
               <ion-col col-5 no-padding>
                 <div class="divCatImage">
@@ -250,7 +250,7 @@
                 </div>
               </ion-col>
               <ion-col col-7 no-padding>
-                <p class="catParagraph limitFourLines">{{greek1?.title | removequotes}}</p>
+                <p class="catParagraph limitFourLines">{{greek1?.title | removequotes | fixamp}}</p>
                 <div class="itemscat2">
                   <ion-row>
                     <div class="secondCatitem itemPad">
@@ -272,7 +272,7 @@
         </ion-item>
         <ion-list *ngFor="let item3 of items3">
           <ion-item text-wrap>
-            <ion-grid class="grid-padding">
+            <ion-grid class="grid-padding" (click)="openArticle(item3)">
               <ion-row class="secondCatitem">
                 <ion-col col-5 no-padding>
                   <div class="divCatImage">
@@ -280,7 +280,7 @@
                   </div>
                 </ion-col>
                 <ion-col col-7 no-padding>
-                  <p class="catParagraph limitFourLines">{{item3?.title | removequotes}}</p>
+                  <p class="catParagraph limitFourLines">{{item3?.title | removequotes | fixamp}}</p>
                   <div class="itemscat2">
                     <ion-row>
                       <div class="secondCatitem itemPad">
@@ -316,7 +316,7 @@
         <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
-        <ion-grid>
+        <ion-grid (click)="openArticle(int0)">
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>
               <div class="catImageDiv">
@@ -324,8 +324,8 @@
               </div>
             </ion-col>
             <ion-col col-6>
-              <b><h4 class="mainTitle" no-margin>{{int0?.title | removequotes}}</h4></b>
-              <p class="limitTwoLinesP mainp " no-margip>{{int0?.teaser | removequotes}}</p>
+              <b><h4 class="mainTitle" no-margin>{{int0?.title | removequotes | fixamp}}</h4></b>
+              <p class="limitTwoLinesP mainp " no-margip>{{int0?.teaser | removequotes | fixamp}}</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -339,7 +339,7 @@
           <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
         </ion-item>
         <ion-item text-wrap>
-          <ion-grid class="grid-padding">
+          <ion-grid class="grid-padding" (click)="openArticle(int1)">
             <ion-row class="secondCatitem">
               <ion-col col-5 no-padding>
                 <div class="divCatImage">
@@ -347,7 +347,7 @@
                 </div>
               </ion-col>
               <ion-col col-7 no-padding>
-                <p class="catParagraph limitFourLines">{{int1?.title | removequotes}}</p>
+                <p class="catParagraph limitFourLines">{{int1?.title | removequotes | fixamp}}</p>
                 <div class="itemscat2">
                   <ion-row>
                     <div class="secondCatitem itemPad">
@@ -369,7 +369,7 @@
         </ion-item>
         <ion-list *ngFor="let item4 of items4">
           <ion-item text-wrap>
-            <ion-grid class="grid-padding">
+            <ion-grid class="grid-padding" (click)="openArticle(item4)">
               <ion-row class="secondCatitem">
                 <ion-col col-5 no-padding>
                   <div class="divCatImage">
@@ -377,7 +377,7 @@
                   </div>
                 </ion-col>
                 <ion-col col-7 no-padding>
-                  <p class="catParagraph limitFourLines">{{item4?.title | removequotes}}</p>
+                  <p class="catParagraph limitFourLines">{{item4?.title | removequotes | fixamp}}</p>
                   <div class="itemscat2">
                     <ion-row>
                       <div class="secondCatitem itemPad">
@@ -413,7 +413,7 @@
         <ion-refresher (ionRefresh)="doRefresh($event)">
           <ion-refresher-content></ion-refresher-content>
         </ion-refresher>
-        <ion-grid>
+        <ion-grid (click)="openArticle(sports0)">
           <ion-row class="CatRow">
             <ion-col col-6 no-padding>
               <div class="catImageDiv">
@@ -421,8 +421,8 @@
               </div>
             </ion-col>
             <ion-col col-6>
-              <b><h4 class="mainTitle" no-margin>{{sports0?.title | removequotes}}</h4></b>
-              <p class="limitTwoLinesP mainp " no-margip>{{sports0?.teaser | removequotes}}</p>
+              <b><h4 class="mainTitle" no-margin>{{sports0?.title | removequotes | fixamp}}</h4></b>
+              <p class="limitTwoLinesP mainp " no-margip>{{sports0?.teaser | removequotes | fixamp}}</p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -436,7 +436,7 @@
           <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
         </ion-item>
         <ion-item text-wrap>
-          <ion-grid class="grid-padding">
+          <ion-grid class="grid-padding" (click)="openArticle(sports1)">
             <ion-row class="secondCatitem">
               <ion-col col-5 no-padding>
                 <div class="divCatImage">
@@ -444,7 +444,7 @@
                 </div>
               </ion-col>
               <ion-col col-7 no-padding>
-                <p class="catParagraph limitFourLines">{{sports1?.title | removequotes}}</p>
+                <p class="catParagraph limitFourLines">{{sports1?.title | removequotes | fixamp}}</p>
                 <div class="itemscat2">
                   <ion-row>
                     <div class="secondCatitem itemPad">
@@ -466,7 +466,7 @@
         </ion-item>
         <ion-list *ngFor="let item5 of items5">
           <ion-item text-wrap>
-            <ion-grid class="grid-padding">
+            <ion-grid class="grid-padding" (click)="openArticle(item5)">
               <ion-row class="secondCatitem">
                 <ion-col col-5 no-padding>
                   <div class="divCatImage">
@@ -474,7 +474,7 @@
                   </div>
                 </ion-col>
                 <ion-col col-7 no-padding>
-                  <p class="catParagraph limitFourLines">{{item5?.title | removequotes}}</p>
+                  <p class="catParagraph limitFourLines">{{item5?.title | removequotes | fixamp}}</p>
                   <div class="itemscat2">
                     <ion-row>
                       <div class="secondCatitem itemPad">
