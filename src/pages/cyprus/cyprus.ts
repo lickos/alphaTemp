@@ -100,12 +100,21 @@ export class CyprusPage {
       });
       this.tempItem2.shift();
       this.neaagoras = this.tempItem2;
+      this.neaagoras.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray2(index, val);
+        });
+      });
       this.showAll = false;
     });
   }
 
   putItemsInArray(index, val) {
     this.isRestInFavs[index] = val;
+  }
+
+  putItemsInArray2(index, val) {
+    this.isRestNeaInFavs[index] = val;
   }
 
   setFav0(item) {

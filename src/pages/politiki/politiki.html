@@ -132,8 +132,8 @@
           <a class="timeColor"> {{cypriako0?.date}} - {{cypriako0?.time}}</a>
         </ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-        <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
-        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+        <ion-icon name="ios-bookmark-outline" *ngIf="!isneaInFavs0" color="pnored" item-end (click)="setnea0(cypriako0)"></ion-icon>
+        <ion-icon name="ios-bookmark" color="pnored" *ngIf="isneaInFavs0" item-end (click)="alertFav()"></ion-icon>
       </ion-item>
       <ion-item text-wrap>
         <ion-grid class="grid-padding">
@@ -150,8 +150,8 @@
                   <div class="secondCatitem itemPad">
                     <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{cypriako1?.date}} - {{cypriako1?.time}}</a></ion-icon>
                     <ion-icon class="iconsincat margin-left" name="md-share" padding-right color="pnored"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isneaInFavs1" color="pnored" (click)="setnea1(cypriako1)"></ion-icon>
+                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isneaInFavs1" (click)="alertFav()"></ion-icon>
                   </div>
                 </ion-row>
               </div>
@@ -164,7 +164,7 @@
           ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΙΣΗ
         </div>
       </ion-item>
-      <ion-list *ngFor="let item1 of items1">
+      <ion-list *ngFor="let item1 of items1; let i = index">
         <ion-item text-wrap>
           <ion-grid class="grid-padding">
             <ion-row class="secondCatitem">
@@ -180,8 +180,8 @@
                     <div class="secondCatitem itemPad">
                       <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item1?.date}} - {{item1?.time}}</a></ion-icon>
                       <ion-icon class="iconsincat margin-left" name="md-share" padding-right color="pnored"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestNeaInFavs[i]==false" color="pnored" (click)="setNeaFav(item1, i)"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestNeaInFavs[i]" (click)="alertFav()"></ion-icon>
                     </div>
                   </ion-row>
                 </div>
@@ -215,8 +215,8 @@
             <a class="timeColor"> {{energeia0?.date}} - {{energeia0?.time}}</a>
           </ion-icon>
           <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
-          <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" item-end (click)="setFav0(image0)"></ion-icon>
-          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs0" item-end (click)="alertFav()"></ion-icon>
+          <ion-icon name="ios-bookmark-outline" *ngIf="!isEnergeia0" color="pnored" item-end (click)="setEnergeia0InFavs(energeia0)"></ion-icon>
+          <ion-icon name="ios-bookmark" color="pnored" *ngIf="isEnergeia0" item-end (click)="alertFav()"></ion-icon>
         </ion-item>
         <ion-item text-wrap>
           <ion-grid class="grid-padding">
@@ -233,8 +233,8 @@
                     <div class="secondCatitem itemPad">
                       <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{energeia1?.date}} - {{energeia1?.time}}</a></ion-icon>
                       <ion-icon class="iconsincat margin-left" name="md-share" padding-right color="pnored"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isEnergeia1" color="pnored" (click)="setEnergeia1InFavs(energeia1)"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isEnergeia1" (click)="alertFav()"></ion-icon>
                     </div>
                   </ion-row>
                 </div>
@@ -247,7 +247,7 @@
             ΧΩΡΟΣ ΓΙΑ ΔΙΑΦΗΜΙΣΗ
           </div>
         </ion-item>
-        <ion-list *ngFor="let item2 of items2">
+        <ion-list *ngFor="let item2 of items2; let i = index">
           <ion-item text-wrap>
             <ion-grid class="grid-padding">
               <ion-row class="secondCatitem">
@@ -263,8 +263,8 @@
                       <div class="secondCatitem itemPad">
                         <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item2?.date}} - {{item2?.time}}</a></ion-icon>
                         <ion-icon class="iconsincat margin-left" name="md-share" padding-right color="pnored"></ion-icon>
-                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs0" color="pnored" (click)="setFav0(image0)"></ion-icon>
-                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs0" (click)="alertFav()"></ion-icon>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isRestEnergeiaInFavs[i]" color="pnored" (click)="setRestEnergeiaInFavs(image0)"></ion-icon>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestEnergeiaInFavs[1]" (click)="alertFav()"></ion-icon>
                       </div>
                     </ion-row>
                   </div>

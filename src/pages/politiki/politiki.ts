@@ -33,6 +33,12 @@ export class PolitikiPage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isneaInFavs0: boolean = false;
+  isneaInFavs1: boolean = false;
+  isRestNeaInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isEnergeia0: boolean = false;
+  isEnergeia1: boolean = false;
+  isRestEnergeiaInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -57,7 +63,6 @@ export class PolitikiPage {
     }
     let pageNo = String(this.pageNo);
     let url = "https://alphanews.live/json/cat/2?page=" + pageNo;
-    console.log(pageNo);
     this.getdata.getRemoteData(url).then(data => {
       this.tempItem = data;
       this.politiki0 = this.tempItem[0];
@@ -92,6 +97,14 @@ export class PolitikiPage {
 
   putItemsInArray(index, val) {
     this.isRestInFavs[index] = val;
+  }
+
+  putItemsInArray2(index, val) {
+    this.isRestNeaInFavs[index] = val;
+  }
+
+  putItemsInArray3(index, val) {
+    this.isRestEnergeiaInFavs[index] = val;
   }
 
   setFav0(item) {
@@ -131,24 +144,76 @@ export class PolitikiPage {
     this.getdata.getRemoteData(" http://alphanews.live/json/politics/59").then(data => {
       this.tempItem1 = data;
       this.cypriako0 = this.tempItem1[0];
+      this.strgprvd.checkIfInfavs(this.cypriako0.nid).then(val => {
+        this.isneaInFavs0 = val;
+      });
       this.tempItem1.shift();
       this.cypriako1 = this.tempItem1[0];
+      this.strgprvd.checkIfInfavs(this.cypriako1.nid).then(val => {
+        this.isneaInFavs1 = val;
+      });
       this.tempItem1.shift();
       this.items1 = this.tempItem1;
+      this.items1.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray2(index, val);
+        });
+      });
       this.showAll = false;
     });
+  }
+
+  setnea0(item) {
+    this.strgprvd.setFavs(item);
+    this.isneaInFavs0 = true;
+  }
+
+  setnea1(item) {
+    this.strgprvd.setFavs(item);
+    this.isneaInFavs1 = true;
+  }
+
+  setNeaFav(item, index) {
+    this.strgprvd.setFavs(item);
+    this.isRestNeaInFavs[index] = true;
   }
 
   showEnergeia() {
     this.getdata.getRemoteData(" http://alphanews.live/json/politics/60").then(data => {
       this.tempItem2 = data;
       this.energeia0 = this.tempItem2[0];
+      this.strgprvd.checkIfInfavs(this.energeia0.nid).then(val => {
+        this.isEnergeia0 = val;
+      });
       this.tempItem2.shift();
       this.energeia1 = this.tempItem2[0];
+      this.strgprvd.checkIfInfavs(this.energeia1.nid).then(val => {
+        this.isEnergeia1 = val;
+      });
       this.tempItem2.shift();
       this.items2 = this.tempItem2;
+      this.items2.forEach((element, index) => {
+        this.isInFavs(element.nid).then(val => {
+          this.putItemsInArray3(index, val);
+        });
+      });
       this.showAll = false;
     });
+  }
+
+  setEnergeia0InFavs(item) {
+    this.strgprvd.setFavs(item);
+    this.isEnergeia0 = true;
+  }
+
+  setEnergeia1InFavs(item) {
+    this.strgprvd.setFavs(item);
+    this.isEnergeia1 = true;
+  }
+
+  setRestEnergeiaInFavs(item, index) {
+    this.strgprvd.setFavs(item);
+    this.isRestEnergeiaInFavs[index] = true;
   }
 
   showAgain() {
