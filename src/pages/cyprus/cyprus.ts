@@ -25,10 +25,28 @@ export class CyprusPage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   pageNo: number;
-  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isRestInFavs: Array<boolean> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
   isneaInFavs0: boolean = false;
   isneaInFavs1: boolean = false;
-  isRestNeaInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  isRestNeaInFavs: Array<boolean> = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   constructor(
     public navCtrl: NavController,
@@ -175,7 +193,10 @@ export class CyprusPage {
 
   showNextTen() {
     this.pageNo += 1;
-    this.navCtrl.push("CyprusPage", { StorageData: "CypData", pageNo: this.pageNo });
+    this.navCtrl.push("CyprusPage", {
+      StorageData: "CypData",
+      pageNo: this.pageNo
+    });
   }
 
   openArticle(item) {

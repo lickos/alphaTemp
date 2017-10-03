@@ -8,7 +8,7 @@ import { AlertController } from "ionic-angular";
 @IonicPage()
 @Component({
   selector: "page-blog",
-  templateUrl: "blog.html"
+  templateUrl: "blog.html" 
 })
 export class BlogPage {
   items0: any;

@@ -1,3 +1,65 @@
 page-blog {
+  .paddingSmall {
+    padding: 5px;
+  }
+  .author {
+    color: rgb(229, 59, 61);
+    margin: 6px 4px 4px 0px;
+    font-size: 1em;
+    font-weight: bold;
+  }
 
+  .author2 {
+    color: #e53b3d;
+    margin: 6px 4px 4px 6px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  .author_faculty {
+    margin: 1px 2px 6px 0px;
+    color: #e2e2e2;
+    font-size: 0.9em;
+    font-style: italic;
+  }
+
+  .author_faculty2 {
+    margin: 1px 2px 2px 6px;
+    color: #3b3b3b;
+    font-size: 0.9em;
+    font-style: italic;
+  }
+
+  .blogtext {
+    margin: 1px 2px 2px 2px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .blogtext2 {
+    margin: 0px 2px 0px 6px;
+    color: #3b3b3b;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .BLogItem {
+    padding-left: 1px;
+  }
+
+  .BLogItem .item-inner {
+    padding-right: 1px !important;
+  }
+
+  .BlogImage {
+    padding: 0px;
+  }
+
+  .itemscatBlog {
+    background-color: #ebebeb;
+    padding-left: 6px;
+    bottom: 0;
+    position: absolute;
+  }
 }

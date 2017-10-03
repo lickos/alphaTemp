@@ -2,7 +2,7 @@
   <alphaheader></alphaheader>
 </ion-header>
 
-<ion-content (swipe)="goToNextCat($event)">
+<ion-content (swipe)="goToNextCat($event)" no-padding>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -50,7 +50,7 @@
               </div>
             </ion-col>
             <ion-col col-7 no-padding>
-              <h2 class="categoryTitle">{{items1?.title | removequotes | fixamp}}</h2>
+              <p class="categoryTitle">{{items1?.title | removequotes | fixamp}}</p>
               <div class="itemscat2">
                 <ion-row>
                   <div class="secondCatitem itemPad">

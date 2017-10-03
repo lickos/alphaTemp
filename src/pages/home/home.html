@@ -34,7 +34,7 @@
         <p>{{top1?.teaser | removequotes | fixamp}}</p>
       </div>
       <ion-item class="transparent" padding>
-        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{top1?.date}} - {{top1?.time}}</ion-icon>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start>{{top1?.date}} - {{top1?.time}}</ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(top1)" item-end></ion-icon>
         <ion-icon name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()" item-end></ion-icon>
