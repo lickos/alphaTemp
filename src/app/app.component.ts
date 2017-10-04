@@ -34,10 +34,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.oneSignal.startInit(
-        "61b6d88e-c018-41b1-9fa6-4a1a01b0336d",
-        "221135394305"
-      );
+      this.oneSignal.startInit("61b6d88e-c018-41b1-9fa6-4a1a01b0336d", "221135394305");
       this.oneSignal.endInit();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -127,7 +124,7 @@ export class MyApp {
   }
 
   openBlog() {
-    this.nav.push("BlogPage");
+    this.nav.push("BlogPage", { pageNo: 0 });
     this.menuCtrl.close();
   }
 

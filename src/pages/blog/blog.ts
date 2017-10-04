@@ -8,7 +8,7 @@ import { AlertController } from "ionic-angular";
 @IonicPage()
 @Component({
   selector: "page-blog",
-  templateUrl: "blog.html" 
+  templateUrl: "blog.html"
 })
 export class BlogPage {
   items0: any;
@@ -18,6 +18,7 @@ export class BlogPage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  pageNo: number;
 
   constructor(
     public navCtrl: NavController,
@@ -26,7 +27,9 @@ export class BlogPage {
     public strgprvd: StorageproviderProvider,
     public storage: Storage,
     public alert: AlertController
-  ) {}
+  ) {
+    this.pageNo = this.navParams.get("pageNo");
+  }
 
   doRefresh(refresher) {
     console.log("Begin async operation", refresher);
@@ -38,7 +41,10 @@ export class BlogPage {
   }
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/blog").then(data => {
+    let pageNoSt = String(this.pageNo);
+    let url = "https://alphanews.live/json/blog?page=" + pageNoSt;
+    console.log(url);
+    this.getdata.getRemoteData(url).then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
@@ -100,5 +106,13 @@ export class BlogPage {
 
   openArticle(item) {
     this.navCtrl.push("ArticlePage", { items: item });
+  }
+
+  nextTen() {
+    this.pageNo += 1;
+    console.log(this.pageNo);
+    this.navCtrl.push("BlogPage", {
+      pageNo: this.pageNo
+    });
   }
 }
