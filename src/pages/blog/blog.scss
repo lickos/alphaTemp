@@ -1,7 +1,7 @@
 page-blog {
 }
 .paddingSmall {
-  padding-left: 5px;
+  padding-left: 5px !important;
 }
 .author {
   color: rgb(229, 59, 61);
@@ -12,7 +12,7 @@ page-blog {
 
 .author2 {
   color: #e53b3d !important;
-  padding: 6px 6px 0px 6px;
+  padding: 3px 6px 0px 6px;
   margin: 6px 4px 0px 6px;
   font-size: 0.9em;
   font-weight: bold;
@@ -27,7 +27,7 @@ page-blog {
 }
 
 .author_faculty2 {
-  // margin: 1px 2px 2px 6px;
+  margin: 1px 2px 2px 6px;
   color: #3b3b3b;
   font-size: 0.9em;
   font-style: italic;

@@ -27,8 +27,8 @@
             </div>
           </ion-col>
           <ion-col col-6 class="mainCatPad">
-            <b><h4 class="mainTitle" no-margin>{{items0?.title | removequotes | fixamp}}</h4></b>
-            <p class="mainp " no-margip>{{items0?.teaser | removequotes | fixamp}}</p>
+            <h4 class="mainTitle" no-margin>{{items0?.title | removequotes | fixamp}}</h4>
+            <p class="mainp no-margip">{{items0?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -58,7 +58,7 @@
                       <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{items1?.date}} - {{items1?.time}}</a></ion-icon>
                     </ion-col>
                     <ion-col col-1>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(item1)"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(items1)"></ion-icon>
                       <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()"></ion-icon>
                     </ion-col>
                     <ion-col col-1>
@@ -76,7 +76,7 @@
         </div>
       </ion-item>
       <ion-list *ngFor="let item of items; let i = index">
-        <ion-item text-wrap>
+        <ion-item text-wrap class="BLogItem">
           <ion-grid class="grid-padding" (click)="openArticle(item)">
             <ion-row class="secondCatitem">
               <ion-col col-4 no-padding>
@@ -131,41 +131,45 @@
               <img class="catImg" src="{{neaagoras0?.image_url_square}}" />
             </div>
           </ion-col>
-          <ion-col col-6>
-            <b><h4 class="mainTitle" no-margin>{{neaagoras0?.title | removequotes | fixamp}}</h4></b>
-            <p class="limitTwoLinesP mainp " no-margip>{{neaagoras0?.teaser | removequotes | fixamp}}</p>
+          <ion-col col-6 mainCatPad>
+            <h4 class="mainTitle" no-margin>{{neaagoras0?.title | removequotes | fixamp}}</h4>
+            <p class="mainp limitTwoLinesP" no-margip>{{neaagoras0?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
       <ion-badge class="CyprusClass badgeCatClass">{{neaagoras0?.category}}</ion-badge>
       <ion-item padding-left class="transparent">
         <ion-icon name="ios-clock-outline" color="textColor" item-start>
-          <a class="timeColor"> {{neaagoras0?.date}} - {{neaagoras0?.time}}</a>
+          <a class="timeColor paddingSmall"> {{neaagoras0?.date}} - {{neaagoras0?.time}}</a>
         </ion-icon>
         <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
         <ion-icon name="ios-bookmark-outline" *ngIf="!isneaInFavs0" color="pnored" item-end (click)="setnea0(neaagoras0)"></ion-icon>
         <ion-icon name="ios-bookmark" color="pnored" *ngIf="isneaInFavs0" item-end (click)="alertFav()"></ion-icon>
       </ion-item>
-      <ion-item text-wrap>
+      <ion-item text-wrap class="BLogItem">
         <ion-grid class="grid-padding" (click)="openArticle(neaagoras1)">
           <ion-row class="secondCatitem">
-            <ion-col col-5 no-padding>
+            <ion-col col-4 no-padding>
               <div class="divCatImage">
-                <img class="imagePadding" src="{{neaagoras1?.image_url_square}}" />
+                <img class="BlogImage" src="{{neaagoras1?.image_url_square}}" />
               </div>
             </ion-col>
-            <ion-col col-7 no-padding>
-              <h2 class="categoryTitle">{{neaagoras1?.title | removequotes | fixamp}}</h2>
-              <div class="itemscat2">
-                <ion-row>
-                  <div class="secondCatitem itemPad">
-                    <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{neaagoras1?.date}} - {{neaagoras1?.time}}</a></ion-icon>
-                    <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isneaInFavs1" color="pnored" (click)="setnea1(neaagoras1)"></ion-icon>
-                    <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isneaInFavs1" (click)="alertFav()"></ion-icon>
-                  </div>
-                </ion-row>
-              </div>
+            <ion-col col-8 class="CatPad">
+              <p class="categoryTitle">{{neaagoras1?.title | removequotes | fixamp}}</p>
+              <a class="itemscat2">
+                <ion-grid no-padding>
+                  <ion-row class="secondCatitem">
+                    <ion-col col-10 no-margin>
+                      <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{neaagoras1?.date}} - {{neaagoras1?.time}}</a></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isneaInFavs1" color="pnored" (click)="setnea1(neaagoras1)"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isneaInFavs1" (click)="alertFav()"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </a>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -176,26 +180,30 @@
         </div>
       </ion-item>
       <ion-list *ngFor="let item2 of neaagoras; let i = index">
-        <ion-item text-wrap>
+        <ion-item text-wrap class="BLogItem">
           <ion-grid class="grid-padding" (click)="openArticle(item2)">
             <ion-row class="secondCatitem">
-              <ion-col col-5 no-padding>
+              <ion-col col-4 no-padding>
                 <div class="divCatImage">
-                  <img class="imagePadding" src="{{item2?.image_url_square}}" />
+                  <img class="BlogImage" src="{{item2?.image_url_square}}" />
                 </div>
               </ion-col>
-              <ion-col col-7 no-padding>
-                <h2 class="categoryTitle">{{item2?.title | removequotes | fixamp}}</h2>
-                <div class="itemscat2">
-                  <ion-row>
-                    <div class="secondCatitem itemPad">
-                      <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item2?.date}} - {{item2?.time}}</a></ion-icon>
-                      <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestNeaInFavs[i]==false" color="pnored" (click)="setNeaFav(item2, i)"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestNeaInFavs[i]" (click)="alertFav()"></ion-icon>
-                    </div>
-                  </ion-row>
-                </div>
+              <ion-col col-8 class="CatPad">
+                <p class="categoryTitle">{{item2?.title | removequotes | fixamp}}</p>
+                <a class="itemscat2">
+                  <ion-grid no-padding>
+                    <ion-row class="secondCatitem">
+                      <ion-col col-10 no-margin>
+                        <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item2?.date}} - {{item2?.time}}</a></ion-icon>
+                      </ion-col>
+                      <ion-col col-1>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestNeaInFavs[i]==false" color="pnored" (click)="setNeaFav(item2, i)"></ion-icon>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestNeaInFavs[i]" (click)="alertFav()"></ion-icon>
+                      </ion-col>
+                      <ion-col col-1></ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </a>
               </ion-col>
             </ion-row>
           </ion-grid>
