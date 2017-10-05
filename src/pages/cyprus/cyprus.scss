@@ -59,6 +59,7 @@ page-cyprus {
 
 .timeColor {
   color: #75848e;
+  padding-left: 6px;
 }
 
 .noPaddingBottom {
@@ -131,10 +132,6 @@ page-cyprus {
   bottom: 0px;
 }
 
-.itemPad {
-  padding-left: 3px;
-}
-
 .itemscat {
   background-color: #ebebeb;
   bottom: 0;
@@ -146,12 +143,14 @@ page-cyprus {
   padding-left: 0px;
   bottom: 0;
   position: absolute;
+  width: 98%;
 }
 
 .iconsincat {
-  font-size: 1.4rem !important;
+  font-size: 1.5rem !important;
   margin-bottom: 1px !important;
   bottom: 0;
+  position: absolute;
 }
 
 .moreIcon {
@@ -165,6 +164,7 @@ page-cyprus {
 
 .margin-left2 {
   margin-left: 0rem;
+  float: right;
 }
 
 #CypTitle {

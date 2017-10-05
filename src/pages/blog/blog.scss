@@ -11,8 +11,9 @@ page-blog {
 }
 
 .author2 {
-  color: #e53b3d;
-  margin: 6px 4px 4px 6px;
+  color: #e53b3d !important;
+  padding: 6px 6px 0px 6px;
+  margin: 6px 4px 0px 6px;
   font-size: 0.9em;
   font-weight: bold;
 }
@@ -22,13 +23,15 @@ page-blog {
   color: #e2e2e2;
   font-size: 0.9em;
   font-style: italic;
+  padding-right: 3px;
 }
 
 .author_faculty2 {
-  margin: 1px 2px 2px 6px;
+  // margin: 1px 2px 2px 6px;
   color: #3b3b3b;
   font-size: 0.9em;
   font-style: italic;
+  padding: 0px 4px 0px 6px;
 }
 
 .blogtext {
@@ -43,6 +46,7 @@ page-blog {
   color: #3b3b3b;
   font-size: 1em;
   font-weight: bold;
+  padding-left: 6px;
 }
 
 .BLogItem {
@@ -59,6 +63,7 @@ page-blog {
 
 .BlogImage {
   padding: 0px;
+  height: 100%;
 }
 
 .itemscatBlog {

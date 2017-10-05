@@ -51,22 +51,21 @@
             </ion-col>
             <ion-col col-8 class="CatPad">
               <p class="categoryTitle">{{items1?.title | removequotes | fixamp}}</p>
-              <ion-item class="itemscatBlog">
-                <ion-grid class="padGridBlog">
-                  <ion-row>
-                    <ion-col col-10 class="padGridBlog">
-                      <ion-icon class="iconsincatBlog" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor paddingSmall">{{items1?.date}} - {{items1?.time}}</a></ion-icon>
+              <a class="itemscat2">
+                <ion-grid no-padding>
+                  <ion-row class="secondCatitem">
+                    <ion-col col-10 no-margin>
+                      <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{items1?.date}} - {{items1?.time}}</a></ion-icon>
                     </ion-col>
-                    <ion-col col-1 no-padding>
-                      <ion-icon class="iconsincatBlog bookmarkBlog2" name="md-share" color="pnored" item-end></ion-icon>
+                    <ion-col col-1>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(item1)"></ion-icon>
+                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()"></ion-icon>
                     </ion-col>
-                    <ion-col col-1 no-padding>
-                      <ion-icon class="iconsincatBlog bookmarkBlog" name="ios-bookmark-outline" *ngIf="!isInFavs1" color="pnored" (click)="setFav1(items1)"></ion-icon>
-                      <ion-icon class="iconsincatBlog bookmarkBlog" name="ios-bookmark" color="pnored" *ngIf="isInFavs1" (click)="alertFav()"></ion-icon>
+                    <ion-col col-1>
                     </ion-col>
                   </ion-row>
                 </ion-grid>
-              </ion-item>
+              </a>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -80,23 +79,27 @@
         <ion-item text-wrap>
           <ion-grid class="grid-padding" (click)="openArticle(item)">
             <ion-row class="secondCatitem">
-              <ion-col col-5 no-padding>
+              <ion-col col-4 no-padding>
                 <div class="divCatImage">
-                  <img class="imagePadding" src="{{item?.image_url_square}}" />
+                  <img class="BlogImage" src="{{item?.image_url_square}}" no-padding/>
                 </div>
               </ion-col>
-              <ion-col col-7 no-padding>
-                <h2 class="categoryTitle">{{item?.title | removequotes | fixamp}}</h2>
-                <div class="itemscat2">
-                  <ion-row>
-                    <div class="secondCatitem itemPad">
-                      <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
-                      <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestInFavs[i]==false" color="pnored" (click)="setFav(item, i)"></ion-icon>
-                      <ion-icon class="iconsincat margin-left2" name="ios-bookmark" color="pnored" *ngIf="isRestInFavs[i]" (click)="alertFav()"></ion-icon>
-                    </div>
-                  </ion-row>
-                </div>
+              <ion-col col-8 class="CatPad">
+                <p class="categoryTitle">{{item?.title | removequotes | fixamp}}</p>
+                <a class="itemscat2">
+                  <ion-grid no-padding>
+                    <ion-row class="secondCatitem">
+                      <ion-col col-10 no-margin>
+                        <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
+                      </ion-col>
+                      <ion-col col-1>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestInFavs[i]==false" color="pnored" (click)="setFav(item, i)"></ion-icon>
+                      </ion-col>
+                      <ion-col col-1>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </a>
               </ion-col>
             </ion-row>
           </ion-grid>
