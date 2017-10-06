@@ -96,7 +96,7 @@ export class MyApp {
   }
 
   openHealth() {
-    this.nav.push("HealthPage", { StorageData: "HealthData" });
+    this.nav.push("HealthPage", { StorageData: "HealthData", pageNo: 0 });
     this.menuCtrl.close();
   }
 
@@ -105,17 +105,18 @@ export class MyApp {
   }
 
   openEnt() {
-    this.nav.push("EntPage", { StorageData: "EntData" });
+    this.nav.push("EntPage", { StorageData: "EntData", pageNo: 0 });
     this.menuCtrl.close();
   }
 
   openGreece() {
-    this.nav.push("GreecePage", { StorageData: "GreeceData" });
+    this.nav.push("GreecePage", { StorageData: "GreeceData", pageNo: 0 });
     this.menuCtrl.close();
   }
 
   openInt() {
-    this.nav.push("IntPage", { StorageData: "IntData" });
+    this.nav.push("IntPage", { StorageData: "IntData", pageNo: 0 });
+    this.menuCtrl.close();
   }
 
   openEconomy() {

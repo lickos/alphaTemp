@@ -12,25 +12,30 @@
   </ion-title>
   <ion-searchbar animated="true" [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list *ngFor="let item of items; let i = index">
-    <ion-item-sliding (click)="openArticle(item)">
-      <ion-item text-wrap>
+    <ion-item-sliding class="BLogItem">
+      <ion-item text-wrap (click)="openArticle(item)" class="BLogItem">
         <ion-grid class="grid-padding">
           <ion-row class="secondCatitem">
-            <ion-col col-5 no-padding>
+            <ion-col col-4 no-padding>
               <div class="divCatImage">
-                <img class="imagePadding" src="{{item?.image_url}}" />
+                <img class="BlogImage" src="{{item?.image_url_square}}" />
               </div>
             </ion-col>
-            <ion-col col-7 no-padding>
-              <p class="catParagraph limitFourLines">{{item?.title | removequotes | fixamp}}</p>
-              <div class="itemscat2">
-                <ion-row>
-                  <div class="secondCatitem itemPad">
-                    <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
-                    <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
-                  </div>
-                </ion-row>
-              </div>
+            <ion-col col-8 class="CatPad">
+              <p class="categoryTitle">{{item?.title | removequotes | fixamp}}</p>
+              <a class="itemscat2">
+                <ion-grid no-padding>
+                  <ion-row class="secondCatitem">
+                    <ion-col col-10 no-margin>
+                      <ion-icon class="iconsincat" name="ios-clock-outline" color="textColor" item-left> <a class="timeColor">{{item?.date}} - {{item?.time}}</a></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                      <ion-icon class="iconsincat margin-left" name="md-share" color="pnored"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </a>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -38,7 +43,7 @@
       <ion-item-options side="right">
         <button ion-button color="danger" (click)="removeFromFavs(item?.nid, i)">
             <ion-icon name="ios-trash-outline" class="trash"></ion-icon>
-            Remove from favs
+            Διαγραφή από τα<br/> Αγαπημένα
           </button>
       </ion-item-options>
     </ion-item-sliding>

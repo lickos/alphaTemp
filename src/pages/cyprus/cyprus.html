@@ -94,6 +94,7 @@
                       </ion-col>
                       <ion-col col-1>
                         <ion-icon class="iconsincat margin-left2" name="ios-bookmark-outline" *ngIf="isRestInFavs[i]==false" color="pnored" (click)="setFav(item, i)"></ion-icon>
+                        <ion-icon class="iconsincat margin-left2" name="ios-bookmark" *ngIf="isRestInFavs[i]" color="pnored" (click)="alertFav()"></ion-icon>
                       </ion-col>
                       <ion-col col-1>
                       </ion-col>
@@ -107,15 +108,15 @@
       </ion-list>
       <ion-grid>
         <ion-row>
-          <ion-col col-2>
+          <ion-col col-4>
           </ion-col>
-          <ion-col col-8 class="alignCenter" (click)="showNextTen()">
+          <ion-col col-4 class="alignCenter" (click)="showNextTen()">
             <button ion-button clear icon-top>
             <ion-icon name="ios-arrow-dropdown" class="moreIcon" color="pnored"></ion-icon>
           </button><br/>
             <small><label class="pnored">Περισσότερες Ειδήσεις</label></small>
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-4>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -133,7 +134,7 @@
           </ion-col>
           <ion-col col-6 mainCatPad>
             <h4 class="mainTitle" no-margin>{{neaagoras0?.title | removequotes | fixamp}}</h4>
-            <p class="mainp limitTwoLinesP" no-margip>{{neaagoras0?.teaser | removequotes | fixamp}}</p>
+            <p class="mainp limitTwoLinesP no-margip">{{neaagoras0?.teaser | removequotes | fixamp}}</p>
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -18,6 +18,7 @@ export class GreecePage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
+  pageNo: number;
 
   constructor(
     public navCtrl: NavController,
@@ -26,10 +27,14 @@ export class GreecePage {
     public strgprvd: StorageproviderProvider,
     public storage: Storage,
     public alert: AlertController
-  ) {}
+  ) {
+    this.pageNo = this.navParams.get("pageNo");
+  }
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData("https://alphanews.live/json/cat/4").then(data => {
+    let pageNoSt = String(this.pageNo);
+    let url = "https://alphanews.live/json/cat/4?page=" + pageNoSt;
+    this.getdata.getRemoteData(url).then(data => {
       this.tempItem = data;
       this.items0 = this.tempItem[0];
       this.strgprvd.checkIfInfavs(this.items0.nid).then(val => {
@@ -104,5 +109,17 @@ export class GreecePage {
     } else if (e.direction == 4) {
       this.navCtrl.push("PolitikiPage", { StorageData: "PolData" });
     }
+  }
+
+  openArticle(item) {
+    this.navCtrl.push("ArticlePage", { items: item });
+  }
+
+  showNextTen() {
+    this.pageNo += 1;
+    this.navCtrl.push("GreecePage", {
+      StorageData: "GreeceData",
+      pageNo: this.pageNo
+    });
   }
 }

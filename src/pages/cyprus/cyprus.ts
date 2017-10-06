@@ -25,28 +25,10 @@ export class CyprusPage {
   isInFavs0: boolean = false;
   isInFavs1: boolean = false;
   pageNo: number;
-  isRestInFavs: Array<boolean> = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  isRestInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
   isneaInFavs0: boolean = false;
   isneaInFavs1: boolean = false;
-  isRestNeaInFavs: Array<boolean> = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+  isRestNeaInFavs: Array<boolean> = [false, false, false, false, false, false, false, false];
 
   constructor(
     public navCtrl: NavController,
@@ -80,7 +62,6 @@ export class CyprusPage {
       this.page = "marketnews";
     }
     let pageNoSt = String(this.pageNo);
-    console.log(pageNoSt);
     let url = "https://alphanews.live/json/cat/1?page=" + pageNoSt;
     this.getdata.getRemoteData(url).then(data => {
       this.tempItem = data;

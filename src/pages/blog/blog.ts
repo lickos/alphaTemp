@@ -115,4 +115,12 @@ export class BlogPage {
       pageNo: this.pageNo
     });
   }
+
+  goToNextCat(e) {
+    if (e.direction == 2) {
+      this.navCtrl.push("LouisPage");
+    } else if (e.direction == 4) {
+      this.navCtrl.push("EntPage", { StorageData: "EntData", pageNo: 0 });
+    }
+  }
 }
